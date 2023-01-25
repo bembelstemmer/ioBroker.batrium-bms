@@ -1,0 +1,42 @@
+{
+    "cli": true,
+    "target": "directory",
+    "adapterName": "batrium-bms",
+    "title": "Batrium BMS",
+    "description": "Track Metrics of your Batrium BMS published via UDP",
+    "keywords": [
+        "batrium",
+        "bms"
+    ],
+    "expert": "yes",
+    "features": [
+        "adapter"
+    ],
+    "adminFeatures": [],
+    "type": "energy",
+    "startMode": "daemon",
+    "connectionType": "local",
+    "dataSource": "push",
+    "connectionIndicator": "yes",
+    "language": "TypeScript",
+    "nodeVersion": "16",
+    "adminUi": "json",
+    "tools": [
+        "ESLint"
+    ],
+    "releaseScript": "yes",
+    "devServer": "yes",
+    "devServerPort": 8081,
+    "indentation": "Space (4)",
+    "quotes": "double",
+    "es6class": "yes",
+    "authorName": "Bembelstemmer",
+    "authorGithub": "bembelstemmer",
+    "authorEmail": "kontakt@it-amm.de",
+    "gitRemoteProtocol": "HTTPS",
+    "gitCommit": "no",
+    "defaultBranch": "main",
+    "license": "MIT License",
+    "dependabot": "yes",
+    "creatorVersion": "2.3.0"
+}
