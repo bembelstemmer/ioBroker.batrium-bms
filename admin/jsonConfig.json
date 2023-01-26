@@ -2,15 +2,17 @@
     "i18n": true,
     "type": "panel",
     "items": {
-        "option1": {
-            "type": "checkbox",
-            "label": "option1",
-            "newLine": true
-        },
-        "option2": {
+        "bindingaddress": {
             "type": "text",
-            "label": "option2",
-            "newLine": true
+            "label": "Bind to Address",
+            "newLine": true,
+            "default": "0.0.0.0"
+        },
+        "bindingport": {
+            "type": "text",
+            "label": "Bind to Port",
+            "newLine": false,
+            "default": "18542"
         }
     }
 }
