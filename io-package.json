@@ -76,8 +76,8 @@
         ]
     },
     "native": {
-        "option1": true,
-        "option2": "42"
+        "bindingaddress": "0.0.0.0",
+        "bindingport": "18542"
     },
     "objects": [],
     "instanceObjects": [
