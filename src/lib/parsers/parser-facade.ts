@@ -3,6 +3,7 @@ import * as utils from "@iobroker/adapter-core";
 import { ParserInterface } from "./parserinterface";
 import { ParserBaseData, MessageBaseData } from "./parser-base-data";
 import { Parser_5732_SystemDiscovery } from "./parser-5732-SystemDiscovery";
+import { Parser_3233_LiveDisplay } from "./parser-3233-LiveDisplay";
 
 export class ParserFacade {
     private parserMap: Map<string, ParserInterface>;
@@ -15,6 +16,7 @@ export class ParserFacade {
         this.adapter = adapter;
         this.parserBaseData = new ParserBaseData();
         this.parserMap = new Map<string, ParserInterface>();
+        this.parserMap.set("3233", new Parser_3233_LiveDisplay(this.adapter));
         this.parserMap.set("5732", new Parser_5732_SystemDiscovery(this.adapter));
     }
 
