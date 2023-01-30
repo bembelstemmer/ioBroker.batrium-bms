@@ -44,7 +44,7 @@ export class ParserFacade {
 
     public async handleMessage(systemId: number, messageID: string, msg: Buffer): Promise<boolean> {
         if(!this.parserMap.has(messageID)) {
-            this.adapter.log.warn(`Unknown MessageID ${ messageID } received`);
+            this.adapter.log.debug(`Unknown MessageID ${ messageID } received`);
             return false;
         }
         if(!this.knownSystems.includes(systemId.toString())) {
