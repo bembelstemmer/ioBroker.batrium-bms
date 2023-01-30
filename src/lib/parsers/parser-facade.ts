@@ -1,10 +1,8 @@
 
 import * as utils from "@iobroker/adapter-core";
+import { ParserInterface } from "./parserinterface";
 import { ParserBaseData, MessageBaseData } from "./parser-base-data";
-
-interface ParserInterface {
-    parse(systemId: number, msg: Buffer): boolean;
-}
+import { Parser_5732_SystemDiscovery } from "./parser-5732-SystemDiscovery";
 
 export class ParserFacade {
     private parserMap: Map<string, ParserInterface>;
@@ -15,7 +13,7 @@ export class ParserFacade {
         this.adapter = adapter;
         this.parserBaseData = new ParserBaseData();
         this.parserMap = new Map<string, ParserInterface>();
-        //this.parserMap.set("base", new ParserBaseData());
+        this.parserMap.set("5732", new Parser_5732_SystemDiscovery(this.adapter));
 
     }
 
@@ -28,6 +26,6 @@ export class ParserFacade {
             this.adapter.log.warn(`Unknown MessageID ${ messageID } received`);
             return false;
         }
-        return !!this.parserMap.get(messageID)?.parse(systemId, msg);
+        return !!this.parserMap.get(messageID)?.handleMessage(systemId, msg);
     }
 }
