@@ -31,8 +31,8 @@ interface Message_5732_SystemDiscovery {
 
 export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserInterface {
 
-    private parser: Parser;
-    private adapter: utils.AdapterInstance;
+    //public parser: Parser;
+    //public adapter: utils.AdapterInstance;
 
     public constructor(adapter: utils.AdapterInstance) {
         super();
@@ -45,6 +45,7 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
         // Valid to    = SW 1.0.29
         this.adapter = adapter;
         this.messageId = "5732";
+        this.messageName = "System Discovery message";
         this.parser = new Parser()
             .skip(8)
             .string("SystemCode", 	{ encoding: "utf8", length: 8, stripNull: true })
@@ -111,9 +112,8 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
             .uint8("ShuntRxAmpTicks");
     }
 
-    public async initObjects(): Promise<void> {
-        /*
-        await this.adapter.setObjectNotExistsAsync(this.getVariableName("ShuntCurrent"), {
+    public async initObjects(systemId: number): Promise<void> {
+        await this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "ShuntCurrent"), {
             type: "state",
             common: {
                 name: "ShuntCurrent",
@@ -124,23 +124,11 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
             },
             native: {},
         });
-        */
     }
 
     public async handleMessage(systemId: number, msg: Buffer): Promise<boolean> {
-        const result: Message_5732_SystemDiscovery = this.parser.parse(msg);
-        await this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "ShuntCurrent"), {
-            type: "state",
-            common: {
-                name: "ShuntCurrent",
-                type: "number",
-                role: "level",
-                read: true,
-                write: true,
-            },
-            native: {},
-        });
-        await this.adapter.setStateAsync(this.getVariableName(systemId, "ShuntCurrent"), { val: result.ShuntCurrent, ack: true });
+        const result: Message_5732_SystemDiscovery = this.parser?.parse(msg);
+        await this.adapter?.setStateAsync(this.getVariableName(systemId, "ShuntCurrent"), { val: result.ShuntCurrent, ack: true });
         return true;
     }
 }

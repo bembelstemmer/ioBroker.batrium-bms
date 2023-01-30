@@ -1,4 +1,5 @@
 export interface ParserInterface {
-    initObjects(): Promise<void>;
+    initObjects(systemId: number): Promise<void>;
     handleMessage(systemId: number, msg: Buffer): Promise<boolean>;
+    getMessageName(): string;
 }
