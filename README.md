@@ -19,8 +19,7 @@ Track Metrics of your Batrium BMS published via UDP
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 0.0.2 (2023-01-31)
 * Initial Test Release
 
 ## License

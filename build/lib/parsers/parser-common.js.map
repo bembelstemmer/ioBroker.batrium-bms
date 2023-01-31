@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../src/lib/parsers/parser-common.ts"],
+  "sourcesContent": ["import * as utils from \"@iobroker/adapter-core\";\r\nimport { Parser } from \"binary-parser\";\r\n\r\nexport abstract class ParserCommon {\r\n    public messageId: string | undefined;\r\n    public parser: Parser | undefined;\r\n    public adapter: utils.AdapterInstance | undefined;\r\n    public messageName = \"unknown\";\r\n\r\n    public getVariableName(systemId: number, varname: string): string {\r\n        return `${ this.adapter?.name }.${ this.adapter?.instance.toString() }.${ systemId.toString() }.${ this.messageId }.${ varname }`;\r\n    }\r\n\r\n    public getMessageName(): string {\r\n        return this.messageName;\r\n    }\r\n}"],
+  "mappings": ";;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAGO,MAAe,aAAa;AAAA,EAA5B;AAIH,SAAO,cAAc;AAAA;AAAA,EAEd,gBAAgB,UAAkB,SAAyB;AATtE;AAUQ,WAAO,IAAI,UAAK,YAAL,mBAAc,SAAU,UAAK,YAAL,mBAAc,SAAS,cAAgB,SAAS,SAAS,KAAO,KAAK,aAAe;AAAA,EAC3H;AAAA,EAEO,iBAAyB;AAC5B,WAAO,KAAK;AAAA,EAChB;AACJ;",
+  "names": []
+}

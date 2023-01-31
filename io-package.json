@@ -1,109 +1,122 @@
 {
-    "common": {
-        "name": "batrium-bms",
-        "version": "0.0.1",
-        "news": {
-            "0.0.1": {
-                "en": "initial release",
-                "de": "Erstveröffentlichung",
-                "ru": "Начальная версия",
-                "pt": "lançamento inicial",
-                "nl": "Eerste uitgave",
-                "fr": "Première version",
-                "it": "Versione iniziale",
-                "es": "Versión inicial",
-                "pl": "Pierwsze wydanie",
-                "zh-cn": "首次出版",
-                "uk": "початковий випуск"
-            }
-        },
-        "title": "Batrium BMS",
-        "titleLang": {
-            "en": "Batrium BMS",
-            "de": "Batrium-BMS",
-            "ru": "Батриум БМС",
-            "pt": "Batrium BMS",
-            "nl": "Batrium GBS",
-            "fr": "BMS Batrium",
-            "it": "Batrio BMS",
-            "es": "Batrium BMS",
-            "pl": "Batrium BMS",
-            "zh-cn": "电池管理系统",
-            "uk": "Batrium BMS"
-        },
-        "desc": {
-            "en": "Track Metrics of your Batrium BMS published via UDP",
-            "de": "Verfolgen Sie Metriken Ihres Batrium BMS, die über UDP veröffentlicht werden",
-            "ru": "Отслеживайте метрики вашей BMS Batrium, опубликованной через UDP",
-            "pt": "Rastreie as métricas do seu Batrium BMS publicado via UDP",
-            "nl": "Volg statistieken van uw Batrium BMS gepubliceerd via UDP",
-            "fr": "Suivez les métriques de votre BMS Batrium publiées via UDP",
-            "it": "Tieni traccia delle metriche del tuo Batrium BMS pubblicate tramite UDP",
-            "es": "Rastree las métricas de su Batrium BMS publicadas a través de UDP",
-            "pl": "Śledź metryki Twojego Batrium BMS publikowane przez UDP",
-            "zh-cn": "通过 UDP 发布的 Batrium BMS 跟踪指标",
-            "uk": "Відстежуйте показники вашого Batrium BMS, опубліковані через UDP"
-        },
-        "authors": [
-            "Bembelstemmer <kontakt@it-amm.de>"
-        ],
-        "keywords": [
-            "batrium",
-            "bms"
-        ],
-        "license": "MIT",
-        "platform": "Javascript/Node.js",
-        "main": "build/main.js",
-        "icon": "batrium-bms.png",
-        "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/bembelstemmer/ioBroker.batrium-bms/main/admin/batrium-bms.png",
-        "readme": "https://github.com/bembelstemmer/ioBroker.batrium-bms/blob/main/README.md",
-        "loglevel": "info",
-        "mode": "daemon",
-        "type": "energy",
-        "compact": true,
-        "connectionType": "local",
-        "dataSource": "push",
-        "adminUI": {
-            "config": "json"
-        },
-        "dependencies": [
-            {
-                "js-controller": ">=3.3.22"
-            }
-        ],
-        "globalDependencies": [
-            {
-                "admin": ">=5.1.13"
-            }
-        ]
+  "common": {
+    "name": "batrium-bms",
+    "version": "0.0.2",
+    "news": {
+      "0.0.2": {
+        "en": "Initial Test Release",
+        "de": "Erstausstrahlung",
+        "ru": "Первоначальный выпуск теста",
+        "pt": "Versão inicial do teste",
+        "nl": "Initiële Test Releases",
+        "fr": "Version initiale des essais",
+        "it": "Avvio di prova iniziale",
+        "es": "Lanzamiento de prueba inicial",
+        "pl": "Initial Test Release (ang.)",
+        "uk": "Початковий тест реліз",
+        "zh-cn": "初始试验释放"
+      },
+      "0.0.1": {
+        "en": "initial release",
+        "de": "Erstveröffentlichung",
+        "ru": "Начальная версия",
+        "pt": "lançamento inicial",
+        "nl": "Eerste uitgave",
+        "fr": "Première version",
+        "it": "Versione iniziale",
+        "es": "Versión inicial",
+        "pl": "Pierwsze wydanie",
+        "zh-cn": "首次出版",
+        "uk": "початковий випуск"
+      }
     },
-    "native": {
-        "bindingaddress": "0.0.0.0",
-        "bindingport": "18542"
+    "title": "Batrium BMS",
+    "titleLang": {
+      "en": "Batrium BMS",
+      "de": "Batrium-BMS",
+      "ru": "Батриум БМС",
+      "pt": "Batrium BMS",
+      "nl": "Batrium GBS",
+      "fr": "BMS Batrium",
+      "it": "Batrio BMS",
+      "es": "Batrium BMS",
+      "pl": "Batrium BMS",
+      "zh-cn": "电池管理系统",
+      "uk": "Batrium BMS"
     },
-    "objects": [],
-    "instanceObjects": [
-        {
-            "_id": "info",
-            "type": "channel",
-            "common": {
-                "name": "Information"
-            },
-            "native": {}
-        },
-        {
-            "_id": "info.connection",
-            "type": "state",
-            "common": {
-                "role": "indicator.connected",
-                "name": "Device or service connected",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        }
+    "desc": {
+      "en": "Track Metrics of your Batrium BMS published via UDP",
+      "de": "Verfolgen Sie Metriken Ihres Batrium BMS, die über UDP veröffentlicht werden",
+      "ru": "Отслеживайте метрики вашей BMS Batrium, опубликованной через UDP",
+      "pt": "Rastreie as métricas do seu Batrium BMS publicado via UDP",
+      "nl": "Volg statistieken van uw Batrium BMS gepubliceerd via UDP",
+      "fr": "Suivez les métriques de votre BMS Batrium publiées via UDP",
+      "it": "Tieni traccia delle metriche del tuo Batrium BMS pubblicate tramite UDP",
+      "es": "Rastree las métricas de su Batrium BMS publicadas a través de UDP",
+      "pl": "Śledź metryki Twojego Batrium BMS publikowane przez UDP",
+      "zh-cn": "通过 UDP 发布的 Batrium BMS 跟踪指标",
+      "uk": "Відстежуйте показники вашого Batrium BMS, опубліковані через UDP"
+    },
+    "authors": [
+      "Bembelstemmer <kontakt@it-amm.de>"
+    ],
+    "keywords": [
+      "batrium",
+      "bms"
+    ],
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "main": "build/main.js",
+    "icon": "batrium-bms.png",
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/bembelstemmer/ioBroker.batrium-bms/main/admin/batrium-bms.png",
+    "readme": "https://github.com/bembelstemmer/ioBroker.batrium-bms/blob/main/README.md",
+    "loglevel": "info",
+    "mode": "daemon",
+    "type": "energy",
+    "compact": true,
+    "connectionType": "local",
+    "dataSource": "push",
+    "adminUI": {
+      "config": "json"
+    },
+    "dependencies": [
+      {
+        "js-controller": ">=3.3.22"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=5.1.13"
+      }
     ]
+  },
+  "native": {
+    "bindingaddress": "0.0.0.0",
+    "bindingport": "18542"
+  },
+  "objects": [],
+  "instanceObjects": [
+    {
+      "_id": "info",
+      "type": "channel",
+      "common": {
+        "name": "Information"
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "role": "indicator.connected",
+        "name": "Device or service connected",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    }
+  ]
 }
