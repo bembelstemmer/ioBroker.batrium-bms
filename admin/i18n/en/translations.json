@@ -1,5 +1,5 @@
 {
     "batrium-bms adapter settings": "Adapter settings for batrium-bms",
-    "option1": "option1",
-    "option2": "option2"
+    "bindingaddress": "Bind to Address",
+    "bindingport": "Bind to Port"
 }

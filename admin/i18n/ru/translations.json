@@ -1,5 +1,5 @@
 {
     "batrium-bms adapter settings": "Настройки адаптера для batrium-bms",
-    "option1": "Опция 1",
-    "option2": "вариант 2"
+    "bindingaddress": "Привязать к адресу",
+    "bindingport": "Привязать к порту"
 }

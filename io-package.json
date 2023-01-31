@@ -13,7 +13,8 @@
                 "it": "Versione iniziale",
                 "es": "Versión inicial",
                 "pl": "Pierwsze wydanie",
-                "zh-cn": "首次出版"
+                "zh-cn": "首次出版",
+                "uk": "початковий випуск"
             }
         },
         "title": "Batrium BMS",
@@ -27,7 +28,8 @@
             "it": "Batrio BMS",
             "es": "Batrium BMS",
             "pl": "Batrium BMS",
-            "zh-cn": "电池管理系统"
+            "zh-cn": "电池管理系统",
+            "uk": "Batrium BMS"
         },
         "desc": {
             "en": "Track Metrics of your Batrium BMS published via UDP",
@@ -39,7 +41,8 @@
             "it": "Tieni traccia delle metriche del tuo Batrium BMS pubblicate tramite UDP",
             "es": "Rastree las métricas de su Batrium BMS publicadas a través de UDP",
             "pl": "Śledź metryki Twojego Batrium BMS publikowane przez UDP",
-            "zh-cn": "通过 UDP 发布的 Batrium BMS 跟踪指标"
+            "zh-cn": "通过 UDP 发布的 Batrium BMS 跟踪指标",
+            "uk": "Відстежуйте показники вашого Batrium BMS, опубліковані через UDP"
         },
         "authors": [
             "Bembelstemmer <kontakt@it-amm.de>"
