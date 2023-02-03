@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../../src/lib/parsers/parser-base-data.ts"],
-  "sourcesContent": ["import { Parser } from \"binary-parser\";\r\n\r\nexport interface MessageBaseData {\r\n    first: string;\r\n    MessageId: string;\r\n    nd: string;\r\n    SystemId: number;\r\n    hubId: number;\r\n}\r\n\r\nexport class ParserBaseData {\r\n\r\n    private parser: Parser;\r\n\r\n    public constructor() {\r\n        this.parser = new Parser()\r\n            .string(\"first\", { encoding: \"utf8\", length: 1 })\r\n            .int16le(\"MessageId\", { formatter: (x) => {return x.toString(16);}})\r\n            .string(\"nd\", { encoding: \"utf8\", length: 1 })\r\n            .int16le(\"SystemId\")\r\n            .int16le(\"hubId\");\r\n    }\r\n\r\n    public parse(buf: Buffer): MessageBaseData {\r\n        return this.parser.parse(buf);\r\n    }\r\n}"],
-  "mappings": ";;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,2BAAuB;AAUhB,MAAM,eAAe;AAAA,EAIjB,cAAc;AACjB,SAAK,SAAS,IAAI,4BAAO,EACpB,OAAO,SAAS,EAAE,UAAU,QAAQ,QAAQ,EAAE,CAAC,EAC/C,QAAQ,aAAa,EAAE,WAAW,CAAC,MAAM;AAAC,aAAO,EAAE,SAAS,EAAE;AAAA,IAAE,EAAC,CAAC,EAClE,OAAO,MAAM,EAAE,UAAU,QAAQ,QAAQ,EAAE,CAAC,EAC5C,QAAQ,UAAU,EAClB,QAAQ,OAAO;AAAA,EACxB;AAAA,EAEO,MAAM,KAA8B;AACvC,WAAO,KAAK,OAAO,MAAM,GAAG;AAAA,EAChC;AACJ;",
-  "names": []
-}
