@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "batrium-bms",
-    "version": "0.0.2",
+    "version": "0.1.0",
     "news": {
+      "0.1.0": {
+        "en": "Optimized Parser Structure\nFinished up Message Type 5732\nFinished up Message Type 3233",
+        "de": "Optimierte Parserstruktur\nBeendet Nachrichtentyp 5732\nBeendet Nachrichtentyp 3233",
+        "ru": "Оптимизированная структура парсера\nЗавершен Тип сообщения 5732\nЗавершен Тип сообщения 3233",
+        "pt": "Estrutura de Parser otimizada\nTerminado Tipo de Mensagem 5732\nTerminado Tipo de Mensagem 3233",
+        "nl": "Optimaal Parser Structuur\nVertaling:\nVertaling:",
+        "fr": "Structure de pariseur optimisée\nType de message 5732\nType de message 3233",
+        "it": "Struttura ottimizzata per Parser\nFinito Messaggio Tipo 5732\nFinito Messaggio Tipo 3233",
+        "es": "Estructura de Parser optimizada\nAcabado Tipo de mensaje 5732\nAcabado Tipo de mensaje 3233",
+        "pl": "Oficjalna strona Parsera\nZakończył budowę Message Type 5732\nZakończony Message Typ 3233",
+        "uk": "Оптимізована структура парсера\nЗавершено тип повідомлення 5732\nЗавершено тип повідомлення 3233",
+        "zh-cn": "A. 振兴方案\nFinied Messageile 5732\nFinied Message 3.233"
+      },
       "0.0.2": {
         "en": "Initial Test Release",
         "de": "Erstausstrahlung",
