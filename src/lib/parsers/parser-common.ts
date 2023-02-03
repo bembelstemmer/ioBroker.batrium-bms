@@ -1,14 +1,16 @@
 import * as utils from "@iobroker/adapter-core";
-import { Parser } from "binary-parser";
 
 export abstract class ParserCommon {
-    public messageId: string | undefined;
-    public parser: Parser | undefined;
-    public adapter: utils.AdapterInstance | undefined;
+    public adapter: utils.AdapterInstance;
+    public messageId= "0";
     public messageName = "unknown";
 
+    public constructor(adapter: utils.AdapterInstance) {
+        this.adapter = adapter;
+    }
+
     public getVariableName(systemId: number, varname: string): string {
-        return `${ this.adapter?.name }.${ this.adapter?.instance.toString() }.${ systemId.toString() }.${ this.messageId }.${ varname }`;
+        return `${ this.adapter.name }.${ this.adapter.instance.toString() }.${ systemId.toString() }.${ this.messageId }.${ varname }`;
     }
 
     public getMessageName(): string {

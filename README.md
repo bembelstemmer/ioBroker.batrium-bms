@@ -3,29 +3,41 @@
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.batrium-bms.svg)](https://www.npmjs.com/package/iobroker.batrium-bms)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.batrium-bms.svg)](https://www.npmjs.com/package/iobroker.batrium-bms)
+![Test and Release](https://github.com/bembelstemmer/ioBroker.batrium-bms/workflows/Test%20and%20Release/badge.svg)
 ![Number of Installations](https://iobroker.live/badges/batrium-bms-installed.svg)
 ![Current version in stable repository](https://iobroker.live/badges/batrium-bms-stable.svg)
 
 [![NPM](https://nodei.co/npm/iobroker.batrium-bms.png?downloads=true)](https://nodei.co/npm/iobroker.batrium-bms/)
 
-**Tests:** ![Test and Release](https://github.com/bembelstemmer/ioBroker.batrium-bms/workflows/Test%20and%20Release/badge.svg)
-
 ## batrium-bms adapter for ioBroker
 
-Track Metrics of your Batrium BMS published via UDP
+An ioBroker Adapter to track Metrics of your Batrium BMS published via UDP.
+
+!!! This adapter is not officially supported by Batrium !!!
+
+This Adapter is based on the official Batrium WatchMonUdpListener Implementation on:
+https://github.com/Batrium/WatchMonUdpListener
+
+Message Support is still limited and will be increased in further versions.
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* Optimized Parser Structure
+* Finished up Message Type 5732
+* Finished up Message Type 3233
+
 ### 0.0.2 (2023-01-31)
 * Initial Test Release
 
 ## License
 MIT License
 
-Copyright (c) 2023 Bembelstemmer <kontakt@it-amm.de>
+Copyright (c) 2023 Bembelstemmer <kontakt[at]it-amm[dot]de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

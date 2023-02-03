@@ -43,11 +43,10 @@ interface Message_3233_LiveDisplay {
 
 export class Parser_3233_LiveDisplay extends ParserCommon implements ParserInterface {
 
-    //public parser: Parser;
-    //public adapter: utils.AdapterInstance;
+    private parser: Parser;
 
     public constructor(adapter: utils.AdapterInstance) {
-        super();
+        super(adapter);
         // Category    = Discovery
         // Description = System Discovery message
         // MsgLength   = 57
@@ -115,393 +114,462 @@ export class Parser_3233_LiveDisplay extends ParserCommon implements ParserInter
 
     public async initObjects(systemId: number): Promise<void> {
         await Promise.all([
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "SystemOpStatus"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "SystemOpStatus"), {
                 type: "state",
                 common: {
                     name: "SystemOpStatus",
-                    type: "string",
-                    role: "common",
+                    type: "number",
+                    role: "value",
                     read: true,
                     write: true,
+                    states: {
+                        "0": "Simulator",
+                        "1": "Idle",
+                        "2": "Discharging",
+                        "3": "SoC Empty",
+                        "4": "Charging",
+                        "5": "Full",
+                        "6": "Timeout",
+                        "7": "Critical Pending",
+                        "8": "Critical Offline",
+                        "9": "Mqtt Offline",
+                        "10": "Auth Setup",
+                        "11": "Shunt Timeout",
+                    },
                 },
                 native: {},
             }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "SystemAuthMode"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "SystemAuthMode"), {
                 type: "state",
                 common: {
                     name: "SystemAuthMode",
                     type: "number",
-                    role: "indicator",
+                    role: "value",
                     read: true,
                     write: true,
+                    states: {
+                        "0": "Default",
+                        "1": "Technician",
+                        "2": "Factory",
+                    },
                 },
                 native: {},
             }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "CriticalBatOkState"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "CriticalBatOkState"), {
                 type: "state",
                 common: {
                     name: "CriticalBatOkState",
-                    type: "number",
-                    role: "indicator",
+                    type: "boolean",
+                    role: "value",
                     read: true,
                     write: true,
+                    states: {
+                        "0": "No",
+                        "1": "Yes",
+                    },
                 },
                 native: {},
             }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "CriticalIsTransition"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "CriticalIsTransition"), {
                 type: "state",
                 common: {
                     name: "CriticalIsTransition",
-                    type: "number",
-                    role: "common",
+                    type: "boolean",
+                    role: "value",
                     read: true,
                     write: true,
+                    states: {
+                        "0": "No",
+                        "1": "Yes",
+                    },
                 },
                 native: {},
             }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "CriticalIsPrecharge"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "CriticalIsPrecharge"), {
                 type: "state",
                 common: {
                     name: "CriticalIsPrecharge",
-                    type: "number",
-                    role: "level",
+                    type: "boolean",
+                    role: "value",
                     read: true,
                     write: true,
+                    states: {
+                        "0": "No",
+                        "1": "Yes",
+                    },
                 },
                 native: {},
             }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "HeatOnState"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "HeatOnState"), {
                 type: "state",
                 common: {
                     name: "HeatOnState",
-                    type: "number",
-                    role: "level",
+                    type: "boolean",
+                    role: "value",
                     read: true,
                     write: true,
+                    states: {
+                        "0": "No",
+                        "1": "Yes",
+                    },
                 },
                 native: {},
             }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "CoolOnState"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "CoolOnState"), {
                 type: "state",
                 common: {
                     name: "CoolOnState",
-                    type: "number",
-                    role: "level",
+                    type: "boolean",
+                    role: "value",
                     read: true,
                     write: true,
+                    states: {
+                        "0": "No",
+                        "1": "Yes",
+                    },
                 },
                 native: {},
             }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "ChargeOnState"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "ChargeOnState"), {
                 type: "state",
                 common: {
                     name: "ChargeOnState",
-                    type: "number",
-                    role: "level",
+                    type: "boolean",
+                    role: "value",
                     read: true,
                     write: true,
+                    states: {
+                        "0": "No",
+                        "1": "Yes",
+                    },
                 },
                 native: {},
             }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "ChargeIsLimPower"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "ChargeIsLimPower"), {
                 type: "state",
                 common: {
                     name: "ChargeIsLimPower",
-                    type: "number",
-                    role: "level",
+                    type: "boolean",
+                    role: "value",
                     read: true,
                     write: true,
+                    states: {
+                        "0": "No",
+                        "1": "Yes",
+                    },
                 },
                 native: {},
             }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "DischgOnState"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "DischgOnState"), {
                 type: "state",
                 common: {
                     name: "DischgOnState",
-                    type: "number",
-                    role: "level",
+                    type: "boolean",
+                    role: "value",
                     read: true,
                     write: true,
+                    states: {
+                        "0": "No",
+                        "1": "Yes",
+                    },
                 },
                 native: {},
             }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "DischgIsLimPower"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "DischgIsLimPower"), {
                 type: "state",
                 common: {
                     name: "DischgIsLimPower",
-                    type: "number",
-                    role: "level",
+                    type: "boolean",
+                    role: "value",
                     read: true,
                     write: true,
+                    states: {
+                        "0": "No",
+                        "1": "Yes",
+                    },
                 },
                 native: {},
             }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "ChargeInBypass"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "ChargeInBypass"), {
                 type: "state",
                 common: {
                     name: "ChargeInBypass",
-                    type: "number",
-                    role: "level",
+                    type: "boolean",
+                    role: "value",
                     read: true,
                     write: true,
-                    unit: "V"
+                    states: {
+                        "0": "No",
+                        "1": "Yes",
+                    },
                 },
                 native: {},
             }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "ChargeHasBypassTempRelief"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "ChargeHasBypassTempRelief"), {
                 type: "state",
                 common: {
                     name: "ChargeHasBypassTempRelief",
-                    type: "number",
-                    role: "level",
+                    type: "boolean",
+                    role: "value",
                     read: true,
                     write: true,
-                    unit: "V"
+                    states: {
+                        "0": "No",
+                        "1": "Yes",
+                    },
                 },
                 native: {},
             }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "MinCellVolt"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "MinCellVolt"), {
                 type: "state",
                 common: {
                     name: "MinCellVolt",
                     type: "number",
-                    role: "level",
+                    role: "value",
                     read: true,
                     write: true,
-                    unit: "V"
+                    unit: "V",
                 },
                 native: {},
             }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "MaxCellVolt"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "MaxCellVolt"), {
                 type: "state",
                 common: {
                     name: "MaxCellVolt",
                     type: "number",
-                    role: "level",
+                    role: "value",
                     read: true,
                     write: true,
-                    unit: "°C"
+                    unit: "V",
                 },
                 native: {},
             }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "AvgCellVolt"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "AvgCellVolt"), {
                 type: "state",
                 common: {
                     name: "AvgCellVolt",
                     type: "number",
-                    role: "level",
+                    role: "value",
                     read: true,
                     write: true,
+                    unit: "V",
                 },
                 native: {},
             }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "MinCellTemp"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "MinCellTemp"), {
                 type: "state",
                 common: {
                     name: "MinCellTemp",
                     type: "number",
-                    role: "level",
+                    role: "value",
                     read: true,
                     write: true,
+                    unit: "°C",
                 },
                 native: {},
             }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "MaxCellTemp"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "MaxCellTemp"), {
                 type: "state",
                 common: {
                     name: "MaxCellTemp",
                     type: "number",
-                    role: "level",
+                    role: "value",
                     read: true,
                     write: true,
+                    unit: "°C",
                 },
                 native: {},
             }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "AvgCellTemp"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "AvgCellTemp"), {
                 type: "state",
                 common: {
                     name: "AvgCellTemp",
                     type: "number",
-                    role: "level",
+                    role: "value",
                     read: true,
                     write: true,
-                    unit: "%",
+                    unit: "°C",
                 },
                 native: {},
             }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "NumOfCellsInBypass"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "NumOfCellsInBypass"), {
                 type: "state",
                 common: {
                     name: "NumOfCellsInBypass",
                     type: "number",
-                    role: "level",
+                    role: "value",
                     read: true,
                     write: true,
-                    unit: "V"
                 },
                 native: {},
             }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "ShuntVoltage"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "ShuntVoltage"), {
                 type: "state",
                 common: {
                     name: "ShuntVoltage",
                     type: "number",
-                    role: "level",
+                    role: "value",
+                    read: true,
+                    write: true,
+                    unit: "V",
+                },
+                native: {},
+            }),
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "ShuntCurrent"), {
+                type: "state",
+                common: {
+                    name: "ShuntCurrent",
+                    type: "number",
+                    role: "value",
                     read: true,
                     write: true,
                     unit: "A",
                 },
                 native: {},
             }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "ShuntCurrent"), {
-                type: "state",
-                common: {
-                    name: "ShuntCurrent",
-                    type: "number",
-                    role: "level",
-                    read: true,
-                    write: true,
-                },
-                native: {},
-            }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "ShuntPowerVA"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "ShuntPowerVA"), {
                 type: "state",
                 common: {
                     name: "ShuntPowerVA",
                     type: "number",
-                    role: "level",
+                    role: "value",
                     read: true,
                     write: true,
+                    unit: "VA",
                 },
                 native: {},
             }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "ShuntSOC"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "ShuntSOC"), {
                 type: "state",
                 common: {
                     name: "ShuntSOC",
                     type: "number",
-                    role: "level",
+                    role: "value",
                     read: true,
                     write: true,
+                    unit: "%",
                 },
                 native: {},
             }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "NomCapacityToEmpty"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "NomCapacityToEmpty"), {
                 type: "state",
                 common: {
                     name: "NomCapacityToEmpty",
                     type: "number",
-                    role: "level",
+                    role: "value",
                     read: true,
                     write: true,
+                    unit: "Ah",
                 },
                 native: {},
             }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "ShuntCumulkWhCharge"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "ShuntCumulkWhCharge"), {
                 type: "state",
                 common: {
                     name: "ShuntCumulkWhCharge",
                     type: "number",
-                    role: "level",
+                    role: "value",
                     read: true,
                     write: true,
+                    unit: "kWh",
                 },
                 native: {},
             }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "ShuntCumulkWhDischg"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "ShuntCumulkWhDischg"), {
                 type: "state",
                 common: {
                     name: "ShuntCumulkWhDischg",
                     type: "number",
-                    role: "level",
+                    role: "value",
                     read: true,
                     write: true,
+                    unit: "kWh",
                 },
                 native: {},
             }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "CriticalEvents"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "CriticalEvents"), {
                 type: "state",
                 common: {
                     name: "CriticalEvents",
                     type: "number",
-                    role: "level",
+                    role: "value",
                     read: true,
                     write: true,
                 },
                 native: {},
             }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "SystemTime"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "SystemTime"), {
                 type: "state",
                 common: {
                     name: "SystemTime",
                     type: "number",
-                    role: "level",
+                    role: "value",
                     read: true,
                     write: true,
                 },
                 native: {},
             }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "GlobalSetupVers"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "GlobalSetupVers"), {
                 type: "state",
                 common: {
                     name: "GlobalSetupVers",
                     type: "number",
-                    role: "level",
+                    role: "value",
                     read: true,
                     write: true,
                 },
                 native: {},
             }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "LifetimeSetupVers"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "LifetimeSetupVers"), {
                 type: "state",
                 common: {
                     name: "LifetimeSetupVers",
                     type: "number",
-                    role: "level",
+                    role: "value",
                     read: true,
                     write: true,
                 },
                 native: {},
             }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "DiffBypassTicks"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "DiffBypassTicks"), {
                 type: "state",
                 common: {
                     name: "DiffBypassTicks",
                     type: "number",
-                    role: "level",
+                    role: "value",
                     read: true,
                     write: true,
                 },
                 native: {},
             }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "DiffTempTicks"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "DiffTempTicks"), {
                 type: "state",
                 common: {
                     name: "DiffTempTicks",
                     type: "number",
-                    role: "level",
+                    role: "value",
                     read: true,
                     write: true,
                 },
                 native: {},
             }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "DiffVoltTicks"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "DiffVoltTicks"), {
                 type: "state",
                 common: {
                     name: "DiffVoltTicks",
                     type: "number",
-                    role: "level",
+                    role: "value",
                     read: true,
                     write: true,
                 },
                 native: {},
             }),
-            this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, "DiffLogicTicks"), {
+            this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "DiffLogicTicks"), {
                 type: "state",
                 common: {
                     name: "DiffLogicTicks",
                     type: "number",
-                    role: "level",
+                    role: "value",
                     read: true,
                     write: true,
                 },
@@ -511,41 +579,41 @@ export class Parser_3233_LiveDisplay extends ParserCommon implements ParserInter
     }
 
     public async handleMessage(systemId: number, msg: Buffer): Promise<void> {
-        const result: Message_3233_LiveDisplay = this.parser?.parse(msg);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "SystemOpStatus"), result.SystemOpStatus, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "SystemAuthMode"), result.SystemAuthMode, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "CriticalBatOkState"), result.CriticalBatOkState, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "CriticalIsTransition"), result.CriticalIsTransition, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "CriticalIsPrecharge"), result.CriticalIsPrecharge, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "HeatOnState"), result.HeatOnState, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "CoolOnState"), result.CoolOnState, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "ChargeOnState"), result.ChargeOnState, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "ChargeIsLimPower"), result.ChargeIsLimPower, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "DischgOnState"), result.DischgOnState, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "DischgIsLimPower"), result.DischgIsLimPower, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "ChargeInBypass"), result.ChargeInBypass, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "ChargeHasBypassTempRelief"), result.ChargeHasBypassTempRelief, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "MinCellVolt"), result.MinCellVolt, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "MaxCellVolt"), result.MaxCellVolt, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "AvgCellVolt"), result.AvgCellVolt, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "MinCellTemp"), result.MinCellTemp, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "MaxCellTemp"), result.MaxCellTemp, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "AvgCellTemp"), result.AvgCellTemp, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "NumOfCellsInBypass"), result.NumOfCellsInBypass, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "ShuntVoltage"), result.ShuntVoltage, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "ShuntCurrent"), result.ShuntCurrent, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "ShuntPowerVA"), result.ShuntPowerVA, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "ShuntSOC"), result.ShuntSOC, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "NomCapacityToEmpty"), result.NomCapacityToEmpty, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "ShuntCumulkWhCharge"), result.ShuntCumulkWhCharge, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "ShuntCumulkWhDischg"), result.ShuntCumulkWhDischg, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "CriticalEvents"), result.CriticalEvents, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "SystemTime"), result.SystemTime, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "GlobalSetupVers"), result.GlobalSetupVers, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "LifetimeSetupVers"), result.LifetimeSetupVers, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "DiffBypassTicks"), result.DiffBypassTicks, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "DiffTempTicks"), result.DiffTempTicks, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "DiffVoltTicks"), result.DiffVoltTicks, true);
-        this.adapter?.setStateChangedAsync(this.getVariableName(systemId, "DiffLogicTicks"), result.DiffLogicTicks, true);
+        const result: Message_3233_LiveDisplay = this.parser.parse(msg);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "SystemOpStatus"), result.SystemOpStatus, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "SystemAuthMode"), result.SystemAuthMode, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "CriticalBatOkState"), result.CriticalBatOkState, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "CriticalIsTransition"), result.CriticalIsTransition, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "CriticalIsPrecharge"), result.CriticalIsPrecharge, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "HeatOnState"), result.HeatOnState, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "CoolOnState"), result.CoolOnState, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "ChargeOnState"), result.ChargeOnState, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "ChargeIsLimPower"), result.ChargeIsLimPower, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "DischgOnState"), result.DischgOnState, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "DischgIsLimPower"), result.DischgIsLimPower, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "ChargeInBypass"), result.ChargeInBypass, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "ChargeHasBypassTempRelief"), result.ChargeHasBypassTempRelief, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "MinCellVolt"), result.MinCellVolt, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "MaxCellVolt"), result.MaxCellVolt, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "AvgCellVolt"), result.AvgCellVolt, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "MinCellTemp"), result.MinCellTemp, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "MaxCellTemp"), result.MaxCellTemp, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "AvgCellTemp"), result.AvgCellTemp, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "NumOfCellsInBypass"), result.NumOfCellsInBypass, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "ShuntVoltage"), result.ShuntVoltage, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "ShuntCurrent"), result.ShuntCurrent, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "ShuntPowerVA"), result.ShuntPowerVA, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "ShuntSOC"), result.ShuntSOC, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "NomCapacityToEmpty"), result.NomCapacityToEmpty, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "ShuntCumulkWhCharge"), result.ShuntCumulkWhCharge, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "ShuntCumulkWhDischg"), result.ShuntCumulkWhDischg, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "CriticalEvents"), result.CriticalEvents, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "SystemTime"), result.SystemTime, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "GlobalSetupVers"), result.GlobalSetupVers, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "LifetimeSetupVers"), result.LifetimeSetupVers, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "DiffBypassTicks"), result.DiffBypassTicks, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "DiffTempTicks"), result.DiffTempTicks, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "DiffVoltTicks"), result.DiffVoltTicks, true);
+        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "DiffLogicTicks"), result.DiffLogicTicks, true);
     }
 }
