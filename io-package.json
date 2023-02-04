@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "batrium-bms",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "news": {
+      "0.2.0": {
+        "en": "Minor Type Fixes\nAdded Message Type 6831",
+        "de": "Minor Type Fixes\nNachricht hinzufügen Typ 6831",
+        "ru": "Незначительные типы Fixes\nДобавлен тип сообщения 6831",
+        "pt": "Pequenas correções de tipo\nAdicionado Tipo de Mensagem 6831",
+        "nl": "Minor Type Fixes\nVertaling:",
+        "fr": "Fixations de type mineur\nPosté le type de message 6831",
+        "it": "Correzioni di tipo minore\nAggiunto Messaggio Tipo 6831",
+        "es": "Arreglos de tipo menor\nMensaje añadido 6831",
+        "pl": "Mały Fiks\nAdded Message Type 6831",
+        "uk": "Виправлення типу мінор\nДодано тип повідомлення 6831",
+        "zh-cn": "采矿类型\nA. 增加的传信类型 6831"
+      },
       "0.1.0": {
         "en": "Optimized Parser Structure\nFinished up Message Type 5732\nFinished up Message Type 3233",
         "de": "Optimierte Parserstruktur\nBeendet Nachrichtentyp 5732\nBeendet Nachrichtentyp 3233",
