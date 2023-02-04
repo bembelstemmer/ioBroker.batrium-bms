@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "batrium-bms",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "news": {
+      "0.2.1": {
+        "en": "Readded build folder",
+        "de": "Readded build Ordner",
+        "ru": "Прочитана папка сборки",
+        "pt": "Pasta de construção acolchoada",
+        "nl": "Vertaling:",
+        "fr": "Dossier de construction lue",
+        "it": "Cartella di costruzione Readded",
+        "es": "Carpeta de construcción leída",
+        "pl": "Czytelnik",
+        "uk": "Готова папка",
+        "zh-cn": "增 编"
+      },
       "0.2.0": {
         "en": "Minor Type Fixes\nAdded Message Type 6831",
         "de": "Minor Type Fixes\nNachricht hinzufügen Typ 6831",
