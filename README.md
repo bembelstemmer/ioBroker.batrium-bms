@@ -25,6 +25,10 @@ Message Support is still limited and will be increased in further versions.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* Minor Type Fixes
+* Added Message Type 6831
+
 ### 0.1.0 (2023-02-03)
 * Optimized Parser Structure
 * Finished up Message Type 5732
