@@ -25,6 +25,9 @@ Message Support is still limited and will be increased in further versions.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* Added Message Type 415a (Cell Status Small)
+
 ### 0.2.1 (2023-02-04)
 * Readded build folder
 
