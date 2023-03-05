@@ -4,8 +4,10 @@
 [![NPM version](https://img.shields.io/npm/v/iobroker.batrium-bms.svg)](https://www.npmjs.com/package/iobroker.batrium-bms)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.batrium-bms.svg)](https://www.npmjs.com/package/iobroker.batrium-bms)
 ![Test and Release](https://github.com/bembelstemmer/ioBroker.batrium-bms/workflows/Test%20and%20Release/badge.svg)
+<!-->
 ![Number of Installations](https://iobroker.live/badges/batrium-bms-installed.svg)
 ![Current version in stable repository](https://iobroker.live/badges/batrium-bms-stable.svg)
+-->
 
 [![NPM](https://nodei.co/npm/iobroker.batrium-bms.png?downloads=true)](https://nodei.co/npm/iobroker.batrium-bms/)
 
