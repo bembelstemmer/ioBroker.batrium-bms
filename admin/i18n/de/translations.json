@@ -2,7 +2,7 @@
     "batrium-bms adapter settings": "Adaptereinstellungen für batrium-bms",
     "bindingaddress": "An Adresse binden",
     "bindingport": "An Port binden",
-    "enable message": "Ermöglichen",
+    "enable message": "Aktivieren",
     "info 2s frequency": "Die Nachrichtenhäufigkeit beträgt 2 Sekunden",
     "info 300ms frequency": "Die Nachrichtenfrequenz beträgt 300 ms und sollte ratenbegrenzt sein",
     "info undef frequency": "Die Nachrichtenhäufigkeit ist nicht festgelegt",
