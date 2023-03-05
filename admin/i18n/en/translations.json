@@ -1,5 +1,15 @@
 {
     "batrium-bms adapter settings": "Adapter settings for batrium-bms",
     "bindingaddress": "Bind to Address",
-    "bindingport": "Bind to Port"
+    "bindingport": "Bind to Port",
+    "enable message": "Enable",
+    "info 2s frequency": "Message Frequency is 2 Seconds",
+    "info 300ms frequency": "Message Frequency is 300ms and should be rate limited",
+    "info undef frequency": "Message Frequency is not fixed",
+    "messagestab infotext": "Warning: Not rate limiting some messages will produce high load on ioBroker Instance!",
+    "messagestab_infotext": "",
+    "ratelimit tooltip": "Milliseconds. 0 to disable",
+    "tabname messages": "Message Settings",
+    "tabname network": "Network Settings",
+    "warning do not change": "Only change if you know what you're doing"
 }

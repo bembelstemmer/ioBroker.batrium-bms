@@ -222,6 +222,12 @@ export class Parser_6831_QuickSessionHist extends ParserCommon implements Parser
     }
 
     public async handleMessage(systemId: number, msg: Buffer): Promise<void> {
+        if(!this.adapter.config["6831_active"] || this.ratelimitTimeout) {
+            return;
+        }
+        this.ratelimitTimeout = this.adapter.setTimeout(() => {
+            this.ratelimitTimeout = null;
+        }, this.adapter.config["6831_ratelimit"]);
         const result: Message_6831_QuickSessionHist = this.parser.parse(msg);
         this.adapter.setStateChangedAsync(this.getVariableName(systemId, "QuickSessionHistId"), result.QuickSessionHistId, true);
         this.adapter.setStateChangedAsync(this.getVariableName(systemId, "QuickSessionHistTime"), result.QuickSessionHistTime, true);

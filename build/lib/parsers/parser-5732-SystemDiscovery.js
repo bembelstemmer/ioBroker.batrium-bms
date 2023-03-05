@@ -373,6 +373,12 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
     ]);
   }
   async handleMessage(systemId, msg) {
+    if (!this.adapter.config["5732_active"] || this.ratelimitTimeout) {
+      return;
+    }
+    this.ratelimitTimeout = this.adapter.setTimeout(() => {
+      this.ratelimitTimeout = null;
+    }, this.adapter.config["5732_ratelimit"]);
     const result = this.parser.parse(msg);
     this.adapter.setStateChangedAsync(this.getVariableName(systemId, "SystemCode"), result.SystemCode, true);
     this.adapter.setStateChangedAsync(this.getVariableName(systemId, "SystemFirmwareVersion"), result.SystemFirmwareVersion, true);

@@ -25,6 +25,7 @@ class ParserCommon {
   constructor(adapter) {
     this.messageId = "0";
     this.messageName = "unknown";
+    this.ratelimitTimeout = null;
     this.adapter = adapter;
   }
   getVariableName(systemId, varname) {

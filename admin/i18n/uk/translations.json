@@ -1,5 +1,15 @@
 {
     "batrium-bms adapter settings": "Налаштування адаптера для batrium-bms",
     "bindingaddress": "Прив’язка до адреси",
-    "bindingport": "Прив’язка до порту"
+    "bindingport": "Прив’язка до порту",
+    "enable message": "Увімкнути",
+    "info 2s frequency": "Частота повідомлень становить 2 секунди",
+    "info 300ms frequency": "Частота повідомлень становить 300 мс і має бути обмежена",
+    "info undef frequency": "Частота повідомлень не фіксована",
+    "messagestab infotext": "Попередження: відсутність обмеження швидкості деяких повідомлень призведе до високого навантаження на екземпляр ioBroker!",
+    "messagestab_infotext": "",
+    "ratelimit tooltip": "мілісекунди. 0, щоб вимкнути",
+    "tabname messages": "Налаштування повідомлень",
+    "tabname network": "Мережеві налаштування",
+    "warning do not change": "Змінюйтеся, лише якщо знаєте, що робите"
 }

@@ -49,7 +49,7 @@ class BatriumBms extends utils.Adapter {
   }
   async onServerMessage(msg, info) {
     const data = await this.parserFacade.getMessageBaseData(msg);
-    this.log.debug(`MSG received from ${info.address} MessageID:${data.MessageId} SystemID:${data.SystemId}`);
+    this.log.silly(`MSG received from ${info.address} MessageID:${data.MessageId} SystemID:${data.SystemId}`);
     this.parserFacade.handleMessage(data.SystemId, data.MessageId, msg);
   }
   async onServerListening() {

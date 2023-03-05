@@ -27,6 +27,8 @@ Message Support is still limited and will be increased in further versions.
 -->
 ### **WORK IN PROGRESS**
 * Added Message Type 415a (Cell Status Small)
+* Added Configuration per Message Type
+* Added Rate Limit function per Message Type to reduce load on ioBroker DB
 
 ### 0.2.1 (2023-02-04)
 * Readded build folder

@@ -203,6 +203,12 @@ class Parser_6831_QuickSessionHist extends import_parser_common.ParserCommon {
     ]);
   }
   async handleMessage(systemId, msg) {
+    if (!this.adapter.config["6831_active"] || this.ratelimitTimeout) {
+      return;
+    }
+    this.ratelimitTimeout = this.adapter.setTimeout(() => {
+      this.ratelimitTimeout = null;
+    }, this.adapter.config["6831_ratelimit"]);
     const result = this.parser.parse(msg);
     this.adapter.setStateChangedAsync(this.getVariableName(systemId, "QuickSessionHistId"), result.QuickSessionHistId, true);
     this.adapter.setStateChangedAsync(this.getVariableName(systemId, "QuickSessionHistTime"), result.QuickSessionHistTime, true);

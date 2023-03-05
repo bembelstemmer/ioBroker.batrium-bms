@@ -4,6 +4,7 @@ export abstract class ParserCommon {
     public adapter: utils.AdapterInstance;
     public messageId= "0";
     public messageName = "unknown";
+    public ratelimitTimeout: ioBroker.Timeout | null = null;
 
     public constructor(adapter: utils.AdapterInstance) {
         this.adapter = adapter;

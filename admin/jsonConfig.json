@@ -1,18 +1,137 @@
 {
     "i18n": true,
-    "type": "panel",
+    "type": "tabs",
     "items": {
-        "bindingaddress": {
-            "type": "text",
-            "label": "Bind to Address",
-            "newLine": true,
-            "default": "0.0.0.0"
+        "networksettings": {
+            "type": "panel",
+            "label": "tabname network",
+            "items": {
+                "bindingaddress": {
+                    "type": "ip",
+                    "label": "bindingaddress",
+                    "newLine": true,
+                    "default": "0.0.0.0",
+                    "listenOnAllPorts": true,
+                    "onlyIp4": true
+                },
+                "bindingport": {
+                    "type": "text",
+                    "label": "bindingport",
+                    "newLine": false,
+                    "default": "18542",
+                    "tooltip": "warning do not change"
+                }
+            }
         },
-        "bindingport": {
-            "type": "text",
-            "label": "Bind to Port",
-            "newLine": false,
-            "default": "18542"
+        "messages": {
+            "type": "panel",
+            "label": "tabname messages",
+            "items": {
+                "messagestab_infotextelement": {
+                    "type": "statictext",
+                    "label": "messagestab infotext"
+                },
+                "3233_label": {
+                    "type": "header",
+                    "text": "3233 - Live Display",
+                    "size": "4"
+                },
+                "3233_active": {
+                    "type": "checkbox",
+                    "label": "enable message",
+                    "default": false
+                },
+                "3233_ratelimit": {
+                    "newLine": false,
+                    "type": "number",
+                    "label": "Rate Limit (ms)",
+                    "tooltip": "ratelimit tooltip",
+                    "min": 0,
+                    "max": 10000,
+                    "step": 100,
+                    "default": 0
+                },
+                "3233_infotext": {
+                    "newLine": false,
+                    "type": "statictext",
+                    "label": "info 2s frequency"
+                },
+                "415a_label": {
+                    "type": "header",
+                    "text": "415a - Cell Node Status (Small)",
+                    "size": "4"
+                },
+                "415a_active": {
+                    "type": "checkbox",
+                    "label": "enable message",
+                    "default": false
+                },
+                "415a_ratelimit": {
+                    "newLine": false,
+                    "type": "number",
+                    "label": "Rate Limit (ms)",
+                    "tooltip": "ratelimit tooltip",
+                    "min": 0,
+                    "max": 10000,
+                    "step": 100,
+                    "default": 1000
+                },
+                "415a_infotext": {
+                    "newLine": false,
+                    "type": "statictext",
+                    "label": "info 300ms frequency"
+                },
+                "5732_label": {
+                    "type": "header",
+                    "text": "5732 - System Discovery",
+                    "size": "4"
+                },
+                "5732_active": {
+                    "type": "checkbox",
+                    "label": "enable message",
+                    "default": true
+                },
+                "5732_ratelimit": {
+                    "newLine": false,
+                    "type": "number",
+                    "label": "Rate Limit (ms)",
+                    "tooltip": "ratelimit tooltip",
+                    "min": 0,
+                    "max": 10000,
+                    "step": 100,
+                    "default": 0
+                },
+                "5732_infotext": {
+                    "newLine": false,
+                    "type": "statictext",
+                    "label": "info 2s frequency"
+                },
+                "6831_label": {
+                    "type": "header",
+                    "text": "6831 - QuickSessionHistory",
+                    "size": "4"
+                },
+                "6831_active": {
+                    "type": "checkbox",
+                    "label": "enable message",
+                    "default": false
+                },
+                "6831_ratelimit": {
+                    "newLine": false,
+                    "type": "number",
+                    "label": "Rate Limit (ms)",
+                    "tooltip": "ratelimit tooltip",
+                    "min": 0,
+                    "max": 10000,
+                    "step": 100,
+                    "default": 1000
+                },
+                "6831_infotext": {
+                    "newLine": false,
+                    "type": "statictext",
+                    "label": "info undef frequency"
+                }
+            }
         }
     }
 }

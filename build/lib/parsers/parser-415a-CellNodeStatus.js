@@ -27,7 +27,6 @@ class Parser_415a_CellNodeStatus extends import_parser_common.ParserCommon {
   constructor(adapter) {
     super(adapter);
     this.initializedCellNodes = [];
-    this.ratelimitTimeout = null;
     this.adapter = adapter;
     this.messageId = "415a";
     this.messageName = "Cell Node Status Limited";
@@ -182,21 +181,22 @@ class Parser_415a_CellNodeStatus extends import_parser_common.ParserCommon {
     this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${cellData.ID}.Status`), cellData.Status, true);
   }
   async handleMessage(systemId, msg) {
-    if (!this.ratelimitTimeout) {
-      this.ratelimitTimeout = this.adapter.setTimeout(() => {
-        this.ratelimitTimeout = null;
-        const result = this.parser.parse(msg);
-        result.nodes.forEach(async (nodeData) => {
-          if (!this.initializedCellNodes.includes(nodeData.ID)) {
-            await this.initCellNode(systemId, nodeData.ID);
-            this.initializedCellNodes.push(nodeData.ID);
-          }
-        });
-        result.nodes.forEach(async (nodeData) => {
-          this.setCellValues(systemId, nodeData);
-        });
-      }, 1e3);
+    if (!this.adapter.config["415a_active"] || this.ratelimitTimeout) {
+      return;
     }
+    this.ratelimitTimeout = this.adapter.setTimeout(() => {
+      this.ratelimitTimeout = null;
+    }, this.adapter.config["415a_ratelimit"]);
+    const result = this.parser.parse(msg);
+    result.nodes.forEach(async (nodeData) => {
+      if (!this.initializedCellNodes.includes(nodeData.ID)) {
+        await this.initCellNode(systemId, nodeData.ID);
+        this.initializedCellNodes.push(nodeData.ID);
+      }
+    });
+    result.nodes.forEach(async (nodeData) => {
+      this.setCellValues(systemId, nodeData);
+    });
   }
 }
 // Annotate the CommonJS export names for ESM import in node:

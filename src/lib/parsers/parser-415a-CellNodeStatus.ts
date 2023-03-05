@@ -27,7 +27,6 @@ export class Parser_415a_CellNodeStatus extends ParserCommon implements ParserIn
     private parser: Parser;
     private subParser: Parser;
     private initializedCellNodes: Array<number> = [];
-    private ratelimitTimeout: ioBroker.Timeout | null = null;
 
     public constructor(adapter: utils.AdapterInstance) {
         super(adapter);
@@ -214,20 +213,21 @@ export class Parser_415a_CellNodeStatus extends ParserCommon implements ParserIn
     }
 
     public async handleMessage(systemId: number, msg: Buffer): Promise<void> {
-        if(!this.ratelimitTimeout) {
-            this.ratelimitTimeout = this.adapter.setTimeout(() => {
-                this.ratelimitTimeout = null;
-                const result: Message_415a_CellNodeStatus = this.parser.parse(msg);
-                result.nodes.forEach(async nodeData => {
-                    if(!this.initializedCellNodes.includes(nodeData.ID)) {
-                        await this.initCellNode(systemId, nodeData.ID);
-                        this.initializedCellNodes.push(nodeData.ID);
-                    }
-                });
-                result.nodes.forEach(async nodeData => {
-                    this.setCellValues(systemId, nodeData);
-                });
-            }, 1000);
+        if(!this.adapter.config["415a_active"] || this.ratelimitTimeout) {
+            return;
         }
+        this.ratelimitTimeout = this.adapter.setTimeout(() => {
+            this.ratelimitTimeout = null;
+        }, this.adapter.config["415a_ratelimit"]);
+        const result: Message_415a_CellNodeStatus = this.parser.parse(msg);
+        result.nodes.forEach(async nodeData => {
+            if(!this.initializedCellNodes.includes(nodeData.ID)) {
+                await this.initCellNode(systemId, nodeData.ID);
+                this.initializedCellNodes.push(nodeData.ID);
+            }
+        });
+        result.nodes.forEach(async nodeData => {
+            this.setCellValues(systemId, nodeData);
+        });
     }
 }

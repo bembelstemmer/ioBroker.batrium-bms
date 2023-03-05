@@ -1,5 +1,15 @@
 {
     "batrium-bms adapter settings": "Configurações do adaptador para batrium-bms",
     "bindingaddress": "Vincular ao endereço",
-    "bindingport": "Vincular à porta"
+    "bindingport": "Vincular à porta",
+    "enable message": "Habilitar",
+    "info 2s frequency": "A frequência da mensagem é de 2 segundos",
+    "info 300ms frequency": "A frequência da mensagem é de 300 ms e deve ser limitada por taxa",
+    "info undef frequency": "A frequência da mensagem não é fixa",
+    "messagestab infotext": "Aviso: Não limitar a taxa de algumas mensagens produzirá alta carga na instância ioBroker!",
+    "messagestab_infotext": "",
+    "ratelimit tooltip": "Milissegundos. 0 para desativar",
+    "tabname messages": "Configurações de mensagem",
+    "tabname network": "Configurações de rede",
+    "warning do not change": "Só mude se você souber o que está fazendo"
 }

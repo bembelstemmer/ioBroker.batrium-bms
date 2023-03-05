@@ -1,5 +1,15 @@
 {
-    "batrium-bms adapter settings": "batrium-bms的适配器设置",
+    "batrium-bms adapter settings": "batrium-bms 的适配器设置",
     "bindingaddress": "绑定到地址",
-    "bindingport": "绑定到端口"
+    "bindingport": "绑定到端口",
+    "enable message": "使能够",
+    "info 2s frequency": "消息频率为 2 秒",
+    "info 300ms frequency": "消息频率为 300 毫秒，应限制速率",
+    "info undef frequency": "消息频率不固定",
+    "messagestab infotext": "警告：不对某些消息进行速率限制会在 ioBroker 实例上产生高负载！",
+    "messagestab_infotext": "",
+    "ratelimit tooltip": "毫秒。 0 禁用",
+    "tabname messages": "消息设置",
+    "tabname network": "网络设置",
+    "warning do not change": "只有当你知道自己在做什么时才改变"
 }

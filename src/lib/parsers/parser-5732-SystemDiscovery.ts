@@ -440,6 +440,12 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
     }
 
     public async handleMessage(systemId: number, msg: Buffer): Promise<void> {
+        if(!this.adapter.config["5732_active"] || this.ratelimitTimeout) {
+            return;
+        }
+        this.ratelimitTimeout = this.adapter.setTimeout(() => {
+            this.ratelimitTimeout = null;
+        }, this.adapter.config["5732_ratelimit"]);
         const result: Message_5732_SystemDiscovery = this.parser.parse(msg);
         this.adapter.setStateChangedAsync(this.getVariableName(systemId, "SystemCode"), result.SystemCode, true);
         this.adapter.setStateChangedAsync(this.getVariableName(systemId, "SystemFirmwareVersion"), result.SystemFirmwareVersion, true);

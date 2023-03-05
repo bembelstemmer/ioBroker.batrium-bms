@@ -579,6 +579,12 @@ export class Parser_3233_LiveDisplay extends ParserCommon implements ParserInter
     }
 
     public async handleMessage(systemId: number, msg: Buffer): Promise<void> {
+        if(!this.adapter.config["3233_active"] || this.ratelimitTimeout) {
+            return;
+        }
+        this.ratelimitTimeout = this.adapter.setTimeout(() => {
+            this.ratelimitTimeout = null;
+        }, this.adapter.config["3233_ratelimit"]);
         const result: Message_3233_LiveDisplay = this.parser.parse(msg);
         this.adapter.setStateChangedAsync(this.getVariableName(systemId, "SystemOpStatus"), result.SystemOpStatus, true);
         this.adapter.setStateChangedAsync(this.getVariableName(systemId, "SystemAuthMode"), result.SystemAuthMode, true);

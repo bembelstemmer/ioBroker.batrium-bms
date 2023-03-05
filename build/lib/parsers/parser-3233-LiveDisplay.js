@@ -523,6 +523,12 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
     ]);
   }
   async handleMessage(systemId, msg) {
+    if (!this.adapter.config["3233_active"] || this.ratelimitTimeout) {
+      return;
+    }
+    this.ratelimitTimeout = this.adapter.setTimeout(() => {
+      this.ratelimitTimeout = null;
+    }, this.adapter.config["3233_ratelimit"]);
     const result = this.parser.parse(msg);
     this.adapter.setStateChangedAsync(this.getVariableName(systemId, "SystemOpStatus"), result.SystemOpStatus, true);
     this.adapter.setStateChangedAsync(this.getVariableName(systemId, "SystemAuthMode"), result.SystemAuthMode, true);

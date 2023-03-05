@@ -1,5 +1,15 @@
 {
     "batrium-bms adapter settings": "Adapterinstellingen voor batrium-bms",
     "bindingaddress": "Binden aan adres",
-    "bindingport": "Bind aan poort"
+    "bindingport": "Bind aan poort",
+    "enable message": "Inschakelen",
+    "info 2s frequency": "Berichtfrequentie is 2 seconden",
+    "info 300ms frequency": "De berichtfrequentie is 300 ms en moet beperkt zijn",
+    "info undef frequency": "Berichtfrequentie is niet vast",
+    "messagestab infotext": "Waarschuwing: sommige berichten die geen snelheidsbeperking hebben, zorgen voor een hoge belasting van de ioBroker-instantie!",
+    "messagestab_infotext": "",
+    "ratelimit tooltip": "Milliseconden. 0 om uit te schakelen",
+    "tabname messages": "Bericht instellingen",
+    "tabname network": "Netwerkinstellingen",
+    "warning do not change": "Verander alleen als je weet wat je doet"
 }
