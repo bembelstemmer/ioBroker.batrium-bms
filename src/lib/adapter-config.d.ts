@@ -10,6 +10,8 @@ declare global {
             "3233_ratelimit": number;
             "415a_active": boolean;
             "415a_ratelimit": number;
+            "4232_active": boolean;
+            "4232_ratelimit": number;
             "5732_active": boolean;
             "5732_ratelimit": number;
             "6831_active": boolean;

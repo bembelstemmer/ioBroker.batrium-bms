@@ -6,6 +6,7 @@ import { Parser_5732_SystemDiscovery } from "./parser-5732-SystemDiscovery";
 import { Parser_3233_LiveDisplay } from "./parser-3233-LiveDisplay";
 import { Parser_6831_QuickSessionHist } from "./parser-6831-QuickSessionHist";
 import { Parser_415a_CellNodeStatus } from "./parser-415a-CellNodeStatus";
+import { Parser_4232_CellNodeFull } from "./parser-4232-CellNodeFull";
 
 export class ParserFacade {
     private parserMap: Map<string, ParserInterface>;
@@ -20,6 +21,7 @@ export class ParserFacade {
         this.parserMap = new Map<string, ParserInterface>();
         this.parserMap.set("3233", new Parser_3233_LiveDisplay(this.adapter));
         this.parserMap.set("415a", new Parser_415a_CellNodeStatus(this.adapter));
+        this.parserMap.set("4232", new Parser_4232_CellNodeFull(this.adapter));
         this.parserMap.set("5732", new Parser_5732_SystemDiscovery(this.adapter));
         this.parserMap.set("6831", new Parser_6831_QuickSessionHist(this.adapter));
     }

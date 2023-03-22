@@ -26,6 +26,7 @@ var import_parser_5732_SystemDiscovery = require("./parser-5732-SystemDiscovery"
 var import_parser_3233_LiveDisplay = require("./parser-3233-LiveDisplay");
 var import_parser_6831_QuickSessionHist = require("./parser-6831-QuickSessionHist");
 var import_parser_415a_CellNodeStatus = require("./parser-415a-CellNodeStatus");
+var import_parser_4232_CellNodeFull = require("./parser-4232-CellNodeFull");
 class ParserFacade {
   constructor(adapter) {
     this.knownSystems = [];
@@ -35,6 +36,7 @@ class ParserFacade {
     this.parserMap = /* @__PURE__ */ new Map();
     this.parserMap.set("3233", new import_parser_3233_LiveDisplay.Parser_3233_LiveDisplay(this.adapter));
     this.parserMap.set("415a", new import_parser_415a_CellNodeStatus.Parser_415a_CellNodeStatus(this.adapter));
+    this.parserMap.set("4232", new import_parser_4232_CellNodeFull.Parser_4232_CellNodeFull(this.adapter));
     this.parserMap.set("5732", new import_parser_5732_SystemDiscovery.Parser_5732_SystemDiscovery(this.adapter));
     this.parserMap.set("6831", new import_parser_6831_QuickSessionHist.Parser_6831_QuickSessionHist(this.adapter));
   }

@@ -81,6 +81,31 @@
                     "type": "statictext",
                     "label": "info 300ms frequency"
                 },
+                "4232_label": {
+                    "type": "header",
+                    "text": "4232 - Cell Node Status (Full)",
+                    "size": "4"
+                },
+                "4232_active": {
+                    "type": "checkbox",
+                    "label": "enable message",
+                    "default": false
+                },
+                "4232_ratelimit": {
+                    "newLine": false,
+                    "type": "number",
+                    "label": "Rate Limit (ms)",
+                    "tooltip": "ratelimit tooltip",
+                    "min": 0,
+                    "max": 10000,
+                    "step": 100,
+                    "default": 1000
+                },
+                "4232_infotext": {
+                    "newLine": false,
+                    "type": "statictext",
+                    "label": "info 300ms frequency"
+                },
                 "5732_label": {
                     "type": "header",
                     "text": "5732 - System Discovery",
