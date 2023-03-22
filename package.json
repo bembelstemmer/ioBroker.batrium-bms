@@ -1,6 +1,6 @@
 {
   "name": "iobroker.batrium-bms",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Track Metrics of your Batrium BMS published via UDP",
   "author": {
     "name": "Bembelstemmer",

@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "batrium-bms",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "news": {
+      "0.4.0": {
+        "en": "Added Message Type 4232 (Cell Status Full)",
+        "de": "Nachrichtentyp 4232 (Cell Status Full)",
+        "ru": "Добавлен тип сообщения 4232 (Статус продажи полный)",
+        "pt": "Adicionado tipo de mensagem 4232 (Cell Status Full)",
+        "nl": "Vertaling: (Cell Status Full)",
+        "fr": "Posté le type de message 4232 (Cell Status Full)",
+        "it": "Aggiunto Messaggio Tipo 4232 (Cell Status Full)",
+        "es": "Tipo de mensaje 4232 (Estado de venta completo)",
+        "pl": "Oficjalna strona Message Type 4232 (Cell Status Full) (ang.)",
+        "uk": "Додано тип повідомлення 4232 Статус на сервери",
+        "zh-cn": "D. 添加的Msage 3.2 (地位充分)"
+      },
       "0.3.0": {
         "en": "Added Message Type 415a (Cell Status Small)\nAdded Configuration per Message Type\nAdded Rate Limit function per Message Type to reduce load on ioBroker DB",
         "de": "Nachricht hinzugefügt Typ 415a (Cell Status Small)\nKonfiguration pro Nachrichtentyp hinzugefügt\nHinzugefügt Rate Limit Funktion pro Nachrichtentyp, um die Last auf ioBroker DB zu reduzieren",
