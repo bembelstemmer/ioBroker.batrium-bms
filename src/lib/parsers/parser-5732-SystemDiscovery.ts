@@ -444,7 +444,7 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
             return;
         }
         this.ratelimitTimeout = this.adapter.setTimeout(() => {
-            this.ratelimitTimeout = null;
+            this.ratelimitTimeout = undefined;
         }, this.adapter.config["5732_ratelimit"]);
         const result: Message_5732_SystemDiscovery = this.parser.parse(msg);
         this.adapter.setStateChangedAsync(this.getVariableName(systemId, "SystemCode"), result.SystemCode, true);
