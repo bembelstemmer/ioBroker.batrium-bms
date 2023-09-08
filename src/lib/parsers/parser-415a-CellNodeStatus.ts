@@ -217,7 +217,7 @@ export class Parser_415a_CellNodeStatus extends ParserCommon implements ParserIn
             return;
         }
         this.ratelimitTimeout = this.adapter.setTimeout(() => {
-            this.ratelimitTimeout = null;
+            this.ratelimitTimeout = undefined;
         }, this.adapter.config["415a_ratelimit"]);
         const result: Message_415a_CellNodeStatus = this.parser.parse(msg);
         result.nodes.forEach(async nodeData => {

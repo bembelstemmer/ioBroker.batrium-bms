@@ -583,7 +583,7 @@ export class Parser_3233_LiveDisplay extends ParserCommon implements ParserInter
             return;
         }
         this.ratelimitTimeout = this.adapter.setTimeout(() => {
-            this.ratelimitTimeout = null;
+            this.ratelimitTimeout = undefined;
         }, this.adapter.config["3233_ratelimit"]);
         const result: Message_3233_LiveDisplay = this.parser.parse(msg);
         this.adapter.setStateChangedAsync(this.getVariableName(systemId, "SystemOpStatus"), result.SystemOpStatus, true);

@@ -226,7 +226,7 @@ export class Parser_6831_QuickSessionHist extends ParserCommon implements Parser
             return;
         }
         this.ratelimitTimeout = this.adapter.setTimeout(() => {
-            this.ratelimitTimeout = null;
+            this.ratelimitTimeout = undefined;
         }, this.adapter.config["6831_ratelimit"]);
         const result: Message_6831_QuickSessionHist = this.parser.parse(msg);
         this.adapter.setStateChangedAsync(this.getVariableName(systemId, "QuickSessionHistId"), result.QuickSessionHistId, true);

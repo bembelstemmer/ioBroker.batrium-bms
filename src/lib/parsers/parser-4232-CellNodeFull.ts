@@ -416,7 +416,7 @@ export class Parser_4232_CellNodeFull extends ParserCommon implements ParserInte
             return;
         }
         this.ratelimitTimeout = this.adapter.setTimeout(() => {
-            this.ratelimitTimeout = null;
+            this.ratelimitTimeout = undefined;
         }, this.adapter.config["4232_ratelimit"]);
         const result: Message_4232_CellNodeFull = this.parser.parse(msg);
         if(!this.initializedCellNodes.includes(result.ID)) {

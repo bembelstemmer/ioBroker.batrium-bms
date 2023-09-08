@@ -31,7 +31,7 @@ export class ParserFacade {
     }
 
     private async createSystemNode(systemId: number): Promise<void> {
-        await this.adapter?.setObjectNotExistsAsync(`${ this.adapter?.name }.${ this.adapter?.instance.toString() }.${ systemId.toString() }`, {
+        await this.adapter?.setObjectNotExistsAsync(`${ this.adapter?.name }.${ this.adapter.instance!.toString() }.${ systemId.toString() }`, {
             type: "device",
             common: {
                 name: "Batrium Device #" + systemId.toString()
@@ -41,7 +41,7 @@ export class ParserFacade {
     }
 
     private async createSystemMessageNode(systemId: number, messageId: string): Promise<void> {2
-        await this.adapter?.setObjectNotExistsAsync(`${ this.adapter?.name }.${ this.adapter?.instance.toString() }.${ systemId.toString() }.${ messageId }`, {
+        await this.adapter?.setObjectNotExistsAsync(`${ this.adapter?.name }.${ this.adapter.instance!.toString() }.${ systemId.toString() }.${ messageId }`, {
             type: "channel",
             common: {
                 name: this.parserMap.get(messageId)?.getMessageName() ?? "Unknown Type"
