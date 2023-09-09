@@ -27,6 +27,13 @@ Message Support is still limited and will be increased in further versions.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* Various Package Upgrades (inc. Update to ioBroker Adapter lib v3)
+* Adding of Tests for Node Version 20.x
+* Fixed marking of properties writeable even if they're not
+
+
 ### 0.4.0 (2023-03-22)
 * Added Message Type 4232 (Cell Status Full)
 

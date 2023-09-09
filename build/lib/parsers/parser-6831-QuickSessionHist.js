@@ -54,7 +54,7 @@ class Parser_6831_QuickSessionHist extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true
+          write: false
         },
         native: {}
       }),
@@ -65,7 +65,7 @@ class Parser_6831_QuickSessionHist extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true
+          write: false
         },
         native: {}
       }),
@@ -76,7 +76,7 @@ class Parser_6831_QuickSessionHist extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           states: {
             "0": "Simulator",
             "1": "Idle",
@@ -101,7 +101,7 @@ class Parser_6831_QuickSessionHist extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true
+          write: false
         },
         native: {}
       }),
@@ -112,7 +112,7 @@ class Parser_6831_QuickSessionHist extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "V"
         },
         native: {}
@@ -124,7 +124,7 @@ class Parser_6831_QuickSessionHist extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "V"
         },
         native: {}
@@ -136,7 +136,7 @@ class Parser_6831_QuickSessionHist extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "V"
         },
         native: {}
@@ -148,7 +148,7 @@ class Parser_6831_QuickSessionHist extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "\xB0C"
         },
         native: {}
@@ -160,7 +160,7 @@ class Parser_6831_QuickSessionHist extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "%"
         },
         native: {}
@@ -172,7 +172,7 @@ class Parser_6831_QuickSessionHist extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "V"
         },
         native: {}
@@ -184,7 +184,7 @@ class Parser_6831_QuickSessionHist extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "A"
         },
         native: {}
@@ -196,7 +196,7 @@ class Parser_6831_QuickSessionHist extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true
+          write: false
         },
         native: {}
       })
@@ -207,7 +207,7 @@ class Parser_6831_QuickSessionHist extends import_parser_common.ParserCommon {
       return;
     }
     this.ratelimitTimeout = this.adapter.setTimeout(() => {
-      this.ratelimitTimeout = null;
+      this.ratelimitTimeout = void 0;
     }, this.adapter.config["6831_ratelimit"]);
     const result = this.parser.parse(msg);
     this.adapter.setStateChangedAsync(this.getVariableName(systemId, "QuickSessionHistId"), result.QuickSessionHistId, true);

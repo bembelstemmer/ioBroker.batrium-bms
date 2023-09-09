@@ -61,6 +61,7 @@ class BatriumBms extends utils.Adapter {
   }
   async onServerClose() {
     this.log.info("UDP Listener Port closed.");
+    this.setState("info.connection", false, true);
   }
   onServerError(error) {
     this.log.error("Error in listener: " + error.message);

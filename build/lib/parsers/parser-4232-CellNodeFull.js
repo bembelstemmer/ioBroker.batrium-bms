@@ -77,7 +77,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true
+          write: false
         },
         native: {}
       }),
@@ -88,7 +88,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true
+          write: false
         },
         native: {}
       }),
@@ -99,7 +99,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "V"
         },
         native: {}
@@ -111,7 +111,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "V"
         },
         native: {}
@@ -123,7 +123,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "\xB0C"
         },
         native: {}
@@ -135,7 +135,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "\xB0C"
         },
         native: {}
@@ -147,7 +147,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "A"
         },
         native: {}
@@ -159,7 +159,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true
+          write: false
         },
         native: {}
       }),
@@ -170,7 +170,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true
+          write: false
         },
         native: {}
       }),
@@ -181,7 +181,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           states: {
             "0": "None",
             "1": "HighVolt",
@@ -207,7 +207,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
           type: "boolean",
           role: "value",
           read: true,
-          write: true
+          write: false
         },
         native: {}
       }),
@@ -218,7 +218,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "V"
         },
         native: {}
@@ -230,7 +230,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "V"
         },
         native: {}
@@ -242,7 +242,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "V"
         },
         native: {}
@@ -254,7 +254,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "A"
         },
         native: {}
@@ -266,7 +266,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "\xB0C"
         },
         native: {}
@@ -278,7 +278,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "\xB0C"
         },
         native: {}
@@ -290,7 +290,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "V"
         },
         native: {}
@@ -302,7 +302,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true
+          write: false
         },
         native: {}
       }),
@@ -313,7 +313,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true
+          write: false
         },
         native: {}
       }),
@@ -324,7 +324,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true
+          write: false
         },
         native: {}
       }),
@@ -335,7 +335,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true
+          write: false
         },
         native: {}
       }),
@@ -346,7 +346,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true
+          write: false
         },
         native: {}
       }),
@@ -357,7 +357,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "Ah"
         },
         native: {}
@@ -369,7 +369,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true
+          write: false
         },
         native: {}
       })
@@ -380,7 +380,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
       return;
     }
     this.ratelimitTimeout = this.adapter.setTimeout(() => {
-      this.ratelimitTimeout = null;
+      this.ratelimitTimeout = void 0;
     }, this.adapter.config["4232_ratelimit"]);
     const result = this.parser.parse(msg);
     if (!this.initializedCellNodes.includes(result.ID)) {

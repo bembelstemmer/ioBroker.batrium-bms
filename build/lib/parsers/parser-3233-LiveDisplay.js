@@ -66,7 +66,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           states: {
             "0": "Simulator",
             "1": "Idle",
@@ -91,7 +91,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           states: {
             "0": "Default",
             "1": "Technician",
@@ -107,7 +107,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "boolean",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           states: {
             "0": "No",
             "1": "Yes"
@@ -122,7 +122,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "boolean",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           states: {
             "0": "No",
             "1": "Yes"
@@ -137,7 +137,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "boolean",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           states: {
             "0": "No",
             "1": "Yes"
@@ -152,7 +152,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "boolean",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           states: {
             "0": "No",
             "1": "Yes"
@@ -167,7 +167,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "boolean",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           states: {
             "0": "No",
             "1": "Yes"
@@ -182,7 +182,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "boolean",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           states: {
             "0": "No",
             "1": "Yes"
@@ -197,7 +197,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "boolean",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           states: {
             "0": "No",
             "1": "Yes"
@@ -212,7 +212,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "boolean",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           states: {
             "0": "No",
             "1": "Yes"
@@ -227,7 +227,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "boolean",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           states: {
             "0": "No",
             "1": "Yes"
@@ -242,7 +242,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "boolean",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           states: {
             "0": "No",
             "1": "Yes"
@@ -257,7 +257,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "boolean",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           states: {
             "0": "No",
             "1": "Yes"
@@ -272,7 +272,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "V"
         },
         native: {}
@@ -284,7 +284,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "V"
         },
         native: {}
@@ -296,7 +296,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "V"
         },
         native: {}
@@ -308,7 +308,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "\xB0C"
         },
         native: {}
@@ -320,7 +320,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "\xB0C"
         },
         native: {}
@@ -332,7 +332,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "\xB0C"
         },
         native: {}
@@ -344,7 +344,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true
+          write: false
         },
         native: {}
       }),
@@ -355,7 +355,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "V"
         },
         native: {}
@@ -367,7 +367,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "A"
         },
         native: {}
@@ -379,7 +379,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "VA"
         },
         native: {}
@@ -391,7 +391,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "%"
         },
         native: {}
@@ -403,7 +403,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "Ah"
         },
         native: {}
@@ -415,7 +415,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "kWh"
         },
         native: {}
@@ -427,7 +427,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "kWh"
         },
         native: {}
@@ -439,7 +439,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true
+          write: false
         },
         native: {}
       }),
@@ -450,7 +450,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true
+          write: false
         },
         native: {}
       }),
@@ -461,7 +461,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true
+          write: false
         },
         native: {}
       }),
@@ -472,7 +472,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true
+          write: false
         },
         native: {}
       }),
@@ -483,7 +483,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true
+          write: false
         },
         native: {}
       }),
@@ -494,7 +494,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true
+          write: false
         },
         native: {}
       }),
@@ -505,7 +505,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true
+          write: false
         },
         native: {}
       }),
@@ -516,7 +516,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true
+          write: false
         },
         native: {}
       })
@@ -527,7 +527,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
       return;
     }
     this.ratelimitTimeout = this.adapter.setTimeout(() => {
-      this.ratelimitTimeout = null;
+      this.ratelimitTimeout = void 0;
     }, this.adapter.config["3233_ratelimit"]);
     const result = this.parser.parse(msg);
     this.adapter.setStateChangedAsync(this.getVariableName(systemId, "SystemOpStatus"), result.SystemOpStatus, true);

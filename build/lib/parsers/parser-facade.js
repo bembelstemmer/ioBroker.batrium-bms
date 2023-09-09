@@ -44,8 +44,8 @@ class ParserFacade {
     return this.parserBaseData.parse(buf);
   }
   async createSystemNode(systemId) {
-    var _a, _b, _c;
-    await ((_c = this.adapter) == null ? void 0 : _c.setObjectNotExistsAsync(`${(_a = this.adapter) == null ? void 0 : _a.name}.${(_b = this.adapter) == null ? void 0 : _b.instance.toString()}.${systemId.toString()}`, {
+    var _a, _b;
+    await ((_b = this.adapter) == null ? void 0 : _b.setObjectNotExistsAsync(`${(_a = this.adapter) == null ? void 0 : _a.name}.${this.adapter.instance.toString()}.${systemId.toString()}`, {
       type: "device",
       common: {
         name: "Batrium Device #" + systemId.toString()
@@ -54,12 +54,12 @@ class ParserFacade {
     }));
   }
   async createSystemMessageNode(systemId, messageId) {
-    var _a, _b, _c, _d, _e;
+    var _a, _b, _c, _d;
     2;
-    await ((_e = this.adapter) == null ? void 0 : _e.setObjectNotExistsAsync(`${(_a = this.adapter) == null ? void 0 : _a.name}.${(_b = this.adapter) == null ? void 0 : _b.instance.toString()}.${systemId.toString()}.${messageId}`, {
+    await ((_d = this.adapter) == null ? void 0 : _d.setObjectNotExistsAsync(`${(_a = this.adapter) == null ? void 0 : _a.name}.${this.adapter.instance.toString()}.${systemId.toString()}.${messageId}`, {
       type: "channel",
       common: {
-        name: (_d = (_c = this.parserMap.get(messageId)) == null ? void 0 : _c.getMessageName()) != null ? _d : "Unknown Type"
+        name: (_c = (_b = this.parserMap.get(messageId)) == null ? void 0 : _b.getMessageName()) != null ? _c : "Unknown Type"
       },
       native: {}
     }));

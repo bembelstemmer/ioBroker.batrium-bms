@@ -54,7 +54,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
           type: "string",
           role: "value",
           read: true,
-          write: true
+          write: false
         },
         native: {}
       }),
@@ -65,7 +65,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true
+          write: false
         },
         native: {}
       }),
@@ -76,7 +76,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true
+          write: false
         },
         native: {}
       }),
@@ -87,7 +87,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true
+          write: false
         },
         native: {}
       }),
@@ -98,7 +98,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           states: {
             "0": "Simulator",
             "1": "Idle",
@@ -123,7 +123,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           states: {
             "0": "Default",
             "1": "Technician",
@@ -139,7 +139,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           states: {
             "0": "Off",
             "1": "On"
@@ -154,7 +154,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           states: {
             "0": "Off",
             "2": "Limited Power",
@@ -170,7 +170,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           states: {
             "0": "Off",
             "2": "Limited Power",
@@ -186,7 +186,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           states: {
             "0": "Off",
             "1": "On"
@@ -201,7 +201,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           states: {
             "0": "Off",
             "1": "On"
@@ -216,7 +216,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "V"
         },
         native: {}
@@ -228,7 +228,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "V"
         },
         native: {}
@@ -240,7 +240,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "V"
         },
         native: {}
@@ -252,7 +252,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "\xB0C"
         },
         native: {}
@@ -264,7 +264,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true
+          write: false
         },
         native: {}
       }),
@@ -275,7 +275,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true
+          write: false
         },
         native: {}
       }),
@@ -286,7 +286,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           states: {
             "0": "Idle",
             "1": "Normal",
@@ -313,7 +313,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "%"
         },
         native: {}
@@ -325,7 +325,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "V"
         },
         native: {}
@@ -337,7 +337,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           unit: "A"
         },
         native: {}
@@ -349,7 +349,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true,
+          write: false,
           states: {
             "0": "Timeout",
             "1": "Discharging",
@@ -366,7 +366,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
           type: "number",
           role: "value",
           read: true,
-          write: true
+          write: false
         },
         native: {}
       })
@@ -377,7 +377,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
       return;
     }
     this.ratelimitTimeout = this.adapter.setTimeout(() => {
-      this.ratelimitTimeout = null;
+      this.ratelimitTimeout = void 0;
     }, this.adapter.config["5732_ratelimit"]);
     const result = this.parser.parse(msg);
     this.adapter.setStateChangedAsync(this.getVariableName(systemId, "SystemCode"), result.SystemCode, true);
