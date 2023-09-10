@@ -118,7 +118,7 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                 common: {
                     name: "SystemCode",
                     type: "string",
-                    role: "value",
+                    role: "info.name",
                     read: true,
                     write: false,
                 },
@@ -129,7 +129,7 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                 common: {
                     name: "SystemFirmwareVersion",
                     type: "number",
-                    role: "value",
+                    role: "info.firmware",
                     read: true,
                     write: false,
                 },
@@ -140,7 +140,7 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                 common: {
                     name: "SystemHardwareVersion",
                     type: "number",
-                    role: "value",
+                    role: "info.hardware",
                     read: true,
                     write: false,
                 },
@@ -151,7 +151,7 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                 common: {
                     name: "SystemTime",
                     type: "number",
-                    role: "value",
+                    role: "date",
                     read: true,
                     write: false,
                 },
@@ -162,7 +162,7 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                 common: {
                     name: "SystemOpStatus",
                     type: "number",
-                    role: "value",
+                    role: "info.status",
                     read: true,
                     write: false,
                     states: {
@@ -187,7 +187,7 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                 common: {
                     name: "SystemAuthMode",
                     type: "number",
-                    role: "value",
+                    role: "info.status",
                     read: true,
                     write: false,
                     states: {
@@ -203,7 +203,7 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                 common: {
                     name: "CriticalBatOkState",
                     type: "number",
-                    role: "value",
+                    role: "info.status",
                     read: true,
                     write: false,
                     states: {
@@ -218,7 +218,7 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                 common: {
                     name: "ChargePowerRateState",
                     type: "number",
-                    role: "value",
+                    role: "info.status",
                     read: true,
                     write: false,
                     states: {
@@ -234,7 +234,7 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                 common: {
                     name: "DischargePowerRateState",
                     type: "number",
-                    role: "value",
+                    role: "info.status",
                     read: true,
                     write: false,
                     states: {
@@ -250,7 +250,7 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                 common: {
                     name: "HeatOnState",
                     type: "number",
-                    role: "value",
+                    role: "info.status",
                     read: true,
                     write: false,
                     states: {
@@ -265,7 +265,7 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                 common: {
                     name: "CoolOnState",
                     type: "number",
-                    role: "value",
+                    role: "info.status",
                     read: true,
                     write: false,
                     states: {
@@ -280,7 +280,7 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                 common: {
                     name: "MinCellVolt",
                     type: "number",
-                    role: "value",
+                    role: "value.voltage",
                     read: true,
                     write: false,
                     unit: "V"
@@ -292,7 +292,7 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                 common: {
                     name: "MaxCellVolt",
                     type: "number",
-                    role: "value",
+                    role: "value.voltage",
                     read: true,
                     write: false,
                     unit: "V"
@@ -304,7 +304,7 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                 common: {
                     name: "AvgCellVolt",
                     type: "number",
-                    role: "value",
+                    role: "value.voltage",
                     read: true,
                     write: false,
                     unit: "V"
@@ -316,7 +316,7 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                 common: {
                     name: "MinCellTemp",
                     type: "number",
-                    role: "value",
+                    role: "value.temperature",
                     read: true,
                     write: false,
                     unit: "°C"
@@ -350,7 +350,7 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                 common: {
                     name: "CmuPollerMode",
                     type: "number",
-                    role: "value",
+                    role: "info.status",
                     read: true,
                     write: false,
                     states: {
@@ -377,7 +377,7 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                 common: {
                     name: "ShuntSOC",
                     type: "number",
-                    role: "value",
+                    role: "value.battery",
                     read: true,
                     write: false,
                     unit: "%",
@@ -389,7 +389,7 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                 common: {
                     name: "ShuntVoltage",
                     type: "number",
-                    role: "value",
+                    role: "value.voltage",
                     read: true,
                     write: false,
                     unit: "V"
@@ -401,7 +401,7 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                 common: {
                     name: "ShuntCurrent",
                     type: "number",
-                    role: "value",
+                    role: "value.current",
                     read: true,
                     write: false,
                     unit: "A",
@@ -411,9 +411,9 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
             this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "ShuntStatus"), {
                 type: "state",
                 common: {
-                    name: "ShuntVoltage",
+                    name: "ShuntStatus",
                     type: "number",
-                    role: "value",
+                    role: "info.status",
                     read: true,
                     write: false,
                     states: {

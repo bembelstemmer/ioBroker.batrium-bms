@@ -64,7 +64,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
         common: {
           name: "SystemOpStatus",
           type: "number",
-          role: "value",
+          role: "info.status",
           read: true,
           write: false,
           states: {
@@ -89,7 +89,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
         common: {
           name: "SystemAuthMode",
           type: "number",
-          role: "value",
+          role: "info.status",
           read: true,
           write: false,
           states: {
@@ -105,7 +105,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
         common: {
           name: "CriticalBatOkState",
           type: "boolean",
-          role: "value",
+          role: "info.status",
           read: true,
           write: false,
           states: {
@@ -120,7 +120,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
         common: {
           name: "CriticalIsTransition",
           type: "boolean",
-          role: "value",
+          role: "info.status",
           read: true,
           write: false,
           states: {
@@ -135,7 +135,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
         common: {
           name: "CriticalIsPrecharge",
           type: "boolean",
-          role: "value",
+          role: "info.status",
           read: true,
           write: false,
           states: {
@@ -150,7 +150,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
         common: {
           name: "HeatOnState",
           type: "boolean",
-          role: "value",
+          role: "info.status",
           read: true,
           write: false,
           states: {
@@ -165,7 +165,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
         common: {
           name: "CoolOnState",
           type: "boolean",
-          role: "value",
+          role: "info.status",
           read: true,
           write: false,
           states: {
@@ -180,7 +180,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
         common: {
           name: "ChargeOnState",
           type: "boolean",
-          role: "value",
+          role: "info.status",
           read: true,
           write: false,
           states: {
@@ -195,7 +195,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
         common: {
           name: "ChargeIsLimPower",
           type: "boolean",
-          role: "value",
+          role: "info.status",
           read: true,
           write: false,
           states: {
@@ -210,7 +210,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
         common: {
           name: "DischgOnState",
           type: "boolean",
-          role: "value",
+          role: "info.status",
           read: true,
           write: false,
           states: {
@@ -225,7 +225,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
         common: {
           name: "DischgIsLimPower",
           type: "boolean",
-          role: "value",
+          role: "info.status",
           read: true,
           write: false,
           states: {
@@ -240,7 +240,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
         common: {
           name: "ChargeInBypass",
           type: "boolean",
-          role: "value",
+          role: "info.status",
           read: true,
           write: false,
           states: {
@@ -255,7 +255,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
         common: {
           name: "ChargeHasBypassTempRelief",
           type: "boolean",
-          role: "value",
+          role: "info.status",
           read: true,
           write: false,
           states: {
@@ -270,7 +270,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
         common: {
           name: "MinCellVolt",
           type: "number",
-          role: "value",
+          role: "value.voltage",
           read: true,
           write: false,
           unit: "V"
@@ -282,7 +282,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
         common: {
           name: "MaxCellVolt",
           type: "number",
-          role: "value",
+          role: "value.voltage",
           read: true,
           write: false,
           unit: "V"
@@ -294,7 +294,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
         common: {
           name: "AvgCellVolt",
           type: "number",
-          role: "value",
+          role: "value.voltage",
           read: true,
           write: false,
           unit: "V"
@@ -306,7 +306,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
         common: {
           name: "MinCellTemp",
           type: "number",
-          role: "value",
+          role: "value.temperature",
           read: true,
           write: false,
           unit: "\xB0C"
@@ -318,7 +318,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
         common: {
           name: "MaxCellTemp",
           type: "number",
-          role: "value",
+          role: "value.temperature",
           read: true,
           write: false,
           unit: "\xB0C"
@@ -330,7 +330,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
         common: {
           name: "AvgCellTemp",
           type: "number",
-          role: "value",
+          role: "value.temperature",
           read: true,
           write: false,
           unit: "\xB0C"
@@ -353,7 +353,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
         common: {
           name: "ShuntVoltage",
           type: "number",
-          role: "value",
+          role: "value.voltage",
           read: true,
           write: false,
           unit: "V"
@@ -365,7 +365,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
         common: {
           name: "ShuntCurrent",
           type: "number",
-          role: "value",
+          role: "value.current",
           read: true,
           write: false,
           unit: "A"
@@ -389,7 +389,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
         common: {
           name: "ShuntSOC",
           type: "number",
-          role: "value",
+          role: "value.battery",
           read: true,
           write: false,
           unit: "%"
@@ -448,7 +448,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
         common: {
           name: "SystemTime",
           type: "number",
-          role: "value",
+          role: "date",
           read: true,
           write: false
         },

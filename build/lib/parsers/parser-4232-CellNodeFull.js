@@ -75,7 +75,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
         common: {
           name: "ID",
           type: "number",
-          role: "value",
+          role: "info.address",
           read: true,
           write: false
         },
@@ -97,7 +97,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
         common: {
           name: "MinCellVolt",
           type: "number",
-          role: "value",
+          role: "value.voltage",
           read: true,
           write: false,
           unit: "V"
@@ -109,7 +109,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
         common: {
           name: "MaxCellVolt",
           type: "number",
-          role: "value",
+          role: "value.voltage",
           read: true,
           write: false,
           unit: "V"
@@ -121,7 +121,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
         common: {
           name: "MinCellTemp",
           type: "number",
-          role: "value",
+          role: "value.temperature",
           read: true,
           write: false,
           unit: "\xB0C"
@@ -133,7 +133,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
         common: {
           name: "BypassTemp",
           type: "number",
-          role: "value",
+          role: "value.temperature",
           read: true,
           write: false,
           unit: "\xB0C"
@@ -145,7 +145,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
         common: {
           name: "BypassAmp",
           type: "number",
-          role: "value",
+          role: "value.current",
           read: true,
           write: false,
           unit: "A"
@@ -179,7 +179,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
         common: {
           name: "Status",
           type: "number",
-          role: "value",
+          role: "info.status",
           read: true,
           write: false,
           states: {
@@ -205,7 +205,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
         common: {
           name: "IsOverdue",
           type: "boolean",
-          role: "value",
+          role: "info.status",
           read: true,
           write: false
         },
@@ -216,7 +216,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
         common: {
           name: "LoCellVoltAlert",
           type: "number",
-          role: "value",
+          role: "value.voltage",
           read: true,
           write: false,
           unit: "V"
@@ -228,7 +228,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
         common: {
           name: "HiCellVoltAlert",
           type: "number",
-          role: "value",
+          role: "value.voltage",
           read: true,
           write: false,
           unit: "V"
@@ -240,7 +240,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
         common: {
           name: "BypassVoltLevel",
           type: "number",
-          role: "value",
+          role: "value.voltage",
           read: true,
           write: false,
           unit: "V"
@@ -252,7 +252,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
         common: {
           name: "BypassAmpLimit",
           type: "number",
-          role: "value",
+          role: "value.current",
           read: true,
           write: false,
           unit: "A"
@@ -264,7 +264,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
         common: {
           name: "BypassTempLimit",
           type: "number",
-          role: "value",
+          role: "value.temperature",
           read: true,
           write: false,
           unit: "\xB0C"
@@ -276,7 +276,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
         common: {
           name: "HiCellTempAlert",
           type: "number",
-          role: "value",
+          role: "value.temperature",
           read: true,
           write: false,
           unit: "\xB0C"
@@ -288,7 +288,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
         common: {
           name: "RawVoltCalOffset",
           type: "number",
-          role: "value",
+          role: "value.voltage",
           read: true,
           write: false,
           unit: "V"
@@ -300,7 +300,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
         common: {
           name: "FwVers",
           type: "number",
-          role: "value",
+          role: "info.firmware",
           read: true,
           write: false
         },
@@ -311,7 +311,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
         common: {
           name: "HwVers",
           type: "number",
-          role: "value",
+          role: "info.hardware",
           read: true,
           write: false
         },
@@ -333,7 +333,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
         common: {
           name: "SerialNo",
           type: "number",
-          role: "value",
+          role: "info.serial",
           read: true,
           write: false
         },
@@ -344,7 +344,7 @@ class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
         common: {
           name: "BypassInitialDate",
           type: "number",
-          role: "value",
+          role: "date",
           read: true,
           write: false
         },

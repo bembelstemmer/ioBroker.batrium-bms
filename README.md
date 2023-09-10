@@ -32,7 +32,8 @@ Message Support is still limited and will be increased in further versions.
 * Various Package Upgrades (inc. Update to ioBroker Adapter lib v3)
 * Adding of Tests for Node Version 20.x
 * Fixed marking of properties writeable even if they're not
-
+* Fixed wrong Naming of Object 5732.ShuntStatus
+* Reworked Object Roles to better match their meaning (where meaning was known)
 
 ### 0.4.0 (2023-03-22)
 * Added Message Type 4232 (Cell Status Full)

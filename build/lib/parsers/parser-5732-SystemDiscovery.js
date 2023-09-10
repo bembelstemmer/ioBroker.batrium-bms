@@ -52,7 +52,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
         common: {
           name: "SystemCode",
           type: "string",
-          role: "value",
+          role: "info.name",
           read: true,
           write: false
         },
@@ -63,7 +63,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
         common: {
           name: "SystemFirmwareVersion",
           type: "number",
-          role: "value",
+          role: "info.firmware",
           read: true,
           write: false
         },
@@ -74,7 +74,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
         common: {
           name: "SystemHardwareVersion",
           type: "number",
-          role: "value",
+          role: "info.hardware",
           read: true,
           write: false
         },
@@ -85,7 +85,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
         common: {
           name: "SystemTime",
           type: "number",
-          role: "value",
+          role: "date",
           read: true,
           write: false
         },
@@ -96,7 +96,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
         common: {
           name: "SystemOpStatus",
           type: "number",
-          role: "value",
+          role: "info.status",
           read: true,
           write: false,
           states: {
@@ -121,7 +121,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
         common: {
           name: "SystemAuthMode",
           type: "number",
-          role: "value",
+          role: "info.status",
           read: true,
           write: false,
           states: {
@@ -137,7 +137,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
         common: {
           name: "CriticalBatOkState",
           type: "number",
-          role: "value",
+          role: "info.status",
           read: true,
           write: false,
           states: {
@@ -152,7 +152,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
         common: {
           name: "ChargePowerRateState",
           type: "number",
-          role: "value",
+          role: "info.status",
           read: true,
           write: false,
           states: {
@@ -168,7 +168,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
         common: {
           name: "DischargePowerRateState",
           type: "number",
-          role: "value",
+          role: "info.status",
           read: true,
           write: false,
           states: {
@@ -184,7 +184,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
         common: {
           name: "HeatOnState",
           type: "number",
-          role: "value",
+          role: "info.status",
           read: true,
           write: false,
           states: {
@@ -199,7 +199,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
         common: {
           name: "CoolOnState",
           type: "number",
-          role: "value",
+          role: "info.status",
           read: true,
           write: false,
           states: {
@@ -214,7 +214,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
         common: {
           name: "MinCellVolt",
           type: "number",
-          role: "value",
+          role: "value.voltage",
           read: true,
           write: false,
           unit: "V"
@@ -226,7 +226,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
         common: {
           name: "MaxCellVolt",
           type: "number",
-          role: "value",
+          role: "value.voltage",
           read: true,
           write: false,
           unit: "V"
@@ -238,7 +238,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
         common: {
           name: "AvgCellVolt",
           type: "number",
-          role: "value",
+          role: "value.voltage",
           read: true,
           write: false,
           unit: "V"
@@ -250,7 +250,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
         common: {
           name: "MinCellTemp",
           type: "number",
-          role: "value",
+          role: "value.temperature",
           read: true,
           write: false,
           unit: "\xB0C"
@@ -284,7 +284,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
         common: {
           name: "CmuPollerMode",
           type: "number",
-          role: "value",
+          role: "info.status",
           read: true,
           write: false,
           states: {
@@ -311,7 +311,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
         common: {
           name: "ShuntSOC",
           type: "number",
-          role: "value",
+          role: "value.battery",
           read: true,
           write: false,
           unit: "%"
@@ -323,7 +323,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
         common: {
           name: "ShuntVoltage",
           type: "number",
-          role: "value",
+          role: "value.voltage",
           read: true,
           write: false,
           unit: "V"
@@ -335,7 +335,7 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
         common: {
           name: "ShuntCurrent",
           type: "number",
-          role: "value",
+          role: "value.current",
           read: true,
           write: false,
           unit: "A"
@@ -345,9 +345,9 @@ class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
       this.adapter.setObjectNotExistsAsync(this.getVariableName(systemId, "ShuntStatus"), {
         type: "state",
         common: {
-          name: "ShuntVoltage",
+          name: "ShuntStatus",
           type: "number",
-          role: "value",
+          role: "info.status",
           read: true,
           write: false,
           states: {

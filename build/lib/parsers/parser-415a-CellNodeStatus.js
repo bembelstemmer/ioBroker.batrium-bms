@@ -65,7 +65,7 @@ class Parser_415a_CellNodeStatus extends import_parser_common.ParserCommon {
         common: {
           name: "ID",
           type: "number",
-          role: "value",
+          role: "info.address",
           read: true,
           write: false
         },
@@ -87,7 +87,7 @@ class Parser_415a_CellNodeStatus extends import_parser_common.ParserCommon {
         common: {
           name: "MinCellVolt",
           type: "number",
-          role: "value",
+          role: "value.voltage",
           read: true,
           write: false,
           unit: "V"
@@ -99,7 +99,7 @@ class Parser_415a_CellNodeStatus extends import_parser_common.ParserCommon {
         common: {
           name: "MaxCellVolt",
           type: "number",
-          role: "value",
+          role: "value.voltage",
           read: true,
           write: false,
           unit: "V"
@@ -111,7 +111,7 @@ class Parser_415a_CellNodeStatus extends import_parser_common.ParserCommon {
         common: {
           name: "MinCellTemp",
           type: "number",
-          role: "value",
+          role: "value.temperature",
           read: true,
           write: false,
           unit: "\xB0C"
@@ -123,7 +123,7 @@ class Parser_415a_CellNodeStatus extends import_parser_common.ParserCommon {
         common: {
           name: "BypassTemp",
           type: "number",
-          role: "value",
+          role: "value.temperature",
           read: true,
           write: false,
           unit: "\xB0C"
@@ -135,7 +135,7 @@ class Parser_415a_CellNodeStatus extends import_parser_common.ParserCommon {
         common: {
           name: "BypassAmp",
           type: "number",
-          role: "value",
+          role: "value.current",
           read: true,
           write: false,
           unit: "A"
@@ -147,7 +147,7 @@ class Parser_415a_CellNodeStatus extends import_parser_common.ParserCommon {
         common: {
           name: "Status",
           type: "number",
-          role: "value",
+          role: "info.status",
           read: true,
           write: false,
           states: {

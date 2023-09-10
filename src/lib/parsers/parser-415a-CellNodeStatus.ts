@@ -95,7 +95,7 @@ export class Parser_415a_CellNodeStatus extends ParserCommon implements ParserIn
                 common: {
                     name: "ID",
                     type: "number",
-                    role: "value",
+                    role: "info.address",
                     read: true,
                     write: false,
                 },
@@ -117,7 +117,7 @@ export class Parser_415a_CellNodeStatus extends ParserCommon implements ParserIn
                 common: {
                     name: "MinCellVolt",
                     type: "number",
-                    role: "value",
+                    role: "value.voltage",
                     read: true,
                     write: false,
                     unit: "V",
@@ -129,7 +129,7 @@ export class Parser_415a_CellNodeStatus extends ParserCommon implements ParserIn
                 common: {
                     name: "MaxCellVolt",
                     type: "number",
-                    role: "value",
+                    role: "value.voltage",
                     read: true,
                     write: false,
                     unit: "V",
@@ -141,7 +141,7 @@ export class Parser_415a_CellNodeStatus extends ParserCommon implements ParserIn
                 common: {
                     name: "MinCellTemp",
                     type: "number",
-                    role: "value",
+                    role: "value.temperature",
                     read: true,
                     write: false,
                     unit: "°C",
@@ -153,7 +153,7 @@ export class Parser_415a_CellNodeStatus extends ParserCommon implements ParserIn
                 common: {
                     name: "BypassTemp",
                     type: "number",
-                    role: "value",
+                    role: "value.temperature",
                     read: true,
                     write: false,
                     unit: "°C",
@@ -165,7 +165,7 @@ export class Parser_415a_CellNodeStatus extends ParserCommon implements ParserIn
                 common: {
                     name: "BypassAmp",
                     type: "number",
-                    role: "value",
+                    role: "value.current",
                     read: true,
                     write: false,
                     unit: "A",
@@ -177,7 +177,7 @@ export class Parser_415a_CellNodeStatus extends ParserCommon implements ParserIn
                 common: {
                     name: "Status",
                     type: "number",
-                    role: "value",
+                    role: "info.status",
                     read: true,
                     write: false,
                     states: {

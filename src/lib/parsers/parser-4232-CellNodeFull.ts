@@ -110,7 +110,7 @@ export class Parser_4232_CellNodeFull extends ParserCommon implements ParserInte
                 common: {
                     name: "ID",
                     type: "number",
-                    role: "value",
+                    role: "info.address",
                     read: true,
                     write: false,
                 },
@@ -132,7 +132,7 @@ export class Parser_4232_CellNodeFull extends ParserCommon implements ParserInte
                 common: {
                     name: "MinCellVolt",
                     type: "number",
-                    role: "value",
+                    role: "value.voltage",
                     read: true,
                     write: false,
                     unit: "V",
@@ -144,7 +144,7 @@ export class Parser_4232_CellNodeFull extends ParserCommon implements ParserInte
                 common: {
                     name: "MaxCellVolt",
                     type: "number",
-                    role: "value",
+                    role: "value.voltage",
                     read: true,
                     write: false,
                     unit: "V",
@@ -156,7 +156,7 @@ export class Parser_4232_CellNodeFull extends ParserCommon implements ParserInte
                 common: {
                     name: "MinCellTemp",
                     type: "number",
-                    role: "value",
+                    role: "value.temperature",
                     read: true,
                     write: false,
                     unit: "°C",
@@ -168,7 +168,7 @@ export class Parser_4232_CellNodeFull extends ParserCommon implements ParserInte
                 common: {
                     name: "BypassTemp",
                     type: "number",
-                    role: "value",
+                    role: "value.temperature",
                     read: true,
                     write: false,
                     unit: "°C",
@@ -180,7 +180,7 @@ export class Parser_4232_CellNodeFull extends ParserCommon implements ParserInte
                 common: {
                     name: "BypassAmp",
                     type: "number",
-                    role: "value",
+                    role: "value.current",
                     read: true,
                     write: false,
                     unit: "A",
@@ -214,7 +214,7 @@ export class Parser_4232_CellNodeFull extends ParserCommon implements ParserInte
                 common: {
                     name: "Status",
                     type: "number",
-                    role: "value",
+                    role: "info.status",
                     read: true,
                     write: false,
                     states: {
@@ -240,7 +240,7 @@ export class Parser_4232_CellNodeFull extends ParserCommon implements ParserInte
                 common: {
                     name: "IsOverdue",
                     type: "boolean",
-                    role: "value",
+                    role: "info.status",
                     read: true,
                     write: false,
                 },
@@ -251,7 +251,7 @@ export class Parser_4232_CellNodeFull extends ParserCommon implements ParserInte
                 common: {
                     name: "LoCellVoltAlert",
                     type: "number",
-                    role: "value",
+                    role: "value.voltage",
                     read: true,
                     write: false,
                     unit: "V",
@@ -263,7 +263,7 @@ export class Parser_4232_CellNodeFull extends ParserCommon implements ParserInte
                 common: {
                     name: "HiCellVoltAlert",
                     type: "number",
-                    role: "value",
+                    role: "value.voltage",
                     read: true,
                     write: false,
                     unit: "V",
@@ -275,7 +275,7 @@ export class Parser_4232_CellNodeFull extends ParserCommon implements ParserInte
                 common: {
                     name: "BypassVoltLevel",
                     type: "number",
-                    role: "value",
+                    role: "value.voltage",
                     read: true,
                     write: false,
                     unit: "V",
@@ -287,7 +287,7 @@ export class Parser_4232_CellNodeFull extends ParserCommon implements ParserInte
                 common: {
                     name: "BypassAmpLimit",
                     type: "number",
-                    role: "value",
+                    role: "value.current",
                     read: true,
                     write: false,
                     unit: "A",
@@ -299,7 +299,7 @@ export class Parser_4232_CellNodeFull extends ParserCommon implements ParserInte
                 common: {
                     name: "BypassTempLimit",
                     type: "number",
-                    role: "value",
+                    role: "value.temperature",
                     read: true,
                     write: false,
                     unit: "°C",
@@ -311,7 +311,7 @@ export class Parser_4232_CellNodeFull extends ParserCommon implements ParserInte
                 common: {
                     name: "HiCellTempAlert",
                     type: "number",
-                    role: "value",
+                    role: "value.temperature",
                     read: true,
                     write: false,
                     unit: "°C",
@@ -323,7 +323,7 @@ export class Parser_4232_CellNodeFull extends ParserCommon implements ParserInte
                 common: {
                     name: "RawVoltCalOffset",
                     type: "number",
-                    role: "value",
+                    role: "value.voltage",
                     read: true,
                     write: false,
                     unit: "V",
@@ -335,7 +335,7 @@ export class Parser_4232_CellNodeFull extends ParserCommon implements ParserInte
                 common: {
                     name: "FwVers",
                     type: "number",
-                    role: "value",
+                    role: "info.firmware",
                     read: true,
                     write: false,
                 },
@@ -346,7 +346,7 @@ export class Parser_4232_CellNodeFull extends ParserCommon implements ParserInte
                 common: {
                     name: "HwVers",
                     type: "number",
-                    role: "value",
+                    role: "info.hardware",
                     read: true,
                     write: false,
                 },
@@ -368,7 +368,7 @@ export class Parser_4232_CellNodeFull extends ParserCommon implements ParserInte
                 common: {
                     name: "SerialNo",
                     type: "number",
-                    role: "value",
+                    role: "info.serial",
                     read: true,
                     write: false,
                 },
@@ -379,7 +379,7 @@ export class Parser_4232_CellNodeFull extends ParserCommon implements ParserInte
                 common: {
                     name: "BypassInitialDate",
                     type: "number",
-                    role: "value",
+                    role: "date",
                     read: true,
                     write: false,
                 },

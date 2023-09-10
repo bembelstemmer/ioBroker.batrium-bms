@@ -63,7 +63,7 @@ class Parser_6831_QuickSessionHist extends import_parser_common.ParserCommon {
         common: {
           name: "QuickSessionHistTime",
           type: "number",
-          role: "value",
+          role: "date",
           read: true,
           write: false
         },
@@ -74,7 +74,7 @@ class Parser_6831_QuickSessionHist extends import_parser_common.ParserCommon {
         common: {
           name: "QuickSessionHistSystemOpState",
           type: "number",
-          role: "value",
+          role: "info.status",
           read: true,
           write: false,
           states: {
@@ -110,7 +110,7 @@ class Parser_6831_QuickSessionHist extends import_parser_common.ParserCommon {
         common: {
           name: "QuickSessionHistMinCellVolt",
           type: "number",
-          role: "value",
+          role: "value.voltage",
           read: true,
           write: false,
           unit: "V"
@@ -122,7 +122,7 @@ class Parser_6831_QuickSessionHist extends import_parser_common.ParserCommon {
         common: {
           name: "QuickSessionHistMaxCellVolt",
           type: "number",
-          role: "value",
+          role: "value.voltage",
           read: true,
           write: false,
           unit: "V"
@@ -134,7 +134,7 @@ class Parser_6831_QuickSessionHist extends import_parser_common.ParserCommon {
         common: {
           name: "QuickSessionHistAvgCellVolt",
           type: "number",
-          role: "value",
+          role: "value.voltage",
           read: true,
           write: false,
           unit: "V"
@@ -146,7 +146,7 @@ class Parser_6831_QuickSessionHist extends import_parser_common.ParserCommon {
         common: {
           name: "QuickSessionHistAvgCellTemp",
           type: "number",
-          role: "value",
+          role: "value.temperature",
           read: true,
           write: false,
           unit: "\xB0C"
@@ -158,7 +158,7 @@ class Parser_6831_QuickSessionHist extends import_parser_common.ParserCommon {
         common: {
           name: "QuickSessionHistSocHiRes",
           type: "number",
-          role: "value",
+          role: "value.battery",
           read: true,
           write: false,
           unit: "%"
@@ -170,7 +170,7 @@ class Parser_6831_QuickSessionHist extends import_parser_common.ParserCommon {
         common: {
           name: "QuickSessionHistShuntVolt",
           type: "number",
-          role: "value",
+          role: "value.voltage",
           read: true,
           write: false,
           unit: "V"
@@ -182,7 +182,7 @@ class Parser_6831_QuickSessionHist extends import_parser_common.ParserCommon {
         common: {
           name: "QuickSessionHistShuntAmp",
           type: "number",
-          role: "value",
+          role: "value.current",
           read: true,
           write: false,
           unit: "A"
