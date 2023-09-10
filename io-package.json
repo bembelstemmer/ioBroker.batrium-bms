@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "batrium-bms",
-    "version": "0.4.0",
+    "version": "0.5.0",
     "news": {
+      "0.5.0": {
+        "en": "Various Package Upgrades (inc. Update to ioBroker Adapter lib v3)\nAdding of Tests for Node Version 20.x\nFixed marking of properties writeable even if they're not\nFixed wrong Naming of Object 5732.ShuntStatus\nReworked Object Roles to better match their meaning (where meaning was known)",
+        "de": "Verschiedene Paket-Upgrades (inc. Update auf ioBroker Adapter lib v3)\nHinzufügen von Tests für Node Version 20.x\nFeste Markierung von Eigenschaften, die schreibbar sind, auch wenn sie nicht\nFalsche Benennung von Objekt 5732. Das ist nicht so\nReworked Object Roles, um ihre Bedeutung besser zu erreichen (wo Bedeutung bekannt war)",
+        "ru": "Различные пакетные обновления (вкл. обновление для ioBroker адаптер lib v3)\nДобавление тестов для версии Node 20.x\nФиксированная маркировка свойств пишем, даже если они не\nИсправлена неправильная навязка объекта 5732. ШунтСтатус\nПереработанные роли объекта, чтобы лучше соответствовать их смыслу (где смысл был известен)",
+        "pt": "Várias atualizações de pacotes (inc. Atualização para ioBroker Adapter lib v3)\nAdicionando de testes para o nó versão 20.x\nMarcação fixa de propriedades escrutáveis mesmo que não sejam\nNomeação errada do objeto 5732. ShuntStatus\nFunções de Objetos Retrabalhados para melhor corresponder ao seu significado (onde o significado era conhecido)",
+        "nl": "Vertaling:\nVersie 20\nVertaling:\nVergissing van Object 5732. ShuntStatus\nHerwerkt Object Roles om beter overeen te komen met hun betekenis",
+        "fr": "Diverses mises à niveau de paquet (inc. Mise à jour de ioBroker Adapter lib v3)\nAjout d'essais pour Node Version 20.x\nSignalisation fixe des propriétés écritureables même si elles ne sont pas\nDésignation incorrecte de l'objet 5732. ShuntStatus\nRôles des objets retravaillés pour mieux correspondre à leur signification (où le sens était connu)",
+        "it": "Vari aggiornamenti del pacchetto (inc. Aggiornamento a ioBroker Adapter lib v3)\nAggiunta di Test per Node Versione 20.x\nMarcatura fissa delle proprietà scrivibili anche se non sono\nRisolto sbagliato Nome dell'oggetto 5732. Suggerimento\nReworked Object Roles per meglio corrispondere al loro significato (dove il significato era noto)",
+        "es": "Diversas actualizaciones de paquetes (inc. Update to ioBroker Adapter lib v3)\nAñadiendo pruebas para la versión 20x del nodo\nMarcado fijo de propiedades escribibles incluso si no\nNombramiento del objeto 5732. ShuntStatus\nReworked Object Roles para ajustar mejor su significado (donde se conoció el significado)",
+        "pl": "Various Package Upgrade (ang.). \nAddings for Node Version 20.xx (ang.)\nZnaczenie własności pisemnych, nawet jeśli nie są\nNazywanie obiektów 5732. ShuntStat\nZrehabilitowany Object Roles w celu lepszego dopasowania ich znaczenia (gdzie znano znaczenie)",
+        "uk": "Різні оновлення пакета (в т.ч. оновлення до адаптера ioBroker lib v3)\nДодавання тестів для Node версії 20.x\nФіксований розмітка властивостей, що записуються, навіть якщо вони не\nВиправлено неправильне Naming об'єкта 5732. Кошик\nЗроблено роль об'єкта, щоб краще відповідати їх значенням (де відомо)",
+        "zh-cn": "各类包装等级(最新升至OioBroker Adapter lib v3)\n添加关于Node Version 20x的试验。\n固定财产标记即使没有证明。\n第5732条的错误名称。 圣诞节\nB. 调整目标的作用以更好地配合其含义(在已知的含义范围内)"
+      },
       "0.4.0": {
         "en": "Added Message Type 4232 (Cell Status Full)",
         "de": "Nachrichtentyp 4232 (Cell Status Full)",
@@ -80,19 +93,6 @@
         "pl": "Initial Test Release (ang.)",
         "uk": "Початковий тест реліз",
         "zh-cn": "初始试验释放"
-      },
-      "0.0.1": {
-        "en": "initial release",
-        "de": "Erstveröffentlichung",
-        "ru": "Начальная версия",
-        "pt": "lançamento inicial",
-        "nl": "Eerste uitgave",
-        "fr": "Première version",
-        "it": "Versione iniziale",
-        "es": "Versión inicial",
-        "pl": "Pierwsze wydanie",
-        "zh-cn": "首次出版",
-        "uk": "початковий випуск"
       }
     },
     "title": "Batrium BMS",
