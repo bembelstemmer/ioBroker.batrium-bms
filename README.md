@@ -30,6 +30,7 @@ Message Support is still limited and will be increased in further versions.
 ### **WORK IN PROGRESS**
 * Drop Support for Node v16
 * Various Package Upgrades
+* Increased min js-controller version to 5.0.19
 
 ### 0.5.0 (2023-09-10)
 * Various Package Upgrades (inc. Update to ioBroker Adapter lib v3)
