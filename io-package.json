@@ -128,7 +128,10 @@
       "batrium",
       "bms"
     ],
-    "license": "MIT",
+    "licenseInformation": {
+      "license": "MIT",
+      "type": "free"
+    },
     "platform": "Javascript/Node.js",
     "icon": "batrium-bms.png",
     "enabled": true,
