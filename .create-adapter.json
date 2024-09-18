@@ -19,7 +19,7 @@
     "dataSource": "push",
     "connectionIndicator": "yes",
     "language": "TypeScript",
-    "nodeVersion": "16",
+    "nodeVersion": "18",
     "adminUi": "json",
     "tools": [
         "ESLint"
