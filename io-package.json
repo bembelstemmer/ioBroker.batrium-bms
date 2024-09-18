@@ -95,7 +95,6 @@
         "zh-cn": "初始试验释放"
       }
     },
-    "title": "Batrium BMS",
     "titleLang": {
       "en": "Batrium BMS",
       "de": "Batrium-BMS",
@@ -131,7 +130,6 @@
     ],
     "license": "MIT",
     "platform": "Javascript/Node.js",
-    "main": "build/main.js",
     "icon": "batrium-bms.png",
     "enabled": true,
     "extIcon": "https://raw.githubusercontent.com/bembelstemmer/ioBroker.batrium-bms/main/admin/batrium-bms.png",
@@ -142,12 +140,13 @@
     "compact": true,
     "connectionType": "local",
     "dataSource": "push",
+    "tier": 2,
     "adminUI": {
       "config": "json"
     },
     "dependencies": [
       {
-        "js-controller": ">=3.3.22"
+        "js-controller": ">=5.0.19"
       }
     ],
     "globalDependencies": [

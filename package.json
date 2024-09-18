@@ -10,7 +10,8 @@
   "license": "MIT",
   "keywords": [
     "batrium",
-    "bms"
+    "bms",
+    "ioBroker"
   ],
   "repository": {
     "type": "git",
