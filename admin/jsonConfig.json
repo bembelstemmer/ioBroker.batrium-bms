@@ -28,13 +28,13 @@
             "label": "tabname messages",
             "items": {
                 "messagestab_infotextelement": {
-                    "type": "statictext",
+                    "type": "staticText",
                     "label": "messagestab infotext"
                 },
                 "3233_label": {
                     "type": "header",
                     "text": "3233 - Live Display",
-                    "size": "4"
+                    "size": 4
                 },
                 "3233_active": {
                     "type": "checkbox",
@@ -53,13 +53,13 @@
                 },
                 "3233_infotext": {
                     "newLine": false,
-                    "type": "statictext",
+                    "type": "staticText",
                     "label": "info 2s frequency"
                 },
                 "415a_label": {
                     "type": "header",
                     "text": "415a - Cell Node Status (Small)",
-                    "size": "4"
+                    "size": 4
                 },
                 "415a_active": {
                     "type": "checkbox",
@@ -78,13 +78,13 @@
                 },
                 "415a_infotext": {
                     "newLine": false,
-                    "type": "statictext",
+                    "type": "staticText",
                     "label": "info 300ms frequency"
                 },
                 "4232_label": {
                     "type": "header",
                     "text": "4232 - Cell Node Status (Full)",
-                    "size": "4"
+                    "size": 4
                 },
                 "4232_active": {
                     "type": "checkbox",
@@ -103,13 +103,13 @@
                 },
                 "4232_infotext": {
                     "newLine": false,
-                    "type": "statictext",
+                    "type": "staticText",
                     "label": "info 300ms frequency"
                 },
                 "5732_label": {
                     "type": "header",
                     "text": "5732 - System Discovery",
-                    "size": "4"
+                    "size": 4
                 },
                 "5732_active": {
                     "type": "checkbox",
@@ -128,13 +128,13 @@
                 },
                 "5732_infotext": {
                     "newLine": false,
-                    "type": "statictext",
+                    "type": "staticText",
                     "label": "info 2s frequency"
                 },
                 "6831_label": {
                     "type": "header",
                     "text": "6831 - QuickSessionHistory",
-                    "size": "4"
+                    "size": 4
                 },
                 "6831_active": {
                     "type": "checkbox",
@@ -153,7 +153,7 @@
                 },
                 "6831_infotext": {
                     "newLine": false,
-                    "type": "statictext",
+                    "type": "staticText",
                     "label": "info undef frequency"
                 }
             }
