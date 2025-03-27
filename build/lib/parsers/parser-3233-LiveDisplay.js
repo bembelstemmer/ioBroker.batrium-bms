@@ -24,6 +24,7 @@ module.exports = __toCommonJS(parser_3233_LiveDisplay_exports);
 var import_binary_parser = require("binary-parser");
 var import_parser_common = require("./parser-common");
 class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
+  parser;
   constructor(adapter) {
     super(adapter);
     this.adapter = adapter;

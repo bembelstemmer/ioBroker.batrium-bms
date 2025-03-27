@@ -28,9 +28,12 @@ var import_parser_6831_QuickSessionHist = require("./parser-6831-QuickSessionHis
 var import_parser_415a_CellNodeStatus = require("./parser-415a-CellNodeStatus");
 var import_parser_4232_CellNodeFull = require("./parser-4232-CellNodeFull");
 class ParserFacade {
+  parserMap;
+  adapter;
+  parserBaseData;
+  knownSystems = [];
+  knownSystemMessages = [];
   constructor(adapter) {
-    this.knownSystems = [];
-    this.knownSystemMessages = [];
     this.adapter = adapter;
     this.parserBaseData = new import_parser_base_data.ParserBaseData();
     this.parserMap = /* @__PURE__ */ new Map();

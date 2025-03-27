@@ -23,6 +23,7 @@ __export(parser_base_data_exports, {
 module.exports = __toCommonJS(parser_base_data_exports);
 var import_binary_parser = require("binary-parser");
 class ParserBaseData {
+  parser;
   constructor() {
     this.parser = new import_binary_parser.Parser().string("first", { encoding: "utf8", length: 1 }).int16le("MessageId", { formatter: (x) => {
       return x.toString(16);

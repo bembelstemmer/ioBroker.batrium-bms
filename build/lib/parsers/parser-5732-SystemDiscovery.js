@@ -24,6 +24,7 @@ module.exports = __toCommonJS(parser_5732_SystemDiscovery_exports);
 var import_binary_parser = require("binary-parser");
 var import_parser_common = require("./parser-common");
 class Parser_5732_SystemDiscovery extends import_parser_common.ParserCommon {
+  parser;
   constructor(adapter) {
     super(adapter);
     this.adapter = adapter;

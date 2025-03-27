@@ -14,6 +14,10 @@ var __copyProps = (to, from, except, desc) => {
   return to;
 };
 var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
   isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
   mod
 ));
@@ -21,6 +25,8 @@ var utils = __toESM(require("@iobroker/adapter-core"));
 var import_node_dgram = __toESM(require("node:dgram"));
 var import_parser_facade = require("./lib/parsers/parser-facade");
 class BatriumBms extends utils.Adapter {
+  server;
+  parserFacade;
   constructor(options = {}) {
     super({
       ...options,

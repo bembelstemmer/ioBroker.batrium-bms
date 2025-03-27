@@ -24,9 +24,10 @@ module.exports = __toCommonJS(parser_4232_CellNodeFull_exports);
 var import_binary_parser = require("binary-parser");
 var import_parser_common = require("./parser-common");
 class Parser_4232_CellNodeFull extends import_parser_common.ParserCommon {
+  parser;
+  initializedCellNodes = [];
   constructor(adapter) {
     super(adapter);
-    this.initializedCellNodes = [];
     this.adapter = adapter;
     this.messageId = "4232";
     this.messageName = "Cell Node Full";

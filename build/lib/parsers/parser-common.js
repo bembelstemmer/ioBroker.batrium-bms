@@ -22,10 +22,11 @@ __export(parser_common_exports, {
 });
 module.exports = __toCommonJS(parser_common_exports);
 class ParserCommon {
+  adapter;
+  messageId = "0";
+  messageName = "unknown";
+  ratelimitTimeout = void 0;
   constructor(adapter) {
-    this.messageId = "0";
-    this.messageName = "unknown";
-    this.ratelimitTimeout = void 0;
     this.adapter = adapter;
   }
   getVariableName(systemId, varname) {

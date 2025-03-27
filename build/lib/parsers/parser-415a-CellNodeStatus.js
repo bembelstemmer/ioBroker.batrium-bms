@@ -24,9 +24,11 @@ module.exports = __toCommonJS(parser_415a_CellNodeStatus_exports);
 var import_binary_parser = require("binary-parser");
 var import_parser_common = require("./parser-common");
 class Parser_415a_CellNodeStatus extends import_parser_common.ParserCommon {
+  parser;
+  subParser;
+  initializedCellNodes = [];
   constructor(adapter) {
     super(adapter);
-    this.initializedCellNodes = [];
     this.adapter = adapter;
     this.messageId = "415a";
     this.messageName = "Cell Node Status Limited";
