@@ -16,7 +16,7 @@
                     "default": "0.0.0.0",
                     "listenOnAllPorts": true,
                     "onlyIp4": true,
-                    "xs": 9,
+                    "xs": 12,
                     "sm": 6,
                     "md": 4,
                     "lg": 3,
@@ -28,7 +28,7 @@
                     "newLine": false,
                     "default": "18542",
                     "tooltip": "warning do not change",
-                    "xs": 3,
+                    "xs": 12,
                     "sm": 2,
                     "md": 1,
                     "lg": 1,
@@ -42,7 +42,12 @@
             "items": {
                 "messagestab_infotextelement": {
                     "type": "staticText",
-                    "label": "messagestab infotext"
+                    "label": "messagestab infotext",
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 12,
+                    "lg": 12,
+                    "xl": 12
                 },
                 "3233_label": {
                     "type": "header",
