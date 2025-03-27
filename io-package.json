@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "batrium-bms",
-    "version": "0.5.0",
+    "version": "0.6.0",
     "news": {
+      "0.6.0": {
+        "en": "Drop Support for Node v16\nVarious Package Upgrades\nIncreased min js-controller version to 5.0.19\nIncreased min Admin version to 7.4.10",
+        "de": "Drop Support für Node v16\nVerschiedene Paket-Upgrades\nErhöhte min js-Controller-Version auf 5.0.19\nErhöhte min Admin-Version auf 7.4.10",
+        "ru": "Обсуждение Node v16\nРазличные обновления пакетов\nУвеличенная версия JS-контроллера до 5.0.19\nУвеличенная версия администратора до 7.4.10",
+        "pt": "Suporte de gota para Node v16\nVários upgrades de pacotes\nAumento da versão min js-controller para 5.0.19\nAumento da versão min Admin para 7.4.10",
+        "nl": "Ondersteuning voor knooppunt v16 neerzetten\nDiverse pakketupgrades\nVerhoogde min js-controller versie naar 5.0.19\nVerhoogde min Admin versie tot 7.4.10",
+        "fr": "Drop Support pour Node v16\nDifférentes mises à jour de paquets\nAugmentation de la version js-controller min à 5.0.19\nAugmenté min Version Admin à 7.4.10",
+        "it": "Supporto per Node v16\nVari aggiornamenti del pacchetto\nAumento della versione min js-controller a 5.0.19\nAumentata versione min Admin a 7.4.10",
+        "es": "Soporte de gota para Nodo v16\nDiversas actualizaciones de paquetes\nMayor versión js-controller a 5.0.19\nMayor versión min Admin a 7.4.10",
+        "pl": "Wsparcie dla węzła v16\nRóżne aktualizacje pakietów\nZwiększona wersja kontrolera min do 5.0.19\nZwiększona wersja min Admin do 7.4.10",
+        "uk": "Підтримка Drop для Node v16\nРізні оновлення пакета\nПідвищена версія js-controller до 5.0.19\nПідвищена версія адміністратора до 7.4.10",
+        "zh-cn": "放弃对节点 v16 的支持\n各种软件包升级\n分钟控制器版本增加到5.0.19\n分钟管理版本增加到7.4.10"
+      },
       "0.5.0": {
         "en": "Various Package Upgrades (inc. Update to ioBroker Adapter lib v3)\nAdding of Tests for Node Version 20.x\nFixed marking of properties writeable even if they're not\nFixed wrong Naming of Object 5732.ShuntStatus\nReworked Object Roles to better match their meaning (where meaning was known)",
         "de": "Verschiedene Paket-Upgrades (inc. Update auf ioBroker Adapter lib v3)\nHinzufügen von Tests für Node Version 20.x\nFeste Markierung von Eigenschaften, die schreibbar sind, auch wenn sie nicht\nFalsche Benennung von Objekt 5732. Das ist nicht so\nReworked Object Roles, um ihre Bedeutung besser zu erreichen (wo Bedeutung bekannt war)",
@@ -80,19 +93,6 @@
         "pl": "Oficjalna strona Parsera\nZakończył budowę Message Type 5732\nZakończony Message Typ 3233",
         "uk": "Оптимізована структура парсера\nЗавершено тип повідомлення 5732\nЗавершено тип повідомлення 3233",
         "zh-cn": "A. 振兴方案\nFinied Messageile 5732\nFinied Message 3.233"
-      },
-      "0.0.2": {
-        "en": "Initial Test Release",
-        "de": "Erstausstrahlung",
-        "ru": "Первоначальный выпуск теста",
-        "pt": "Versão inicial do teste",
-        "nl": "Initiële Test Releases",
-        "fr": "Version initiale des essais",
-        "it": "Avvio di prova iniziale",
-        "es": "Lanzamiento de prueba inicial",
-        "pl": "Initial Test Release (ang.)",
-        "uk": "Початковий тест реліз",
-        "zh-cn": "初始试验释放"
       }
     },
     "titleLang": {
