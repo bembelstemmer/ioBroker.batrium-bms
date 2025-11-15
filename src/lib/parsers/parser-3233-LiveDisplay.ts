@@ -1,7 +1,7 @@
-import * as utils from "@iobroker/adapter-core";
+import type * as utils from "@iobroker/adapter-core";
 import { Parser } from "binary-parser";
 import { ParserCommon } from "./parser-common";
-import { ParserInterface } from "./parserinterface";
+import type { ParserInterface } from "./parserinterface";
 
 interface Message_3233_LiveDisplay {
     SystemOpStatus: number;
@@ -42,7 +42,6 @@ interface Message_3233_LiveDisplay {
 }
 
 export class Parser_3233_LiveDisplay extends ParserCommon implements ParserInterface {
-
     private parser: Parser;
 
     public constructor(adapter: utils.AdapterInstance) {
@@ -75,41 +74,93 @@ export class Parser_3233_LiveDisplay extends ParserCommon implements ParserInter
                     Default     = 0,
                     Technician  = 1,
                     Factory     = 2, */
-            .bit1("CriticalBatOkState")         // boolean index 10 - bit0
-            .bit1("CriticalIsTransition")       // boolean index 10 - bit1
-            .bit1("CriticalIsPrecharge")        // boolean index 10 - bit2
-            .bit1("HeatOnState")                // boolean index 10 - bit3
-            .bit1("CoolOnState")                // boolean index 10 - bit4
+            .bit1("CriticalBatOkState") // boolean index 10 - bit0
+            .bit1("CriticalIsTransition") // boolean index 10 - bit1
+            .bit1("CriticalIsPrecharge") // boolean index 10 - bit2
+            .bit1("HeatOnState") // boolean index 10 - bit3
+            .bit1("CoolOnState") // boolean index 10 - bit4
             .bit3("reserved1")
-            .bit1("ChargeOnState")              // boolean index 11 - bit0
-            .bit1("ChargeIsLimPower")           // boolean index 11 - bit1
-            .bit1("DischgOnState")              // boolean index 11 - bit2
-            .bit1("DischgIsLimPower")           // boolean index 11 - bit3
-            .bit1("ChargeInBypass")             // boolean index 11 - bit4
-            .bit1("ChargeHasBypassTempRelief")  // boolean index 11 - bit5
+            .bit1("ChargeOnState") // boolean index 11 - bit0
+            .bit1("ChargeIsLimPower") // boolean index 11 - bit1
+            .bit1("DischgOnState") // boolean index 11 - bit2
+            .bit1("DischgIsLimPower") // boolean index 11 - bit3
+            .bit1("ChargeInBypass") // boolean index 11 - bit4
+            .bit1("ChargeHasBypassTempRelief") // boolean index 11 - bit5
             .bit2("reserved2")
-            .int16le("MinCellVolt",     { formatter: (x) => {return x/1000;}})   // index 12 - voltage
-            .int16le("MaxCellVolt",     { formatter: (x) => {return x/1000;}})   // index 14 - voltage
-            .int16le("AvgCellVolt",     { formatter: (x) => {return x/1000;}})   // index 16 - voltage
-            .uint8("MinCellTemp",       { formatter: (x) => {return x-40;}})     // index 18 - temperature ºC
-            .uint8("MaxCellTemp",       { formatter: (x) => {return x-40;}})     // index 19 - temperature ºC
-            .uint8("AvgCellTemp",       { formatter: (x) => {return x-40;}})     // index 20 - temperature ºC
+            .int16le("MinCellVolt", {
+                formatter: x => {
+                    return x / 1000;
+                },
+            }) // index 12 - voltage
+            .int16le("MaxCellVolt", {
+                formatter: x => {
+                    return x / 1000;
+                },
+            }) // index 14 - voltage
+            .int16le("AvgCellVolt", {
+                formatter: x => {
+                    return x / 1000;
+                },
+            }) // index 16 - voltage
+            .uint8("MinCellTemp", {
+                formatter: x => {
+                    return x - 40;
+                },
+            }) // index 18 - temperature ºC
+            .uint8("MaxCellTemp", {
+                formatter: x => {
+                    return x - 40;
+                },
+            }) // index 19 - temperature ºC
+            .uint8("AvgCellTemp", {
+                formatter: x => {
+                    return x - 40;
+                },
+            }) // index 20 - temperature ºC
             .uint8("NumOfCellsInBypass")
-            .int16le("ShuntVoltage",    { formatter: (x) => {return x/100;}})
-            .floatle("ShuntCurrent",    { formatter: (x) => {return x/1000;}})
-            .floatle("ShuntPowerVA",    { formatter: (x) => {return x/1000;}}) // kW
-            .int16le("ShuntSOC",        { formatter: (x) => {return x/100;}})  // percent hires 2 dec.pt
-            .floatle("NomCapacityToEmpty",  { formatter: (x) => {return x/1000;}}) // Ah
-            .floatle("ShuntCumulkWhCharge", { formatter: (x) => {return x/1000;}}) // kWh
-            .floatle("ShuntCumulkWhDischg", { formatter: (x) => {return x/1000;}}) // kWh
+            .int16le("ShuntVoltage", {
+                formatter: x => {
+                    return x / 100;
+                },
+            })
+            .floatle("ShuntCurrent", {
+                formatter: x => {
+                    return x / 1000;
+                },
+            })
+            .floatle("ShuntPowerVA", {
+                formatter: x => {
+                    return x / 1000;
+                },
+            }) // kW
+            .int16le("ShuntSOC", {
+                formatter: x => {
+                    return x / 100;
+                },
+            }) // percent hires 2 dec.pt
+            .floatle("NomCapacityToEmpty", {
+                formatter: x => {
+                    return x / 1000;
+                },
+            }) // Ah
+            .floatle("ShuntCumulkWhCharge", {
+                formatter: x => {
+                    return x / 1000;
+                },
+            }) // kWh
+            .floatle("ShuntCumulkWhDischg", {
+                formatter: x => {
+                    return x / 1000;
+                },
+            }) // kWh
             .uint8("CriticalEvents")
-            .int32le("SystemTime")      // index 47 - Epoch
-            .uint8("GlobalSetupVers")   // index 51
+            .int32le("SystemTime") // index 47 - Epoch
+            .uint8("GlobalSetupVers") // index 51
             .uint8("LifetimeSetupVers") // index 52
-            .uint8("DiffBypassTicks")   // index 53
-            .uint8("DiffTempTicks")     // index 54
-            .uint8("DiffVoltTicks")     // index 55
-            .uint8("DiffLogicTicks");    // index 56
+            .uint8("DiffBypassTicks") // index 53
+            .uint8("DiffTempTicks") // index 54
+            .uint8("DiffVoltTicks") // index 55
+            .uint8("DiffLogicTicks"); // index 56
     }
 
     public async initObjects(systemId: number): Promise<void> {
@@ -123,18 +174,18 @@ export class Parser_3233_LiveDisplay extends ParserCommon implements ParserInter
                     read: true,
                     write: false,
                     states: {
-                        "0": "Simulator",
-                        "1": "Idle",
-                        "2": "Discharging",
-                        "3": "SoC Empty",
-                        "4": "Charging",
-                        "5": "Full",
-                        "6": "Timeout",
-                        "7": "Critical Pending",
-                        "8": "Critical Offline",
-                        "9": "Mqtt Offline",
-                        "10": "Auth Setup",
-                        "11": "Shunt Timeout",
+                        0: "Simulator",
+                        1: "Idle",
+                        2: "Discharging",
+                        3: "SoC Empty",
+                        4: "Charging",
+                        5: "Full",
+                        6: "Timeout",
+                        7: "Critical Pending",
+                        8: "Critical Offline",
+                        9: "Mqtt Offline",
+                        10: "Auth Setup",
+                        11: "Shunt Timeout",
                     },
                 },
                 native: {},
@@ -148,9 +199,9 @@ export class Parser_3233_LiveDisplay extends ParserCommon implements ParserInter
                     read: true,
                     write: false,
                     states: {
-                        "0": "Default",
-                        "1": "Technician",
-                        "2": "Factory",
+                        0: "Default",
+                        1: "Technician",
+                        2: "Factory",
                     },
                 },
                 native: {},
@@ -164,8 +215,8 @@ export class Parser_3233_LiveDisplay extends ParserCommon implements ParserInter
                     read: true,
                     write: false,
                     states: {
-                        "0": "No",
-                        "1": "Yes",
+                        0: "No",
+                        1: "Yes",
                     },
                 },
                 native: {},
@@ -179,8 +230,8 @@ export class Parser_3233_LiveDisplay extends ParserCommon implements ParserInter
                     read: true,
                     write: false,
                     states: {
-                        "0": "No",
-                        "1": "Yes",
+                        0: "No",
+                        1: "Yes",
                     },
                 },
                 native: {},
@@ -194,8 +245,8 @@ export class Parser_3233_LiveDisplay extends ParserCommon implements ParserInter
                     read: true,
                     write: false,
                     states: {
-                        "0": "No",
-                        "1": "Yes",
+                        0: "No",
+                        1: "Yes",
                     },
                 },
                 native: {},
@@ -209,8 +260,8 @@ export class Parser_3233_LiveDisplay extends ParserCommon implements ParserInter
                     read: true,
                     write: false,
                     states: {
-                        "0": "No",
-                        "1": "Yes",
+                        0: "No",
+                        1: "Yes",
                     },
                 },
                 native: {},
@@ -224,8 +275,8 @@ export class Parser_3233_LiveDisplay extends ParserCommon implements ParserInter
                     read: true,
                     write: false,
                     states: {
-                        "0": "No",
-                        "1": "Yes",
+                        0: "No",
+                        1: "Yes",
                     },
                 },
                 native: {},
@@ -239,8 +290,8 @@ export class Parser_3233_LiveDisplay extends ParserCommon implements ParserInter
                     read: true,
                     write: false,
                     states: {
-                        "0": "No",
-                        "1": "Yes",
+                        0: "No",
+                        1: "Yes",
                     },
                 },
                 native: {},
@@ -254,8 +305,8 @@ export class Parser_3233_LiveDisplay extends ParserCommon implements ParserInter
                     read: true,
                     write: false,
                     states: {
-                        "0": "No",
-                        "1": "Yes",
+                        0: "No",
+                        1: "Yes",
                     },
                 },
                 native: {},
@@ -269,8 +320,8 @@ export class Parser_3233_LiveDisplay extends ParserCommon implements ParserInter
                     read: true,
                     write: false,
                     states: {
-                        "0": "No",
-                        "1": "Yes",
+                        0: "No",
+                        1: "Yes",
                     },
                 },
                 native: {},
@@ -284,8 +335,8 @@ export class Parser_3233_LiveDisplay extends ParserCommon implements ParserInter
                     read: true,
                     write: false,
                     states: {
-                        "0": "No",
-                        "1": "Yes",
+                        0: "No",
+                        1: "Yes",
                     },
                 },
                 native: {},
@@ -299,8 +350,8 @@ export class Parser_3233_LiveDisplay extends ParserCommon implements ParserInter
                     read: true,
                     write: false,
                     states: {
-                        "0": "No",
-                        "1": "Yes",
+                        0: "No",
+                        1: "Yes",
                     },
                 },
                 native: {},
@@ -314,8 +365,8 @@ export class Parser_3233_LiveDisplay extends ParserCommon implements ParserInter
                     read: true,
                     write: false,
                     states: {
-                        "0": "No",
-                        "1": "Yes",
+                        0: "No",
+                        1: "Yes",
                     },
                 },
                 native: {},
@@ -578,48 +629,156 @@ export class Parser_3233_LiveDisplay extends ParserCommon implements ParserInter
         ]);
     }
 
-    public async handleMessage(systemId: number, msg: Buffer): Promise<void> {
-        if(!this.adapter.config["3233_active"] || this.ratelimitTimeout) {
+    public handleMessage(systemId: number, msg: Buffer): void {
+        if (!this.adapter.config["3233_active"] || this.ratelimitTimeout) {
             return;
         }
         this.ratelimitTimeout = this.adapter.setTimeout(() => {
             this.ratelimitTimeout = undefined;
         }, this.adapter.config["3233_ratelimit"]);
         const result: Message_3233_LiveDisplay = this.parser.parse(msg);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "SystemOpStatus"), result.SystemOpStatus, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "SystemAuthMode"), result.SystemAuthMode, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "CriticalBatOkState"), Boolean(result.CriticalBatOkState), true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "CriticalIsTransition"), Boolean(result.CriticalIsTransition), true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "CriticalIsPrecharge"), Boolean(result.CriticalIsPrecharge), true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "HeatOnState"), Boolean(result.HeatOnState), true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "CoolOnState"), Boolean(result.CoolOnState), true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "ChargeOnState"), Boolean(result.ChargeOnState), true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "ChargeIsLimPower"), Boolean(result.ChargeIsLimPower), true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "DischgOnState"), Boolean(result.DischgOnState), true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "DischgIsLimPower"), Boolean(result.DischgIsLimPower), true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "ChargeInBypass"), Boolean(result.ChargeInBypass), true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "ChargeHasBypassTempRelief"), Boolean(result.ChargeHasBypassTempRelief), true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "MinCellVolt"), result.MinCellVolt, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "MaxCellVolt"), result.MaxCellVolt, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "AvgCellVolt"), result.AvgCellVolt, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "MinCellTemp"), result.MinCellTemp, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "MaxCellTemp"), result.MaxCellTemp, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "AvgCellTemp"), result.AvgCellTemp, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "NumOfCellsInBypass"), result.NumOfCellsInBypass, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "ShuntVoltage"), result.ShuntVoltage, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "ShuntCurrent"), result.ShuntCurrent, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "ShuntPowerVA"), result.ShuntPowerVA, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "ShuntSOC"), result.ShuntSOC, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "NomCapacityToEmpty"), result.NomCapacityToEmpty, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "ShuntCumulkWhCharge"), result.ShuntCumulkWhCharge, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "ShuntCumulkWhDischg"), result.ShuntCumulkWhDischg, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "CriticalEvents"), result.CriticalEvents, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "SystemTime"), result.SystemTime, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "GlobalSetupVers"), result.GlobalSetupVers, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "LifetimeSetupVers"), result.LifetimeSetupVers, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "DiffBypassTicks"), result.DiffBypassTicks, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "DiffTempTicks"), result.DiffTempTicks, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "DiffVoltTicks"), result.DiffVoltTicks, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "DiffLogicTicks"), result.DiffLogicTicks, true);
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "SystemOpStatus"),
+            result.SystemOpStatus,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "SystemAuthMode"),
+            result.SystemAuthMode,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "CriticalBatOkState"),
+            Boolean(result.CriticalBatOkState),
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "CriticalIsTransition"),
+            Boolean(result.CriticalIsTransition),
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "CriticalIsPrecharge"),
+            Boolean(result.CriticalIsPrecharge),
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "HeatOnState"),
+            Boolean(result.HeatOnState),
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "CoolOnState"),
+            Boolean(result.CoolOnState),
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "ChargeOnState"),
+            Boolean(result.ChargeOnState),
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "ChargeIsLimPower"),
+            Boolean(result.ChargeIsLimPower),
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "DischgOnState"),
+            Boolean(result.DischgOnState),
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "DischgIsLimPower"),
+            Boolean(result.DischgIsLimPower),
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "ChargeInBypass"),
+            Boolean(result.ChargeInBypass),
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "ChargeHasBypassTempRelief"),
+            Boolean(result.ChargeHasBypassTempRelief),
+            true,
+        );
+        void this.adapter.setStateChangedAsync(this.getVariableName(systemId, "MinCellVolt"), result.MinCellVolt, true);
+        void this.adapter.setStateChangedAsync(this.getVariableName(systemId, "MaxCellVolt"), result.MaxCellVolt, true);
+        void this.adapter.setStateChangedAsync(this.getVariableName(systemId, "AvgCellVolt"), result.AvgCellVolt, true);
+        void this.adapter.setStateChangedAsync(this.getVariableName(systemId, "MinCellTemp"), result.MinCellTemp, true);
+        void this.adapter.setStateChangedAsync(this.getVariableName(systemId, "MaxCellTemp"), result.MaxCellTemp, true);
+        void this.adapter.setStateChangedAsync(this.getVariableName(systemId, "AvgCellTemp"), result.AvgCellTemp, true);
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "NumOfCellsInBypass"),
+            result.NumOfCellsInBypass,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "ShuntVoltage"),
+            result.ShuntVoltage,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "ShuntCurrent"),
+            result.ShuntCurrent,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "ShuntPowerVA"),
+            result.ShuntPowerVA,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(this.getVariableName(systemId, "ShuntSOC"), result.ShuntSOC, true);
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "NomCapacityToEmpty"),
+            result.NomCapacityToEmpty,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "ShuntCumulkWhCharge"),
+            result.ShuntCumulkWhCharge,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "ShuntCumulkWhDischg"),
+            result.ShuntCumulkWhDischg,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "CriticalEvents"),
+            result.CriticalEvents,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(this.getVariableName(systemId, "SystemTime"), result.SystemTime, true);
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "GlobalSetupVers"),
+            result.GlobalSetupVers,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "LifetimeSetupVers"),
+            result.LifetimeSetupVers,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "DiffBypassTicks"),
+            result.DiffBypassTicks,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "DiffTempTicks"),
+            result.DiffTempTicks,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "DiffVoltTicks"),
+            result.DiffVoltTicks,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "DiffLogicTicks"),
+            result.DiffLogicTicks,
+            true,
+        );
     }
 }

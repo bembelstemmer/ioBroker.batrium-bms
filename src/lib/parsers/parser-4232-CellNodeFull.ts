@@ -1,7 +1,7 @@
-import * as utils from "@iobroker/adapter-core";
+import type * as utils from "@iobroker/adapter-core";
 import { Parser } from "binary-parser";
 import { ParserCommon } from "./parser-common";
-import { ParserInterface } from "./parserinterface";
+import type { ParserInterface } from "./parserinterface";
 
 interface Message_4232_CellNodeFull {
     ID: number;
@@ -32,7 +32,6 @@ interface Message_4232_CellNodeFull {
 }
 
 export class Parser_4232_CellNodeFull extends ParserCommon implements ParserInterface {
-
     private parser: Parser;
     private initializedCellNodes: Array<number> = [];
 
@@ -53,11 +52,31 @@ export class Parser_4232_CellNodeFull extends ParserCommon implements ParserInte
             .skip(8)
             .uint8("ID")
             .uint8("USN")
-            .int16le("MinCellVolt",			{ formatter: (x) => {return x/1000;}})
-            .int16le("MaxCellVolt",			{ formatter: (x) => {return x/1000;}})
-            .uint8("MinCellTemp",			{ formatter: (x) => {return x-40;}}) // temperature ºC
-            .uint8("BypassTemp",			{ formatter: (x) => {return x-40;}}) // temperature ºC
-            .int16le("BypassAmp", 			{ formatter: (x) => {return x/1000;}})
+            .int16le("MinCellVolt", {
+                formatter: x => {
+                    return x / 1000;
+                },
+            })
+            .int16le("MaxCellVolt", {
+                formatter: x => {
+                    return x / 1000;
+                },
+            })
+            .uint8("MinCellTemp", {
+                formatter: x => {
+                    return x - 40;
+                },
+            }) // temperature ºC
+            .uint8("BypassTemp", {
+                formatter: x => {
+                    return x - 40;
+                },
+            }) // temperature ºC
+            .int16le("BypassAmp", {
+                formatter: x => {
+                    return x / 1000;
+                },
+            })
             .uint8("DataErrorCounter")
             .uint8("ResetCounter")
             .uint8("Status") /* Choices NodeStatuses
@@ -74,24 +93,52 @@ export class Parser_4232_CellNodeFull extends ParserCommon implements ParserInte
                     MissingSetup = 10,
                     NoConfig = 11,
                     CellOutLimits = 12, */
-            .uint8("IsOverdue")				// boolean 0 = Off , 1 = On
-            .int16le("LoCellVoltAlert",		{ formatter: (x) => {return x/1000;}})
-            .int16le("HiCellVoltAlert",		{ formatter: (x) => {return x/1000;}})
-            .int16le("BypassVoltLevel",		{ formatter: (x) => {return x/1000;}})
-            .int16le("BypassAmpLimit",		{ formatter: (x) => {return x/1000;}})
-            .uint8("BypassTempLimit",		{ formatter: (x) => {return x-40;}}) // temperature ºC
-            .uint8("HiCellTempAlert",		{ formatter: (x) => {return x-40;}}) // temperature ºC
+            .uint8("IsOverdue") // boolean 0 = Off , 1 = On
+            .int16le("LoCellVoltAlert", {
+                formatter: x => {
+                    return x / 1000;
+                },
+            })
+            .int16le("HiCellVoltAlert", {
+                formatter: x => {
+                    return x / 1000;
+                },
+            })
+            .int16le("BypassVoltLevel", {
+                formatter: x => {
+                    return x / 1000;
+                },
+            })
+            .int16le("BypassAmpLimit", {
+                formatter: x => {
+                    return x / 1000;
+                },
+            })
+            .uint8("BypassTempLimit", {
+                formatter: x => {
+                    return x - 40;
+                },
+            }) // temperature ºC
+            .uint8("HiCellTempAlert", {
+                formatter: x => {
+                    return x - 40;
+                },
+            }) // temperature ºC
             .uint8("RawVoltCalOffset")
             .int16le("FwVers")
             .int16le("HwVers")
             .int16le("BootVers")
             .uint32le("SerialNo")
-            .uint32le("BypassInitialDate") 	// Epoch
-            .floatle("BypassSessionAh",		{ formatter: (x) => {return x/1000;}}) // Ah
+            .uint32le("BypassInitialDate") // Epoch
+            .floatle("BypassSessionAh", {
+                formatter: x => {
+                    return x / 1000;
+                },
+            }) // Ah
             .uint8("RepeatCellV");
     }
 
-    public async initObjects(_systemId: number): Promise<void> {
+    public initObjects(_systemId: number): void {
         return;
     }
 
@@ -100,7 +147,7 @@ export class Parser_4232_CellNodeFull extends ParserCommon implements ParserInte
         await this.adapter?.setObjectNotExistsAsync(this.getVariableName(systemId, `${id}`), {
             type: "device",
             common: {
-                name: "Batrium Cell #" + id.toString()
+                name: `Batrium Cell #${id.toString()}`,
             },
             native: {},
         });
@@ -218,20 +265,20 @@ export class Parser_4232_CellNodeFull extends ParserCommon implements ParserInte
                     read: true,
                     write: false,
                     states: {
-                        "0": "None",
-                        "1": "HighVolt",
-                        "2": "HighTemp",
-                        "3": "OK",
-                        "4": "Timeout",
-                        "5": "LowVolt",
-                        "6": "Disabled",
-                        "7": "InBypass",
-                        "8": "InitialBypass",
-                        "9": "FinalBypass",
-                        "10": "MissingSetup",
-                        "11": "NoConfig",
-                        "12": "CellOutLimits",
-                    }
+                        0: "None",
+                        1: "HighVolt",
+                        2: "HighTemp",
+                        3: "OK",
+                        4: "Timeout",
+                        5: "LowVolt",
+                        6: "Disabled",
+                        7: "InBypass",
+                        8: "InitialBypass",
+                        9: "FinalBypass",
+                        10: "MissingSetup",
+                        11: "NoConfig",
+                        12: "CellOutLimits",
+                    },
                 },
                 native: {},
             }),
@@ -407,46 +454,138 @@ export class Parser_4232_CellNodeFull extends ParserCommon implements ParserInte
                     write: false,
                 },
                 native: {},
-            })
+            }),
         ]);
     }
 
     public async handleMessage(systemId: number, msg: Buffer): Promise<void> {
-        if(!this.adapter.config["4232_active"] || this.ratelimitTimeout) {
+        if (!this.adapter.config["4232_active"] || this.ratelimitTimeout) {
             return;
         }
         this.ratelimitTimeout = this.adapter.setTimeout(() => {
             this.ratelimitTimeout = undefined;
         }, this.adapter.config["4232_ratelimit"]);
         const result: Message_4232_CellNodeFull = this.parser.parse(msg);
-        if(!this.initializedCellNodes.includes(result.ID)) {
+        if (!this.initializedCellNodes.includes(result.ID)) {
             await this.initCellNode(systemId, result.ID);
             this.initializedCellNodes.push(result.ID);
         }
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${result.ID}.ID`), result.ID, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${result.ID}.USN`), result.USN, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${result.ID}.MinCellVolt`), result.MinCellVolt, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${result.ID}.MaxCellVolt`), result.MaxCellVolt, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${result.ID}.MinCellTemp`), result.MinCellTemp, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${result.ID}.BypassTemp`), result.BypassTemp, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${result.ID}.BypassAmp`), result.BypassAmp, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${result.ID}.DataErrorCounter`), result.DataErrorCounter, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${result.ID}.ResetCounter`), result.ResetCounter, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${result.ID}.Status`), result.Status, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${result.ID}.IsOverdue`), Boolean(result.IsOverdue), true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${result.ID}.LoCellVoltAlert`), result.LoCellVoltAlert, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${result.ID}.HiCellVoltAlert`), result.HiCellVoltAlert, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${result.ID}.BypassVoltLevel`), result.BypassVoltLevel, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${result.ID}.BypassAmpLimit`), result.BypassAmpLimit, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${result.ID}.BypassTempLimit`), result.BypassTempLimit, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${result.ID}.HiCellTempAlert`), result.HiCellTempAlert, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${result.ID}.RawVoltCalOffset`), result.RawVoltCalOffset, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${result.ID}.FwVers`), result.FwVers, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${result.ID}.HwVers`), result.HwVers, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${result.ID}.BootVers`), result.BootVers, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${result.ID}.SerialNo`), result.SerialNo, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${result.ID}.BypassInitialDate`), result.BypassInitialDate, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${result.ID}.BypassSessionAh`), result.BypassSessionAh, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${result.ID}.RepeatCellV`), result.RepeatCellV, true);
+        void this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${result.ID}.ID`), result.ID, true);
+        void this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${result.ID}.USN`), result.USN, true);
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, `${result.ID}.MinCellVolt`),
+            result.MinCellVolt,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, `${result.ID}.MaxCellVolt`),
+            result.MaxCellVolt,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, `${result.ID}.MinCellTemp`),
+            result.MinCellTemp,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, `${result.ID}.BypassTemp`),
+            result.BypassTemp,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, `${result.ID}.BypassAmp`),
+            result.BypassAmp,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, `${result.ID}.DataErrorCounter`),
+            result.DataErrorCounter,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, `${result.ID}.ResetCounter`),
+            result.ResetCounter,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, `${result.ID}.Status`),
+            result.Status,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, `${result.ID}.IsOverdue`),
+            Boolean(result.IsOverdue),
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, `${result.ID}.LoCellVoltAlert`),
+            result.LoCellVoltAlert,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, `${result.ID}.HiCellVoltAlert`),
+            result.HiCellVoltAlert,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, `${result.ID}.BypassVoltLevel`),
+            result.BypassVoltLevel,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, `${result.ID}.BypassAmpLimit`),
+            result.BypassAmpLimit,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, `${result.ID}.BypassTempLimit`),
+            result.BypassTempLimit,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, `${result.ID}.HiCellTempAlert`),
+            result.HiCellTempAlert,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, `${result.ID}.RawVoltCalOffset`),
+            result.RawVoltCalOffset,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, `${result.ID}.FwVers`),
+            result.FwVers,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, `${result.ID}.HwVers`),
+            result.HwVers,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, `${result.ID}.BootVers`),
+            result.BootVers,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, `${result.ID}.SerialNo`),
+            result.SerialNo,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, `${result.ID}.BypassInitialDate`),
+            result.BypassInitialDate,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, `${result.ID}.BypassSessionAh`),
+            result.BypassSessionAh,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, `${result.ID}.RepeatCellV`),
+            result.RepeatCellV,
+            true,
+        );
     }
 }

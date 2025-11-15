@@ -1,7 +1,7 @@
-import * as utils from "@iobroker/adapter-core";
+import type * as utils from "@iobroker/adapter-core";
 import { Parser } from "binary-parser";
 import { ParserCommon } from "./parser-common";
-import { ParserInterface } from "./parserinterface";
+import type { ParserInterface } from "./parserinterface";
 
 interface Message_6831_QuickSessionHist {
     QuickSessionHistId: number;
@@ -19,7 +19,6 @@ interface Message_6831_QuickSessionHist {
 }
 
 export class Parser_6831_QuickSessionHist extends ParserCommon implements ParserInterface {
-
     private parser: Parser;
 
     public constructor(adapter: utils.AdapterInstance) {
@@ -38,7 +37,7 @@ export class Parser_6831_QuickSessionHist extends ParserCommon implements Parser
         this.parser = new Parser()
             .skip(8)
             .int16le("QuickSessionHistId")
-            .uint32le("QuickSessionHistTime") 		// Epoch  *** log key ***
+            .uint32le("QuickSessionHistTime") // Epoch  *** log key ***
             .uint8("QuickSessionHistSystemOpState") /* Choices
                     Simulator = 0,   	  // LED = rainbow pulse
                     Idle = 1,        	  // LED = green slow pulse
@@ -52,15 +51,43 @@ export class Parser_6831_QuickSessionHist extends ParserCommon implements Parser
                     Mqtt Offline = 9,     // LED = white blink
                     Auth Setup = 10,      // LED = white solid
                     Shunt Timeout = 11,   // LED = red solid  	*/
-            .uint8( "QuickSessionHistControlLogic")
-            .int16le("QuickSessionHistMinCellVolt",			{ formatter: (x) => {return x/1000;}})
-            .int16le("QuickSessionHistMaxCellVolt",			{ formatter: (x) => {return x/1000;}})
-            .int16le("QuickSessionHistAvgCellVolt",			{ formatter: (x) => {return x/1000;}})
-            .uint8(  "QuickSessionHistAvgCellTemp",			{ formatter: (x) => {return x-40;}})	// temperature ºC
-            .int16le("QuickSessionHistSocHiRes",			{ formatter: (x) => {return x/100;}})	// percent
-            .int16le("QuickSessionHistShuntVolt",			{ formatter: (x) => {return x/100;}})
-            .floatle("QuickSessionHistShuntAmp",			{ formatter: (x) => {return x/1000;}})  // amp
-            .uint8(  "QuickSessionHistNumOfCellsInBypass");
+            .uint8("QuickSessionHistControlLogic")
+            .int16le("QuickSessionHistMinCellVolt", {
+                formatter: x => {
+                    return x / 1000;
+                },
+            })
+            .int16le("QuickSessionHistMaxCellVolt", {
+                formatter: x => {
+                    return x / 1000;
+                },
+            })
+            .int16le("QuickSessionHistAvgCellVolt", {
+                formatter: x => {
+                    return x / 1000;
+                },
+            })
+            .uint8("QuickSessionHistAvgCellTemp", {
+                formatter: x => {
+                    return x - 40;
+                },
+            }) // temperature ºC
+            .int16le("QuickSessionHistSocHiRes", {
+                formatter: x => {
+                    return x / 100;
+                },
+            }) // percent
+            .int16le("QuickSessionHistShuntVolt", {
+                formatter: x => {
+                    return x / 100;
+                },
+            })
+            .floatle("QuickSessionHistShuntAmp", {
+                formatter: x => {
+                    return x / 1000;
+                },
+            }) // amp
+            .uint8("QuickSessionHistNumOfCellsInBypass");
     }
 
     public async initObjects(systemId: number): Promise<void> {
@@ -96,19 +123,19 @@ export class Parser_6831_QuickSessionHist extends ParserCommon implements Parser
                     read: true,
                     write: false,
                     states: {
-                        "0": "Simulator",
-                        "1": "Idle",
-                        "2": "Discharging",
-                        "3": "SoC Empty",
-                        "4": "Charging",
-                        "5": "Full",
-                        "6": "Timeout",
-                        "7": "Critical Pending",
-                        "8": "Critical Offline",
-                        "9": "Mqtt Offline",
-                        "10": "Auth Setup",
-                        "11": "Shunt Timeout",
-                    }
+                        0: "Simulator",
+                        1: "Idle",
+                        2: "Discharging",
+                        3: "SoC Empty",
+                        4: "Charging",
+                        5: "Full",
+                        6: "Timeout",
+                        7: "Critical Pending",
+                        8: "Critical Offline",
+                        9: "Mqtt Offline",
+                        10: "Auth Setup",
+                        11: "Shunt Timeout",
+                    },
                 },
                 native: {},
             }),
@@ -131,7 +158,7 @@ export class Parser_6831_QuickSessionHist extends ParserCommon implements Parser
                     role: "value.voltage",
                     read: true,
                     write: false,
-                    unit: "V"
+                    unit: "V",
                 },
                 native: {},
             }),
@@ -143,7 +170,7 @@ export class Parser_6831_QuickSessionHist extends ParserCommon implements Parser
                     role: "value.voltage",
                     read: true,
                     write: false,
-                    unit: "V"
+                    unit: "V",
                 },
                 native: {},
             }),
@@ -155,7 +182,7 @@ export class Parser_6831_QuickSessionHist extends ParserCommon implements Parser
                     role: "value.voltage",
                     read: true,
                     write: false,
-                    unit: "V"
+                    unit: "V",
                 },
                 native: {},
             }),
@@ -167,7 +194,7 @@ export class Parser_6831_QuickSessionHist extends ParserCommon implements Parser
                     role: "value.temperature",
                     read: true,
                     write: false,
-                    unit: "°C"
+                    unit: "°C",
                 },
                 native: {},
             }),
@@ -179,7 +206,7 @@ export class Parser_6831_QuickSessionHist extends ParserCommon implements Parser
                     role: "value.battery",
                     read: true,
                     write: false,
-                    unit: "%"
+                    unit: "%",
                 },
                 native: {},
             }),
@@ -191,7 +218,7 @@ export class Parser_6831_QuickSessionHist extends ParserCommon implements Parser
                     role: "value.voltage",
                     read: true,
                     write: false,
-                    unit: "V"
+                    unit: "V",
                 },
                 native: {},
             }),
@@ -203,7 +230,7 @@ export class Parser_6831_QuickSessionHist extends ParserCommon implements Parser
                     role: "value.current",
                     read: true,
                     write: false,
-                    unit: "A"
+                    unit: "A",
                 },
                 native: {},
             }),
@@ -221,25 +248,73 @@ export class Parser_6831_QuickSessionHist extends ParserCommon implements Parser
         ]);
     }
 
-    public async handleMessage(systemId: number, msg: Buffer): Promise<void> {
-        if(!this.adapter.config["6831_active"] || this.ratelimitTimeout) {
+    public handleMessage(systemId: number, msg: Buffer): void {
+        if (!this.adapter.config["6831_active"] || this.ratelimitTimeout) {
             return;
         }
         this.ratelimitTimeout = this.adapter.setTimeout(() => {
             this.ratelimitTimeout = undefined;
         }, this.adapter.config["6831_ratelimit"]);
         const result: Message_6831_QuickSessionHist = this.parser.parse(msg);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "QuickSessionHistId"), result.QuickSessionHistId, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "QuickSessionHistTime"), result.QuickSessionHistTime, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "QuickSessionHistSystemOpState"), result.QuickSessionHistSystemOpState, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "QuickSessionHistControlLogic"), result.QuickSessionHistControlLogic, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "QuickSessionHistMinCellVolt"), result.QuickSessionHistMinCellVolt, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "QuickSessionHistMaxCellVolt"), result.QuickSessionHistMaxCellVolt, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "QuickSessionHistAvgCellVolt"), result.QuickSessionHistAvgCellVolt, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "QuickSessionHistAvgCellTemp"), result.QuickSessionHistAvgCellTemp, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "QuickSessionHistSocHiRes"), result.QuickSessionHistSocHiRes, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "QuickSessionHistShuntVolt"), result.QuickSessionHistShuntVolt, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "QuickSessionHistShuntAmp"), result.QuickSessionHistShuntAmp, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "QuickSessionHistNumOfCellsInBypass"), result.QuickSessionHistNumOfCellsInBypass, true);
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "QuickSessionHistId"),
+            result.QuickSessionHistId,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "QuickSessionHistTime"),
+            result.QuickSessionHistTime,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "QuickSessionHistSystemOpState"),
+            result.QuickSessionHistSystemOpState,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "QuickSessionHistControlLogic"),
+            result.QuickSessionHistControlLogic,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "QuickSessionHistMinCellVolt"),
+            result.QuickSessionHistMinCellVolt,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "QuickSessionHistMaxCellVolt"),
+            result.QuickSessionHistMaxCellVolt,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "QuickSessionHistAvgCellVolt"),
+            result.QuickSessionHistAvgCellVolt,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "QuickSessionHistAvgCellTemp"),
+            result.QuickSessionHistAvgCellTemp,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "QuickSessionHistSocHiRes"),
+            result.QuickSessionHistSocHiRes,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "QuickSessionHistShuntVolt"),
+            result.QuickSessionHistShuntVolt,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "QuickSessionHistShuntAmp"),
+            result.QuickSessionHistShuntAmp,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "QuickSessionHistNumOfCellsInBypass"),
+            result.QuickSessionHistNumOfCellsInBypass,
+            true,
+        );
     }
 }

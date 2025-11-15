@@ -1,10 +1,9 @@
 import * as utils from "@iobroker/adapter-core";
 import dgram from "node:dgram";
 import { ParserFacade } from "./lib/parsers/parser-facade";
-import { MessageBaseData } from "./lib/parsers/parser-base-data";
+import type { MessageBaseData } from "./lib/parsers/parser-base-data";
 
 class BatriumBms extends utils.Adapter {
-
     private server: dgram.Socket;
     private parserFacade: ParserFacade;
 
@@ -20,9 +19,8 @@ class BatriumBms extends utils.Adapter {
         this.parserFacade = new ParserFacade(this);
     }
 
-    private async onReady(): Promise<void> {
-
-        this.setState("info.connection", false, true);
+    private onReady(): void {
+        void this.setState("info.connection", false, true);
 
         this.server.on("error", this.onServerError.bind(this));
         this.server.on("listening", this.onServerListening.bind(this));
@@ -35,36 +33,35 @@ class BatriumBms extends utils.Adapter {
         try {
             this.server.close();
             callback();
-        } catch (e) {
+        } catch {
             callback();
         }
     }
 
-    private async onServerMessage(msg: Buffer, info: dgram.RemoteInfo): Promise<void> {
-        const data: MessageBaseData = await this.parserFacade.getMessageBaseData(msg);
-        this.log.silly(`MSG received from ${ info.address } MessageID:${ data.MessageId } SystemID:${ data.SystemId }`);
-        this.parserFacade.handleMessage(data.SystemId, data.MessageId, msg);
+    private onServerMessage(msg: Buffer, info: dgram.RemoteInfo): void {
+        const data: MessageBaseData = this.parserFacade.getMessageBaseData(msg);
+        this.log.silly(`MSG received from ${info.address} MessageID:${data.MessageId} SystemID:${data.SystemId}`);
+        void this.parserFacade.handleMessage(data.SystemId, data.MessageId, msg);
     }
 
-    private async onServerListening(): Promise<void> {
+    private onServerListening(): void {
         const address = this.server.address();
         const port = address.port;
         const ipaddr = address.address;
         this.log.info(`UDP Listening started on ${ipaddr}:${port}`);
-        this.setState("info.connection", true, true);
+        void this.setState("info.connection", true, true);
     }
 
-    private async onServerClose(): Promise<void> {
+    private onServerClose(): void {
         this.log.info("UDP Listener Port closed.");
-        this.setState("info.connection", false, true);
+        void this.setState("info.connection", false, true);
     }
 
     private onServerError(error: Error): void {
-        this.log.error("Error in listener: " + error.message);
-        this.setState("info.connection", false, true);
+        this.log.error(`Error in listener: ${error.message}`);
+        void this.setState("info.connection", false, true);
         this.restart();
     }
-
 }
 
 if (require.main !== module) {

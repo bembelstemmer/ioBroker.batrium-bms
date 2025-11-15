@@ -1,8 +1,8 @@
-import * as utils from "@iobroker/adapter-core";
+import type * as utils from "@iobroker/adapter-core";
 
 export abstract class ParserCommon {
     public adapter: utils.AdapterInstance;
-    public messageId= "0";
+    public messageId = "0";
     public messageName = "unknown";
     public ratelimitTimeout: ioBroker.Timeout | undefined = undefined;
 
@@ -11,7 +11,7 @@ export abstract class ParserCommon {
     }
 
     public getVariableName(systemId: number, varname: string): string {
-        return `${ this.adapter.name }.${ this.adapter.instance!.toString() }.${ systemId.toString() }.${ this.messageId }.${ varname }`;
+        return `${this.adapter.name}.${this.adapter.instance!.toString()}.${systemId.toString()}.${this.messageId}.${varname}`;
     }
 
     public getMessageName(): string {

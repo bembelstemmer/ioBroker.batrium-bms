@@ -1,7 +1,7 @@
-import * as utils from "@iobroker/adapter-core";
+import type * as utils from "@iobroker/adapter-core";
 import { Parser } from "binary-parser";
 import { ParserCommon } from "./parser-common";
-import { ParserInterface } from "./parserinterface";
+import type { ParserInterface } from "./parserinterface";
 
 interface Message_5732_SystemDiscovery {
     SystemCode: string;
@@ -30,7 +30,6 @@ interface Message_5732_SystemDiscovery {
 }
 
 export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserInterface {
-
     private parser: Parser;
 
     public constructor(adapter: utils.AdapterInstance) {
@@ -47,7 +46,7 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
         this.messageName = "System Discovery message";
         this.parser = new Parser()
             .skip(8)
-            .string("SystemCode", 	{ encoding: "utf8", length: 8, stripNull: true })
+            .string("SystemCode", { encoding: "utf8", length: 8, stripNull: true })
             .int16le("SystemFirmwareVersion")
             .int16le("SystemHardwareVersion")
             .int32le("SystemTime") // Epoch
@@ -68,8 +67,8 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                     Default 	= 0,
                     Technician 	= 1,
                     Factory 	= 2, */
-            .uint8("CriticalBatOkState")    // 0 = Off , 1 = On
-            .uint8("ChargePowerRateState")  /* Choices
+            .uint8("CriticalBatOkState") // 0 = Off , 1 = On
+            .uint8("ChargePowerRateState") /* Choices
                     Off 			= 0,
                     Limited Power 	= 2,
                     Normal Power  	= 4, */
@@ -77,15 +76,31 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                     Off 			= 0,
                     Limited Power 	= 2,
                     Normal Power  	= 4, */
-            .uint8("HeatOnState") 			// 0 = Off , 1 = On
-            .uint8("CoolOnState") 			// 0 = Off , 1 = On
-            .int16le("MinCellVolt", 	{ formatter: (x) => {return x/1000;}})
-            .int16le("MaxCellVolt", 	{ formatter: (x) => {return x/1000;}})
-            .int16le("AvgCellVolt", 	{ formatter: (x) => {return x/1000;}})
-            .uint8("MinCellTemp", 		{ formatter: (x) => {return x-40;}})     // temperature ºC
+            .uint8("HeatOnState") // 0 = Off , 1 = On
+            .uint8("CoolOnState") // 0 = Off , 1 = On
+            .int16le("MinCellVolt", {
+                formatter: x => {
+                    return x / 1000;
+                },
+            })
+            .int16le("MaxCellVolt", {
+                formatter: x => {
+                    return x / 1000;
+                },
+            })
+            .int16le("AvgCellVolt", {
+                formatter: x => {
+                    return x / 1000;
+                },
+            })
+            .uint8("MinCellTemp", {
+                formatter: x => {
+                    return x - 40;
+                },
+            }) // temperature ºC
             .uint8("NumOfCellsActive")
             .uint8("CmuRxOpStatusUSN")
-            .uint8("CmuPollerMode")  /* Choices
+            .uint8("CmuPollerMode") /* Choices
                     Idle = 0,
                     Normal = 1,
                     Collection Start = 2,
@@ -100,9 +115,21 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                     Rebooting AllDevices = 11,
                     Simulator Start = 12,
                     Simulator Running = 13, */
-            .uint8("ShuntSOC",			{ formatter: (x) => {return x/2-5;}})    // percent
-            .int16le("ShuntVoltage",	{ formatter: (x) => {return x/100;}})
-            .floatle("ShuntCurrent",	{ formatter: (x) => {return x/1000;}})
+            .uint8("ShuntSOC", {
+                formatter: x => {
+                    return x / 2 - 5;
+                },
+            }) // percent
+            .int16le("ShuntVoltage", {
+                formatter: x => {
+                    return x / 100;
+                },
+            })
+            .floatle("ShuntCurrent", {
+                formatter: x => {
+                    return x / 1000;
+                },
+            })
             .uint8("ShuntStatus") /* Choices
                     Timeout = 0,
                     Discharging = 1,
@@ -166,19 +193,19 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                     read: true,
                     write: false,
                     states: {
-                        "0": "Simulator",
-                        "1": "Idle",
-                        "2": "Discharging",
-                        "3": "SoC Empty",
-                        "4": "Charging",
-                        "5": "Full",
-                        "6": "Timeout",
-                        "7": "Critical Pending",
-                        "8": "Critical Offline",
-                        "9": "Mqtt Offline",
-                        "10": "Auth Setup",
-                        "11": "Shunt Timeout",
-                    }
+                        0: "Simulator",
+                        1: "Idle",
+                        2: "Discharging",
+                        3: "SoC Empty",
+                        4: "Charging",
+                        5: "Full",
+                        6: "Timeout",
+                        7: "Critical Pending",
+                        8: "Critical Offline",
+                        9: "Mqtt Offline",
+                        10: "Auth Setup",
+                        11: "Shunt Timeout",
+                    },
                 },
                 native: {},
             }),
@@ -191,9 +218,9 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                     read: true,
                     write: false,
                     states: {
-                        "0": "Default",
-                        "1": "Technician",
-                        "2": "Factory",
+                        0: "Default",
+                        1: "Technician",
+                        2: "Factory",
                     },
                 },
                 native: {},
@@ -207,8 +234,8 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                     read: true,
                     write: false,
                     states: {
-                        "0": "Off",
-                        "1": "On",
+                        0: "Off",
+                        1: "On",
                     },
                 },
                 native: {},
@@ -222,9 +249,9 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                     read: true,
                     write: false,
                     states: {
-                        "0": "Off",
-                        "2": "Limited Power",
-                        "4": "Normal Power",
+                        0: "Off",
+                        2: "Limited Power",
+                        4: "Normal Power",
                     },
                 },
                 native: {},
@@ -238,9 +265,9 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                     read: true,
                     write: false,
                     states: {
-                        "0": "Off",
-                        "2": "Limited Power",
-                        "4": "Normal Power",
+                        0: "Off",
+                        2: "Limited Power",
+                        4: "Normal Power",
                     },
                 },
                 native: {},
@@ -254,8 +281,8 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                     read: true,
                     write: false,
                     states: {
-                        "0": "Off",
-                        "1": "On",
+                        0: "Off",
+                        1: "On",
                     },
                 },
                 native: {},
@@ -269,8 +296,8 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                     read: true,
                     write: false,
                     states: {
-                        "0": "Off",
-                        "1": "On",
+                        0: "Off",
+                        1: "On",
                     },
                 },
                 native: {},
@@ -283,7 +310,7 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                     role: "value.voltage",
                     read: true,
                     write: false,
-                    unit: "V"
+                    unit: "V",
                 },
                 native: {},
             }),
@@ -295,7 +322,7 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                     role: "value.voltage",
                     read: true,
                     write: false,
-                    unit: "V"
+                    unit: "V",
                 },
                 native: {},
             }),
@@ -307,7 +334,7 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                     role: "value.voltage",
                     read: true,
                     write: false,
-                    unit: "V"
+                    unit: "V",
                 },
                 native: {},
             }),
@@ -319,7 +346,7 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                     role: "value.temperature",
                     read: true,
                     write: false,
-                    unit: "°C"
+                    unit: "°C",
                 },
                 native: {},
             }),
@@ -354,20 +381,20 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                     read: true,
                     write: false,
                     states: {
-                        "0": "Idle",
-                        "1": "Normal",
-                        "2": "Collection Start",
-                        "3": "Collection Running",
-                        "4": "Sync Start",
-                        "5": "Sync Running",
-                        "6": "NetworkTest Start",
-                        "7": "NetworkTest Running",
-                        "8": "BypassTest Start",
-                        "9": "BypassTest Running",
-                        "10": "RebootAll Start",
-                        "11": "Rebooting AllDevices",
-                        "12": "Simulator Start",
-                        "13": "Simulator Running",
+                        0: "Idle",
+                        1: "Normal",
+                        2: "Collection Start",
+                        3: "Collection Running",
+                        4: "Sync Start",
+                        5: "Sync Running",
+                        6: "NetworkTest Start",
+                        7: "NetworkTest Running",
+                        8: "BypassTest Start",
+                        9: "BypassTest Running",
+                        10: "RebootAll Start",
+                        11: "Rebooting AllDevices",
+                        12: "Simulator Start",
+                        13: "Simulator Running",
                     },
                 },
                 native: {},
@@ -392,7 +419,7 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                     role: "value.voltage",
                     read: true,
                     write: false,
-                    unit: "V"
+                    unit: "V",
                 },
                 native: {},
             }),
@@ -417,10 +444,10 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
                     read: true,
                     write: false,
                     states: {
-                        "0": "Timeout",
-                        "1": "Discharging",
-                        "2": "Idle",
-                        "4": "Charging",
+                        0: "Timeout",
+                        1: "Discharging",
+                        2: "Idle",
+                        4: "Charging",
                     },
                 },
                 native: {},
@@ -439,36 +466,88 @@ export class Parser_5732_SystemDiscovery extends ParserCommon implements ParserI
         ]);
     }
 
-    public async handleMessage(systemId: number, msg: Buffer): Promise<void> {
-        if(!this.adapter.config["5732_active"] || this.ratelimitTimeout) {
+    public handleMessage(systemId: number, msg: Buffer): void {
+        if (!this.adapter.config["5732_active"] || this.ratelimitTimeout) {
             return;
         }
         this.ratelimitTimeout = this.adapter.setTimeout(() => {
             this.ratelimitTimeout = undefined;
         }, this.adapter.config["5732_ratelimit"]);
         const result: Message_5732_SystemDiscovery = this.parser.parse(msg);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "SystemCode"), result.SystemCode, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "SystemFirmwareVersion"), result.SystemFirmwareVersion, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "SystemHardwareVersion"), result.SystemHardwareVersion, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "SystemTime"), result.SystemTime, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "SystemOpStatus"), result.SystemOpStatus, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "SystemAuthMode"), result.SystemAuthMode, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "CriticalBatOkState"), result.CriticalBatOkState, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "ChargePowerRateState"), result.ChargePowerRateState, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "DischargePowerRateState"), result.DischargePowerRateState, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "HeatOnState"), result.HeatOnState, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "CoolOnState"), result.CoolOnState, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "MinCellVolt"), result.MinCellVolt, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "MaxCellVolt"), result.MaxCellVolt, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "AvgCellVolt"), result.AvgCellVolt, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "MinCellTemp"), result.MinCellTemp, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "NumOfCellsActive"), result.NumOfCellsActive, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "CmuRxOpStatusUSN"), result.CmuRxOpStatusUSN, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "CmuPollerMode"), result.CmuPollerMode, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "ShuntSOC"), result.ShuntSOC, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "ShuntVoltage"), result.ShuntVoltage, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "ShuntCurrent"), result.ShuntCurrent, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "ShuntStatus"), result.ShuntStatus, true);
-        this.adapter.setStateChangedAsync(this.getVariableName(systemId, "ShuntRxAmpTicks"), result.ShuntRxAmpTicks, true);
+        void this.adapter.setStateChangedAsync(this.getVariableName(systemId, "SystemCode"), result.SystemCode, true);
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "SystemFirmwareVersion"),
+            result.SystemFirmwareVersion,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "SystemHardwareVersion"),
+            result.SystemHardwareVersion,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(this.getVariableName(systemId, "SystemTime"), result.SystemTime, true);
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "SystemOpStatus"),
+            result.SystemOpStatus,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "SystemAuthMode"),
+            result.SystemAuthMode,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "CriticalBatOkState"),
+            result.CriticalBatOkState,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "ChargePowerRateState"),
+            result.ChargePowerRateState,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "DischargePowerRateState"),
+            result.DischargePowerRateState,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(this.getVariableName(systemId, "HeatOnState"), result.HeatOnState, true);
+        void this.adapter.setStateChangedAsync(this.getVariableName(systemId, "CoolOnState"), result.CoolOnState, true);
+        void this.adapter.setStateChangedAsync(this.getVariableName(systemId, "MinCellVolt"), result.MinCellVolt, true);
+        void this.adapter.setStateChangedAsync(this.getVariableName(systemId, "MaxCellVolt"), result.MaxCellVolt, true);
+        void this.adapter.setStateChangedAsync(this.getVariableName(systemId, "AvgCellVolt"), result.AvgCellVolt, true);
+        void this.adapter.setStateChangedAsync(this.getVariableName(systemId, "MinCellTemp"), result.MinCellTemp, true);
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "NumOfCellsActive"),
+            result.NumOfCellsActive,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "CmuRxOpStatusUSN"),
+            result.CmuRxOpStatusUSN,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "CmuPollerMode"),
+            result.CmuPollerMode,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(this.getVariableName(systemId, "ShuntSOC"), result.ShuntSOC, true);
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "ShuntVoltage"),
+            result.ShuntVoltage,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "ShuntCurrent"),
+            result.ShuntCurrent,
+            true,
+        );
+        void this.adapter.setStateChangedAsync(this.getVariableName(systemId, "ShuntStatus"), result.ShuntStatus, true);
+        void this.adapter.setStateChangedAsync(
+            this.getVariableName(systemId, "ShuntRxAmpTicks"),
+            result.ShuntRxAmpTicks,
+            true,
+        );
     }
 }
