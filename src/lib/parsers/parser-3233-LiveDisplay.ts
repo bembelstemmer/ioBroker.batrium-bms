@@ -749,7 +749,6 @@ export class Parser_3233_LiveDisplay extends ParserCommon implements ParserInter
             result.CriticalEvents,
             true,
         );
-        this.adapter.log.debug("Setting " + this.getVariableName(systemId, "SystemTime") + " to " + result.SystemTime);
         void this.adapter.setStateChangedAsync(this.getVariableName(systemId, "SystemTime"), result.SystemTime, true);
         void this.adapter.setStateChangedAsync(
             this.getVariableName(systemId, "GlobalSetupVers"),
