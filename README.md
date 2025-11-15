@@ -27,7 +27,7 @@ Message Support is still limited and will be increased in further versions.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.7.0 (2025-11-15)
 * Drop of Node18 and adding of Node24 support
 * Various Package Updates
 * Migration of eslint from 8 to 9

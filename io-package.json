@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "batrium-bms",
-    "version": "0.6.0",
+    "version": "0.7.0",
     "news": {
+      "0.7.0": {
+        "en": "Drop of Node18 and adding of Node24 support\nVarious Package Updates\nMigration of eslint from 8 to 9",
+        "de": "Drop von Node18 und Hinzufügen von Node24 Unterstützung\nVerschiedene Paket-Updates\nMigration von Eslint von 8 bis 9",
+        "ru": "Сброс Node18 и добавление поддержки Node24\nРазличные обновления пакетов\nМиграция эслинта с 8 до 9",
+        "pt": "Queda de Node18 e adição de suporte Node24\nVárias Atualizações de Pacotes\nMigração de estanho de 8 para 9",
+        "nl": "Drop of Node18 en toevoegen van Node24 ondersteuning\nDiverse pakketupdates\nMigratie van eslint van 8 tot 9",
+        "fr": "Baisse du nœud18 et ajout du support Node24\nDiverses mises à jour de paquets\nMigration de l'île de 8 à 9",
+        "it": "Goccia di Node18 e aggiunta di supporto Node24\nVari aggiornamenti del pacchetto\nMigrazione di eslint da 8 a 9",
+        "es": "La caída del Nodo18 y la adición del apoyo Node24\nVarias actualizaciones de paquetes\nMigración de la prohibición de 8 a 9",
+        "pl": "Kropla Node18 i dodanie wsparcia Node24\nRóżne aktualizacje pakietów\nMigracja eslintu od 8 do 9",
+        "uk": "Краплі Node18 та додавання підтримки Node24\nРізні оновлення пакета\nМіграція еслінта від 8 до 9",
+        "zh-cn": "丢弃节点18并添加节点24支持\n各种软件包更新\n埃斯林特从8人迁移到9人"
+      },
       "0.6.0": {
         "en": "Drop Support for Node v16\nVarious Package Upgrades\nIncreased min js-controller version to 5.0.19\nIncreased min Admin version to 7.4.10",
         "de": "Drop Support für Node v16\nVerschiedene Paket-Upgrades\nErhöhte min js-Controller-Version auf 5.0.19\nErhöhte min Admin-Version auf 7.4.10",
@@ -80,19 +93,6 @@
         "pl": "Mały Fiks\nAdded Message Type 6831",
         "uk": "Виправлення типу мінор\nДодано тип повідомлення 6831",
         "zh-cn": "采矿类型\nA. 增加的传信类型 6831"
-      },
-      "0.1.0": {
-        "en": "Optimized Parser Structure\nFinished up Message Type 5732\nFinished up Message Type 3233",
-        "de": "Optimierte Parserstruktur\nBeendet Nachrichtentyp 5732\nBeendet Nachrichtentyp 3233",
-        "ru": "Оптимизированная структура парсера\nЗавершен Тип сообщения 5732\nЗавершен Тип сообщения 3233",
-        "pt": "Estrutura de Parser otimizada\nTerminado Tipo de Mensagem 5732\nTerminado Tipo de Mensagem 3233",
-        "nl": "Optimaal Parser Structuur\nVertaling:\nVertaling:",
-        "fr": "Structure de pariseur optimisée\nType de message 5732\nType de message 3233",
-        "it": "Struttura ottimizzata per Parser\nFinito Messaggio Tipo 5732\nFinito Messaggio Tipo 3233",
-        "es": "Estructura de Parser optimizada\nAcabado Tipo de mensaje 5732\nAcabado Tipo de mensaje 3233",
-        "pl": "Oficjalna strona Parsera\nZakończył budowę Message Type 5732\nZakończony Message Typ 3233",
-        "uk": "Оптимізована структура парсера\nЗавершено тип повідомлення 5732\nЗавершено тип повідомлення 3233",
-        "zh-cn": "A. 振兴方案\nFinied Messageile 5732\nFinied Message 3.233"
       }
     },
     "titleLang": {
