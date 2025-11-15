@@ -44,7 +44,6 @@ export class ParserFacade {
     }
 
     private async createSystemMessageNode(systemId: number, messageId: string): Promise<void> {
-        2;
         await this.adapter?.setObjectNotExistsAsync(
             `${this.adapter?.name}.${this.adapter.instance!.toString()}.${systemId.toString()}.${messageId}`,
             {

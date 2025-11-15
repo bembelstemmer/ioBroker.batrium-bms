@@ -631,6 +631,7 @@ export class Parser_3233_LiveDisplay extends ParserCommon implements ParserInter
 
     public handleMessage(systemId: number, msg: Buffer): void {
         if (!this.adapter.config["3233_active"] || this.ratelimitTimeout) {
+            this.adapter.log.debug("Message ID 3233 received. Enabled: " + this.adapter.config["3233_active"] + " - Timeout: " + this.ratelimitTimeout);
             return;
         }
         this.ratelimitTimeout = this.adapter.setTimeout(() => {
