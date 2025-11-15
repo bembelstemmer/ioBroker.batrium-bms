@@ -75,7 +75,7 @@ class ParserFacade {
   async handleMessage(systemId, messageID, msg) {
     var _a, _b;
     if (!this.parserMap.has(messageID)) {
-      this.adapter.log.debug(`Unknown MessageID ${messageID} received`);
+      this.adapter.log.silly(`Unknown MessageID ${messageID} received`);
       return false;
     }
     if (!this.knownSystems.includes(systemId.toString())) {
@@ -92,7 +92,6 @@ class ParserFacade {
       this.adapter.log.debug(`Done`);
       this.knownSystemMessages.push(cachekey);
     }
-    this.adapter.log.debug(`Delegating Message of type ${cachekey} to Parser.`);
     return !!((_b = this.parserMap.get(messageID)) == null ? void 0 : _b.handleMessage(systemId, msg));
   }
 }

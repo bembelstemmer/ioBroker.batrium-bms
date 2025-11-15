@@ -630,16 +630,13 @@ export class Parser_3233_LiveDisplay extends ParserCommon implements ParserInter
     }
 
     public handleMessage(systemId: number, msg: Buffer): void {
-        this.adapter.log.debug("MessageID 3233 received. Start processing.");
         if (!this.adapter.config["3233_active"] || this.ratelimitTimeout) {
-            this.adapter.log.debug("Message ID 3233 received. Enabled: " + this.adapter.config["3233_active"] + " - Timeout: " + this.ratelimitTimeout);
             return;
         }
         this.ratelimitTimeout = this.adapter.setTimeout(() => {
             this.ratelimitTimeout = undefined;
         }, this.adapter.config["3233_ratelimit"]);
         const result: Message_3233_LiveDisplay = this.parser.parse(msg);
-        this.adapter.log.debug(JSON.stringify(result));
         void this.adapter.setStateChangedAsync(
             this.getVariableName(systemId, "SystemOpStatus"),
             result.SystemOpStatus,
@@ -752,6 +749,7 @@ export class Parser_3233_LiveDisplay extends ParserCommon implements ParserInter
             result.CriticalEvents,
             true,
         );
+        this.adapter.log.debug("Setting " + this.getVariableName(systemId, "SystemTime") + " to " + result.SystemTime);
         void this.adapter.setStateChangedAsync(this.getVariableName(systemId, "SystemTime"), result.SystemTime, true);
         void this.adapter.setStateChangedAsync(
             this.getVariableName(systemId, "GlobalSetupVers"),

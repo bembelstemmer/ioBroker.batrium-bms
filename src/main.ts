@@ -41,9 +41,6 @@ class BatriumBms extends utils.Adapter {
     private onServerMessage(msg: Buffer, info: dgram.RemoteInfo): void {
         const data: MessageBaseData = this.parserFacade.getMessageBaseData(msg);
         this.log.silly(`MSG received from ${info.address} MessageID:${data.MessageId} SystemID:${data.SystemId}`);
-        if(data.MessageId == "3233") {
-            this.log.debug("MSG 3233 received. Calling Parser-Facade.");
-        }
         void this.parserFacade.handleMessage(data.SystemId, data.MessageId, msg);
     }
 

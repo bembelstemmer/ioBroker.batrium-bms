@@ -550,16 +550,13 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
     ]);
   }
   handleMessage(systemId, msg) {
-    this.adapter.log.debug("MessageID 3233 received. Start processing.");
     if (!this.adapter.config["3233_active"] || this.ratelimitTimeout) {
-      this.adapter.log.debug("Message ID 3233 received. Enabled: " + this.adapter.config["3233_active"] + " - Timeout: " + this.ratelimitTimeout);
       return;
     }
     this.ratelimitTimeout = this.adapter.setTimeout(() => {
       this.ratelimitTimeout = void 0;
     }, this.adapter.config["3233_ratelimit"]);
     const result = this.parser.parse(msg);
-    this.adapter.log.debug(JSON.stringify(result));
     void this.adapter.setStateChangedAsync(
       this.getVariableName(systemId, "SystemOpStatus"),
       result.SystemOpStatus,
@@ -672,6 +669,7 @@ class Parser_3233_LiveDisplay extends import_parser_common.ParserCommon {
       result.CriticalEvents,
       true
     );
+    this.adapter.log.debug("Setting " + this.getVariableName(systemId, "SystemTime") + " to " + result.SystemTime);
     void this.adapter.setStateChangedAsync(this.getVariableName(systemId, "SystemTime"), result.SystemTime, true);
     void this.adapter.setStateChangedAsync(
       this.getVariableName(systemId, "GlobalSetupVers"),
