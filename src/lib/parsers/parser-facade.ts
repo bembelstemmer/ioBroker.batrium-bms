@@ -62,15 +62,20 @@ export class ParserFacade {
             return false;
         }
         if (!this.knownSystems.includes(systemId.toString())) {
+            this.adapter.log.debug(`Unknown SystemID ${systemId} received. Creating...`);
             await this.createSystemNode(systemId);
+            this.adapter.log.debug(`Done`);
             this.knownSystems.push(systemId.toString());
         }
         const cachekey = `${systemId.toString()}.${messageID}`;
         if (!this.knownSystemMessages.includes(cachekey)) {
+            this.adapter.log.debug(`Object Node ${cachekey} not existing. Creating...`);
             await this.createSystemMessageNode(systemId, messageID);
             await this.parserMap.get(messageID)?.initObjects(systemId);
+            this.adapter.log.debug(`Done`);
             this.knownSystemMessages.push(cachekey);
         }
+        this.adapter.log.debug(`Delegating Message of type ${cachekey} to Parser.`);
         return !!this.parserMap.get(messageID)?.handleMessage(systemId, msg);
     }
 }
