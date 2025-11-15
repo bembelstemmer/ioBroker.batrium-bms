@@ -32,23 +32,33 @@ class Parser_415a_CellNodeStatus extends import_parser_common.ParserCommon {
     this.adapter = adapter;
     this.messageId = "415a";
     this.messageName = "Cell Node Status Limited";
-    this.subParser = new import_binary_parser.Parser().uint8("ID").uint8("USN").int16le("MinCellVolt", { formatter: (x) => {
-      return x / 1e3;
-    } }).int16le("MaxCellVolt", { formatter: (x) => {
-      return x / 1e3;
-    } }).uint8("MinCellTemp", { formatter: (x) => {
-      return x - 40;
-    } }).uint8("BypassTemp", { formatter: (x) => {
-      return x - 40;
-    } }).int16le("BypassAmp", { formatter: (x) => {
-      return x / 1e3;
-    } }).uint8("Status");
+    this.subParser = new import_binary_parser.Parser().uint8("ID").uint8("USN").int16le("MinCellVolt", {
+      formatter: (x) => {
+        return x / 1e3;
+      }
+    }).int16le("MaxCellVolt", {
+      formatter: (x) => {
+        return x / 1e3;
+      }
+    }).uint8("MinCellTemp", {
+      formatter: (x) => {
+        return x - 40;
+      }
+    }).uint8("BypassTemp", {
+      formatter: (x) => {
+        return x - 40;
+      }
+    }).int16le("BypassAmp", {
+      formatter: (x) => {
+        return x / 1e3;
+      }
+    }).uint8("Status");
     this.parser = new import_binary_parser.Parser().skip(8).uint8("CmuRxOpStatusNodeID").uint8("Records").uint8("FirstNodeID").uint8("LastNodeID").array("nodes", {
       type: this.subParser,
       length: "Records"
     });
   }
-  async initObjects(_systemId) {
+  initObjects(_systemId) {
     return;
   }
   async initCellNode(systemId, id) {
@@ -57,7 +67,7 @@ class Parser_415a_CellNodeStatus extends import_parser_common.ParserCommon {
     await ((_a = this.adapter) == null ? void 0 : _a.setObjectNotExistsAsync(this.getVariableName(systemId, `${id}`), {
       type: "device",
       common: {
-        name: "Batrium Cell #" + id.toString()
+        name: `Batrium Cell #${id.toString()}`
       },
       native: {}
     }));
@@ -153,36 +163,64 @@ class Parser_415a_CellNodeStatus extends import_parser_common.ParserCommon {
           read: true,
           write: false,
           states: {
-            "0": "None",
-            "1": "HighVolt",
-            "2": "HighTemp",
-            "3": "OK",
-            "4": "Timeout",
-            "5": "LowVolt",
-            "6": "Disabled",
-            "7": "InBypass",
-            "8": "InitialBypass",
-            "9": "FinalBypass",
-            "10": "MissingSetup",
-            "11": "NoConfig",
-            "12": "CellOutLimits"
+            0: "None",
+            1: "HighVolt",
+            2: "HighTemp",
+            3: "OK",
+            4: "Timeout",
+            5: "LowVolt",
+            6: "Disabled",
+            7: "InBypass",
+            8: "InitialBypass",
+            9: "FinalBypass",
+            10: "MissingSetup",
+            11: "NoConfig",
+            12: "CellOutLimits"
           }
         },
         native: {}
       })
     ]);
   }
-  async setCellValues(systemId, cellData) {
-    this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${cellData.ID}.ID`), cellData.ID, true);
-    this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${cellData.ID}.USN`), cellData.USN, true);
-    this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${cellData.ID}.MinCellVolt`), cellData.MinCellVolt, true);
-    this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${cellData.ID}.MaxCellVolt`), cellData.MaxCellVolt, true);
-    this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${cellData.ID}.MinCellTemp`), cellData.MinCellTemp, true);
-    this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${cellData.ID}.BypassTemp`), cellData.BypassTemp, true);
-    this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${cellData.ID}.BypassAmp`), cellData.BypassAmp, true);
-    this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${cellData.ID}.Status`), cellData.Status, true);
+  setCellValues(systemId, cellData) {
+    void this.adapter.setStateChangedAsync(this.getVariableName(systemId, `${cellData.ID}.ID`), cellData.ID, true);
+    void this.adapter.setStateChangedAsync(
+      this.getVariableName(systemId, `${cellData.ID}.USN`),
+      cellData.USN,
+      true
+    );
+    void this.adapter.setStateChangedAsync(
+      this.getVariableName(systemId, `${cellData.ID}.MinCellVolt`),
+      cellData.MinCellVolt,
+      true
+    );
+    void this.adapter.setStateChangedAsync(
+      this.getVariableName(systemId, `${cellData.ID}.MaxCellVolt`),
+      cellData.MaxCellVolt,
+      true
+    );
+    void this.adapter.setStateChangedAsync(
+      this.getVariableName(systemId, `${cellData.ID}.MinCellTemp`),
+      cellData.MinCellTemp,
+      true
+    );
+    void this.adapter.setStateChangedAsync(
+      this.getVariableName(systemId, `${cellData.ID}.BypassTemp`),
+      cellData.BypassTemp,
+      true
+    );
+    void this.adapter.setStateChangedAsync(
+      this.getVariableName(systemId, `${cellData.ID}.BypassAmp`),
+      cellData.BypassAmp,
+      true
+    );
+    void this.adapter.setStateChangedAsync(
+      this.getVariableName(systemId, `${cellData.ID}.Status`),
+      cellData.Status,
+      true
+    );
   }
-  async handleMessage(systemId, msg) {
+  handleMessage(systemId, msg) {
     if (!this.adapter.config["415a_active"] || this.ratelimitTimeout) {
       return;
     }
@@ -196,7 +234,7 @@ class Parser_415a_CellNodeStatus extends import_parser_common.ParserCommon {
         this.initializedCellNodes.push(nodeData.ID);
       }
     });
-    result.nodes.forEach(async (nodeData) => {
+    result.nodes.forEach((nodeData) => {
       this.setCellValues(systemId, nodeData);
     });
   }

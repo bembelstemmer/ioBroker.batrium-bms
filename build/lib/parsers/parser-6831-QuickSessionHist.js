@@ -30,21 +30,35 @@ class Parser_6831_QuickSessionHist extends import_parser_common.ParserCommon {
     this.adapter = adapter;
     this.messageId = "6831";
     this.messageName = "Quick session history";
-    this.parser = new import_binary_parser.Parser().skip(8).int16le("QuickSessionHistId").uint32le("QuickSessionHistTime").uint8("QuickSessionHistSystemOpState").uint8("QuickSessionHistControlLogic").int16le("QuickSessionHistMinCellVolt", { formatter: (x) => {
-      return x / 1e3;
-    } }).int16le("QuickSessionHistMaxCellVolt", { formatter: (x) => {
-      return x / 1e3;
-    } }).int16le("QuickSessionHistAvgCellVolt", { formatter: (x) => {
-      return x / 1e3;
-    } }).uint8("QuickSessionHistAvgCellTemp", { formatter: (x) => {
-      return x - 40;
-    } }).int16le("QuickSessionHistSocHiRes", { formatter: (x) => {
-      return x / 100;
-    } }).int16le("QuickSessionHistShuntVolt", { formatter: (x) => {
-      return x / 100;
-    } }).floatle("QuickSessionHistShuntAmp", { formatter: (x) => {
-      return x / 1e3;
-    } }).uint8("QuickSessionHistNumOfCellsInBypass");
+    this.parser = new import_binary_parser.Parser().skip(8).int16le("QuickSessionHistId").uint32le("QuickSessionHistTime").uint8("QuickSessionHistSystemOpState").uint8("QuickSessionHistControlLogic").int16le("QuickSessionHistMinCellVolt", {
+      formatter: (x) => {
+        return x / 1e3;
+      }
+    }).int16le("QuickSessionHistMaxCellVolt", {
+      formatter: (x) => {
+        return x / 1e3;
+      }
+    }).int16le("QuickSessionHistAvgCellVolt", {
+      formatter: (x) => {
+        return x / 1e3;
+      }
+    }).uint8("QuickSessionHistAvgCellTemp", {
+      formatter: (x) => {
+        return x - 40;
+      }
+    }).int16le("QuickSessionHistSocHiRes", {
+      formatter: (x) => {
+        return x / 100;
+      }
+    }).int16le("QuickSessionHistShuntVolt", {
+      formatter: (x) => {
+        return x / 100;
+      }
+    }).floatle("QuickSessionHistShuntAmp", {
+      formatter: (x) => {
+        return x / 1e3;
+      }
+    }).uint8("QuickSessionHistNumOfCellsInBypass");
   }
   async initObjects(systemId) {
     await Promise.all([
@@ -79,18 +93,18 @@ class Parser_6831_QuickSessionHist extends import_parser_common.ParserCommon {
           read: true,
           write: false,
           states: {
-            "0": "Simulator",
-            "1": "Idle",
-            "2": "Discharging",
-            "3": "SoC Empty",
-            "4": "Charging",
-            "5": "Full",
-            "6": "Timeout",
-            "7": "Critical Pending",
-            "8": "Critical Offline",
-            "9": "Mqtt Offline",
-            "10": "Auth Setup",
-            "11": "Shunt Timeout"
+            0: "Simulator",
+            1: "Idle",
+            2: "Discharging",
+            3: "SoC Empty",
+            4: "Charging",
+            5: "Full",
+            6: "Timeout",
+            7: "Critical Pending",
+            8: "Critical Offline",
+            9: "Mqtt Offline",
+            10: "Auth Setup",
+            11: "Shunt Timeout"
           }
         },
         native: {}
@@ -203,7 +217,7 @@ class Parser_6831_QuickSessionHist extends import_parser_common.ParserCommon {
       })
     ]);
   }
-  async handleMessage(systemId, msg) {
+  handleMessage(systemId, msg) {
     if (!this.adapter.config["6831_active"] || this.ratelimitTimeout) {
       return;
     }
@@ -211,18 +225,66 @@ class Parser_6831_QuickSessionHist extends import_parser_common.ParserCommon {
       this.ratelimitTimeout = void 0;
     }, this.adapter.config["6831_ratelimit"]);
     const result = this.parser.parse(msg);
-    this.adapter.setStateChangedAsync(this.getVariableName(systemId, "QuickSessionHistId"), result.QuickSessionHistId, true);
-    this.adapter.setStateChangedAsync(this.getVariableName(systemId, "QuickSessionHistTime"), result.QuickSessionHistTime, true);
-    this.adapter.setStateChangedAsync(this.getVariableName(systemId, "QuickSessionHistSystemOpState"), result.QuickSessionHistSystemOpState, true);
-    this.adapter.setStateChangedAsync(this.getVariableName(systemId, "QuickSessionHistControlLogic"), result.QuickSessionHistControlLogic, true);
-    this.adapter.setStateChangedAsync(this.getVariableName(systemId, "QuickSessionHistMinCellVolt"), result.QuickSessionHistMinCellVolt, true);
-    this.adapter.setStateChangedAsync(this.getVariableName(systemId, "QuickSessionHistMaxCellVolt"), result.QuickSessionHistMaxCellVolt, true);
-    this.adapter.setStateChangedAsync(this.getVariableName(systemId, "QuickSessionHistAvgCellVolt"), result.QuickSessionHistAvgCellVolt, true);
-    this.adapter.setStateChangedAsync(this.getVariableName(systemId, "QuickSessionHistAvgCellTemp"), result.QuickSessionHistAvgCellTemp, true);
-    this.adapter.setStateChangedAsync(this.getVariableName(systemId, "QuickSessionHistSocHiRes"), result.QuickSessionHistSocHiRes, true);
-    this.adapter.setStateChangedAsync(this.getVariableName(systemId, "QuickSessionHistShuntVolt"), result.QuickSessionHistShuntVolt, true);
-    this.adapter.setStateChangedAsync(this.getVariableName(systemId, "QuickSessionHistShuntAmp"), result.QuickSessionHistShuntAmp, true);
-    this.adapter.setStateChangedAsync(this.getVariableName(systemId, "QuickSessionHistNumOfCellsInBypass"), result.QuickSessionHistNumOfCellsInBypass, true);
+    void this.adapter.setStateChangedAsync(
+      this.getVariableName(systemId, "QuickSessionHistId"),
+      result.QuickSessionHistId,
+      true
+    );
+    void this.adapter.setStateChangedAsync(
+      this.getVariableName(systemId, "QuickSessionHistTime"),
+      result.QuickSessionHistTime,
+      true
+    );
+    void this.adapter.setStateChangedAsync(
+      this.getVariableName(systemId, "QuickSessionHistSystemOpState"),
+      result.QuickSessionHistSystemOpState,
+      true
+    );
+    void this.adapter.setStateChangedAsync(
+      this.getVariableName(systemId, "QuickSessionHistControlLogic"),
+      result.QuickSessionHistControlLogic,
+      true
+    );
+    void this.adapter.setStateChangedAsync(
+      this.getVariableName(systemId, "QuickSessionHistMinCellVolt"),
+      result.QuickSessionHistMinCellVolt,
+      true
+    );
+    void this.adapter.setStateChangedAsync(
+      this.getVariableName(systemId, "QuickSessionHistMaxCellVolt"),
+      result.QuickSessionHistMaxCellVolt,
+      true
+    );
+    void this.adapter.setStateChangedAsync(
+      this.getVariableName(systemId, "QuickSessionHistAvgCellVolt"),
+      result.QuickSessionHistAvgCellVolt,
+      true
+    );
+    void this.adapter.setStateChangedAsync(
+      this.getVariableName(systemId, "QuickSessionHistAvgCellTemp"),
+      result.QuickSessionHistAvgCellTemp,
+      true
+    );
+    void this.adapter.setStateChangedAsync(
+      this.getVariableName(systemId, "QuickSessionHistSocHiRes"),
+      result.QuickSessionHistSocHiRes,
+      true
+    );
+    void this.adapter.setStateChangedAsync(
+      this.getVariableName(systemId, "QuickSessionHistShuntVolt"),
+      result.QuickSessionHistShuntVolt,
+      true
+    );
+    void this.adapter.setStateChangedAsync(
+      this.getVariableName(systemId, "QuickSessionHistShuntAmp"),
+      result.QuickSessionHistShuntAmp,
+      true
+    );
+    void this.adapter.setStateChangedAsync(
+      this.getVariableName(systemId, "QuickSessionHistNumOfCellsInBypass"),
+      result.QuickSessionHistNumOfCellsInBypass,
+      true
+    );
   }
 }
 // Annotate the CommonJS export names for ESM import in node:

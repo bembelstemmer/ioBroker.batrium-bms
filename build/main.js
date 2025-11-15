@@ -37,8 +37,8 @@ class BatriumBms extends utils.Adapter {
     this.server = import_node_dgram.default.createSocket({ type: "udp4" });
     this.parserFacade = new import_parser_facade.ParserFacade(this);
   }
-  async onReady() {
-    this.setState("info.connection", false, true);
+  onReady() {
+    void this.setState("info.connection", false, true);
     this.server.on("error", this.onServerError.bind(this));
     this.server.on("listening", this.onServerListening.bind(this));
     this.server.on("message", this.onServerMessage.bind(this));
@@ -49,29 +49,32 @@ class BatriumBms extends utils.Adapter {
     try {
       this.server.close();
       callback();
-    } catch (e) {
+    } catch {
       callback();
     }
   }
-  async onServerMessage(msg, info) {
-    const data = await this.parserFacade.getMessageBaseData(msg);
+  onServerMessage(msg, info) {
+    const data = this.parserFacade.getMessageBaseData(msg);
     this.log.silly(`MSG received from ${info.address} MessageID:${data.MessageId} SystemID:${data.SystemId}`);
-    this.parserFacade.handleMessage(data.SystemId, data.MessageId, msg);
+    if (data.MessageId == "3233") {
+      this.log.debug("MSG 3233 received. Calling Parser-Facade.");
+    }
+    void this.parserFacade.handleMessage(data.SystemId, data.MessageId, msg);
   }
-  async onServerListening() {
+  onServerListening() {
     const address = this.server.address();
     const port = address.port;
     const ipaddr = address.address;
     this.log.info(`UDP Listening started on ${ipaddr}:${port}`);
-    this.setState("info.connection", true, true);
+    void this.setState("info.connection", true, true);
   }
-  async onServerClose() {
+  onServerClose() {
     this.log.info("UDP Listener Port closed.");
-    this.setState("info.connection", false, true);
+    void this.setState("info.connection", false, true);
   }
   onServerError(error) {
-    this.log.error("Error in listener: " + error.message);
-    this.setState("info.connection", false, true);
+    this.log.error(`Error in listener: ${error.message}`);
+    void this.setState("info.connection", false, true);
     this.restart();
   }
 }

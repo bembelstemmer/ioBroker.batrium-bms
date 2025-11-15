@@ -25,9 +25,11 @@ var import_binary_parser = require("binary-parser");
 class ParserBaseData {
   parser;
   constructor() {
-    this.parser = new import_binary_parser.Parser().string("first", { encoding: "utf8", length: 1 }).int16le("MessageId", { formatter: (x) => {
-      return x.toString(16);
-    } }).string("nd", { encoding: "utf8", length: 1 }).int16le("SystemId").int16le("hubId");
+    this.parser = new import_binary_parser.Parser().string("first", { encoding: "utf8", length: 1 }).int16le("MessageId", {
+      formatter: (x) => {
+        return x.toString(16);
+      }
+    }).string("nd", { encoding: "utf8", length: 1 }).int16le("SystemId").int16le("hubId");
   }
   parse(buf) {
     return this.parser.parse(buf);

@@ -48,24 +48,29 @@ class ParserFacade {
   }
   async createSystemNode(systemId) {
     var _a, _b;
-    await ((_b = this.adapter) == null ? void 0 : _b.setObjectNotExistsAsync(`${(_a = this.adapter) == null ? void 0 : _a.name}.${this.adapter.instance.toString()}.${systemId.toString()}`, {
-      type: "device",
-      common: {
-        name: "Batrium Device #" + systemId.toString()
-      },
-      native: {}
-    }));
+    await ((_b = this.adapter) == null ? void 0 : _b.setObjectNotExistsAsync(
+      `${(_a = this.adapter) == null ? void 0 : _a.name}.${this.adapter.instance.toString()}.${systemId.toString()}`,
+      {
+        type: "device",
+        common: {
+          name: `Batrium Device #${systemId.toString()}`
+        },
+        native: {}
+      }
+    ));
   }
   async createSystemMessageNode(systemId, messageId) {
     var _a, _b, _c, _d;
-    2;
-    await ((_d = this.adapter) == null ? void 0 : _d.setObjectNotExistsAsync(`${(_a = this.adapter) == null ? void 0 : _a.name}.${this.adapter.instance.toString()}.${systemId.toString()}.${messageId}`, {
-      type: "channel",
-      common: {
-        name: (_c = (_b = this.parserMap.get(messageId)) == null ? void 0 : _b.getMessageName()) != null ? _c : "Unknown Type"
-      },
-      native: {}
-    }));
+    await ((_d = this.adapter) == null ? void 0 : _d.setObjectNotExistsAsync(
+      `${(_a = this.adapter) == null ? void 0 : _a.name}.${this.adapter.instance.toString()}.${systemId.toString()}.${messageId}`,
+      {
+        type: "channel",
+        common: {
+          name: (_c = (_b = this.parserMap.get(messageId)) == null ? void 0 : _b.getMessageName()) != null ? _c : "Unknown Type"
+        },
+        native: {}
+      }
+    ));
   }
   async handleMessage(systemId, messageID, msg) {
     var _a, _b;
@@ -74,15 +79,20 @@ class ParserFacade {
       return false;
     }
     if (!this.knownSystems.includes(systemId.toString())) {
+      this.adapter.log.debug(`Unknown SystemID ${systemId} received. Creating...`);
       await this.createSystemNode(systemId);
+      this.adapter.log.debug(`Done`);
       this.knownSystems.push(systemId.toString());
     }
-    const cachekey = systemId.toString() + "." + messageID;
+    const cachekey = `${systemId.toString()}.${messageID}`;
     if (!this.knownSystemMessages.includes(cachekey)) {
+      this.adapter.log.debug(`Object Node ${cachekey} not existing. Creating...`);
       await this.createSystemMessageNode(systemId, messageID);
       await ((_a = this.parserMap.get(messageID)) == null ? void 0 : _a.initObjects(systemId));
+      this.adapter.log.debug(`Done`);
       this.knownSystemMessages.push(cachekey);
     }
+    this.adapter.log.debug(`Delegating Message of type ${cachekey} to Parser.`);
     return !!((_b = this.parserMap.get(messageID)) == null ? void 0 : _b.handleMessage(systemId, msg));
   }
 }
