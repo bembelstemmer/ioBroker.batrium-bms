@@ -28,7 +28,8 @@ Message Support is still limited and will be increased in further versions.
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-- (copilot) Adapter requires node.js >= 22 now
+* Adapter requires node.js >= 22 now
+* Various Package Updates
 
 ### 0.7.0 (2025-11-15)
 * Drop of Node18 and adding of Node24 support
