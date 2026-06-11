@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "batrium-bms",
-    "version": "0.7.0",
+    "version": "0.8.0",
     "news": {
+      "0.8.0": {
+        "en": "Adapter requires node.js >= 22 now\nVarious Package Updates",
+        "de": "Adapter benötigt node.js >= 22 jetzt\nVerschiedene Paket-Updates",
+        "ru": "Адаптер требует node.js >= 22 сейчас\nРазличные обновления пакетов",
+        "pt": "Adaptador requer nod.js >= 22 agora\nVárias Atualizações de Pacotes",
+        "nl": "Voor de adapter zijn node.js < 22 nu nodig\nDiverse pakketupdates",
+        "fr": "Adaptateur nécessite node.js >= 22 maintenant\nDiverses mises à jour de paquets",
+        "it": "Adattatore richiede node.js >= 22 ora\nVari aggiornamenti del pacchetto",
+        "es": "Adaptador requiere node.js ю= 22 ahora\nVarias actualizaciones de paquetes",
+        "pl": "Adapter wymaga node.js > = 22\nRóżne aktualizacje pakietów",
+        "uk": "Адаптер вимагає node.js >= 22 тепер\nРізні оновлення пакета",
+        "zh-cn": "适配器需要节点.js 现在22\n各种软件包更新"
+      },
       "0.7.0": {
         "en": "Drop of Node18 and adding of Node24 support\nVarious Package Updates\nMigration of eslint from 8 to 9",
         "de": "Drop von Node18 und Hinzufügen von Node24 Unterstützung\nVerschiedene Paket-Updates\nMigration von Eslint von 8 bis 9",
@@ -80,19 +93,6 @@
         "pl": "Czytelnik",
         "uk": "Готова папка",
         "zh-cn": "增 编"
-      },
-      "0.2.0": {
-        "en": "Minor Type Fixes\nAdded Message Type 6831",
-        "de": "Minor Type Fixes\nNachricht hinzufügen Typ 6831",
-        "ru": "Незначительные типы Fixes\nДобавлен тип сообщения 6831",
-        "pt": "Pequenas correções de tipo\nAdicionado Tipo de Mensagem 6831",
-        "nl": "Minor Type Fixes\nVertaling:",
-        "fr": "Fixations de type mineur\nPosté le type de message 6831",
-        "it": "Correzioni di tipo minore\nAggiunto Messaggio Tipo 6831",
-        "es": "Arreglos de tipo menor\nMensaje añadido 6831",
-        "pl": "Mały Fiks\nAdded Message Type 6831",
-        "uk": "Виправлення типу мінор\nДодано тип повідомлення 6831",
-        "zh-cn": "采矿类型\nA. 增加的传信类型 6831"
       }
     },
     "titleLang": {
