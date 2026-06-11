@@ -71,7 +71,7 @@ Message Support is still limited and will be increased in further versions.
 ## License
 MIT License
 
-Copyright (c) 2025 Bembelstemmer <kontakt[at]it-amm[dot]de>
+Copyright (c) 2025-2026 Bembelstemmer <kontakt[at]it-amm[dot]de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
