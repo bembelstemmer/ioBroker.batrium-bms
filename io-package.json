@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "batrium-bms",
-    "version": "0.8.0",
+    "version": "0.8.1",
     "news": {
+      "0.8.1": {
+        "en": "Various Cleanups suggested by iobroker-bot",
+        "de": "Diverse vom iobroker-bot vorgeschlagene Bereinigungen",
+        "ru": "Различные варианты очистки, предложенные ботом iobroker-bot",
+        "pt": "Diversas limpezas sugeridas pelo iobroker-bot",
+        "nl": "Diverse opschoonacties voorgesteld door iobroker-bot",
+        "fr": "Diverses améliorations suggérées par iobroker-bot",
+        "it": "Diverse operazioni di pulizia suggerite da iobroker-bot",
+        "es": "Varias limpiezas sugeridas por iobroker-bot",
+        "pl": "Różne sposoby czyszczenia sugerowane przez iobroker-bot",
+        "uk": "Різні способи очищення, запропоновані iobroker-bot",
+        "zh-cn": "iobroker-bot 建议的各种清理操作"
+      },
       "0.8.0": {
         "en": "Adapter requires node.js >= 22 now\nVarious Package Updates",
         "de": "Adapter benötigt node.js >= 22 jetzt\nVerschiedene Paket-Updates",
@@ -80,19 +93,6 @@
         "pl": "Added Message Type 415 (ang.). (Cell Status Small) (ang.)\nAdded Configuration for Message Type (ang.)\nFunkcja Rate Limit dla Message Type zmniejsza obciążenie ioBrokera DB",
         "uk": "Додано тип повідомлення 415a Статус на сервери\nДодано налаштування за типом повідомлення\nДодана функція обмеження на тип повідомлення для зменшення навантаження на ioBroker DB",
         "zh-cn": "添加的Msage型415a (地位小)\n增加每种邮件类型\n增加每千米特罗克河流域减少载荷的限定功能"
-      },
-      "0.2.1": {
-        "en": "Readded build folder",
-        "de": "Readded build Ordner",
-        "ru": "Прочитана папка сборки",
-        "pt": "Pasta de construção acolchoada",
-        "nl": "Vertaling:",
-        "fr": "Dossier de construction lue",
-        "it": "Cartella di costruzione Readded",
-        "es": "Carpeta de construcción leída",
-        "pl": "Czytelnik",
-        "uk": "Готова папка",
-        "zh-cn": "增 编"
       }
     },
     "titleLang": {

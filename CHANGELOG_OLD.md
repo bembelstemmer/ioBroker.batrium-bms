@@ -1,4 +1,9 @@
 # Older changes
+## 0.4.0 (2023-03-22)
+* Added Message Type 4232 (Cell Status Full)
+
+
+
 ## 0.3.0 (2023-03-05)
 * Added Message Type 415a (Cell Status Small)
 * Added Configuration per Message Type

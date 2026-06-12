@@ -23,8 +23,7 @@ https://github.com/Batrium/WatchMonUdpListener
 Message Support is still limited and will be increased in further versions.
 
 ## Changelog
-
-### **WORK IN PROGRESS**
+### 0.8.1 (2026-06-12)
 * Various Cleanups suggested by iobroker-bot
 
 ### 0.8.0 (2026-06-11)
@@ -48,10 +47,6 @@ Message Support is still limited and will be increased in further versions.
 * Fixed marking of properties writeable even if they're not
 * Fixed wrong Naming of Object 5732.ShuntStatus
 * Reworked Object Roles to better match their meaning (where meaning was known)
-
-### 0.4.0 (2023-03-22)
-* Added Message Type 4232 (Cell Status Full)
-
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 
