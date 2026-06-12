@@ -18,5 +18,3 @@
 
 ## 0.0.2 (2023-01-31)
 * Initial Test Release
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)

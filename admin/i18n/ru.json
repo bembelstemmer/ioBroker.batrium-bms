@@ -1,4 +1,5 @@
 {
+    "Rate Limit (ms)": "Предел скорости (мс)",
     "batrium-bms adapter settings": "Настройки адаптера для batrium-bms",
     "bindingaddress": "Привязать к адресу",
     "bindingport": "Привязать к порту",
@@ -7,7 +8,6 @@
     "info 300ms frequency": "Частота сообщений составляет 300 мс и должна быть ограничена по скорости.",
     "info undef frequency": "Частота сообщений не фиксирована",
     "messagestab infotext": "Предупреждение: отсутствие ограничения скорости передачи некоторых сообщений приведет к высокой нагрузке на инстанс ioBroker!",
-    "messagestab_infotext": "",
     "ratelimit tooltip": "Миллисекунды. 0 для отключения",
     "tabname messages": "Настройки сообщения",
     "tabname network": "Настройки сети",

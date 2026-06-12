@@ -23,10 +23,10 @@ https://github.com/Batrium/WatchMonUdpListener
 Message Support is still limited and will be increased in further versions.
 
 ## Changelog
-<!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
--->
+
+### **WORK IN PROGRESS**
+* Various Cleanups suggested by iobroker-bot
+
 ### 0.8.0 (2026-06-11)
 * Adapter requires node.js >= 22 now
 * Various Package Updates
@@ -51,6 +51,9 @@ Message Support is still limited and will be increased in further versions.
 
 ### 0.4.0 (2023-03-22)
 * Added Message Type 4232 (Cell Status Full)
+
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -7,9 +7,9 @@
     "info 300ms frequency": "Message Frequency is 300ms and should be rate limited",
     "info undef frequency": "Message Frequency is not fixed",
     "messagestab infotext": "Warning: Not rate limiting some messages will produce high load on ioBroker Instance!",
-    "messagestab_infotext": "",
     "ratelimit tooltip": "Milliseconds. 0 to disable",
     "tabname messages": "Message Settings",
     "tabname network": "Network Settings",
-    "warning do not change": "Only change if you know what you're doing"
+    "warning do not change": "Only change if you know what you're doing",
+    "Rate Limit (ms)": "Rate Limit (ms)"
 }

@@ -1,4 +1,5 @@
 {
+    "Rate Limit (ms)": "Limite de débit (ms)",
     "batrium-bms adapter settings": "Paramètres de l'adaptateur pour batrium-bms",
     "bindingaddress": "Lier à l'adresse",
     "bindingport": "Lier au port",
@@ -7,7 +8,6 @@
     "info 300ms frequency": "La fréquence des messages est de 300 ms et doit être limitée en débit",
     "info undef frequency": "La fréquence des messages n'est pas fixe",
     "messagestab infotext": "Avertissement : Certains messages ne limitant pas le débit produiront une charge élevée sur l'instance ioBroker !",
-    "messagestab_infotext": "",
     "ratelimit tooltip": "Millisecondes. 0 pour désactiver",
     "tabname messages": "Paramètres des messages",
     "tabname network": "Paramètres réseau",
